@@ -19,6 +19,10 @@
 					templateUrl : 'views/about.html',
 					controller : 'AboutCtrl',
 					controllerAs : 'about'
+				}).when('/calendario', {
+					templateUrl : 'views/calendario.html',
+					controller : 'CalendarioCtrl',
+					controllerAs : 'calendario'
 				}).otherwise({
 					redirectTo : '/'
 				});
