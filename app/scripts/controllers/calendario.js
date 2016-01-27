@@ -3,18 +3,19 @@
 
 	/**
 	 * @ngdoc function
-	 * @name contWebApp.controller:AboutCtrl
-	 * @description # AboutCtrl Controller of the contWebApp
+	 * @name contWebApp.controller:CalendarioCtrl
+	 * @description # CalendarioCtrl Controller of the contWebApp
 	 */
-	// FIXME $scope é apenas um exemplo de injeção. Remover depois.
 	angular.module('contWebApp').controller('CalendarioCtrl',
-			[ CalendarioCtrl ]);
+			[ 'DateUtils', CalendarioCtrl ]);
 
-	function CalendarioCtrl() {
+	function CalendarioCtrl(DateUtils) {
 		this.awesomeThings = [ 'HTML5 Boilerplate', 'AngularJS', 'Karma' ];
 
 		var ctrl = this;
 		ctrl.teste = 'variavel de controller';
+
+		ctrl.teste2 = DateUtils.diasDoMes(2, 2016);
 
 	}
 })();
