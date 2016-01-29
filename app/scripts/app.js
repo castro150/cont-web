@@ -8,8 +8,10 @@
 	 * 
 	 * Main module of the application.
 	 */
-	angular.module('contWebApp',
-			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize' ]).config(
+	angular.module(
+			'contWebApp',
+			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize',
+					'pascalprecht.translate', 'tmh.dynamicLocale' ]).config(
 			[ '$routeProvider', function($routeProvider) {
 				$routeProvider.when('/', {
 					templateUrl : 'views/main.html',
@@ -26,5 +28,23 @@
 				}).otherwise({
 					redirectTo : '/'
 				});
-			} ]);
+			} ]).constant('LOCALES', {
+			    'locales': {
+			        'pt_BR': 'Portugu\u00EAs',
+			        'en_US': 'English'
+			    },
+			    'preferredLocale': 'pt_BR'
+			}).config(function ($translateProvider) {
+			    $translateProvider.useMissingTranslationHandlerLog();
+			}).config(function ($translateProvider) {
+			    $translateProvider.useStaticFilesLoader({
+			        prefix: 'resources/locale-',
+			        suffix: '.json'
+			    });
+			    $translateProvider.useSanitizeValueStrategy();
+			    $translateProvider.preferredLanguage('pt_BR');
+			    $translateProvider.useLocalStorage();
+			}).config(function (tmhDynamicLocaleProvider) {
+			    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+			});
 })();

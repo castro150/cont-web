@@ -46,6 +46,9 @@
               <li ng-click="selection = 'calendario'"  ng-class="{'active': selection === 'calendario'}"><a ng-href="#/calendario">Calendário</a></li>
             </ul>
           </div>
+          
+          <!-- Dropdown de linguagem -->
+          <!-- <div ng-translate-language-select></div> -->
         </div>
       </div>
     </div>
@@ -69,12 +72,20 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/commons/utils/dateUtils.js"></script>
+        <script src="scripts/commons/services/localeService.js"></script>
+		<script src="scripts/commons/directives/languageSelectDirective.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/calendario.js"></script>
