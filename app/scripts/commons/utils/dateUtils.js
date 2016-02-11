@@ -5,22 +5,23 @@
 
 	function DateUtils() {
 
-		function diasDoMes(mes, ano) {
-			var diasSemana = [ 'sab', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ];
-			var data = new Date(ano, mes - 1, 1);
-			var result = [];
-			while (data.getMonth() == mes - 1) {
-				result.push({
-					dia : data.getDate(),
-					diaSemana : diasSemana[data.getDay()]
-				});
-				data.setDate(data.getDate() + 1);
-			}
-			return result;
+		function somarDias(date, numDias) {
+			var novaData = new Date(date.getTime());
+			novaData.setDate(novaData.getDate() + numDias);
+
+			return novaData;
+		}
+
+		function subtrairDias(date, numDias) {
+			var novaData = new Date(date.getTime());
+			novaData.setDate(novaData.getDate() - numDias);
+
+			return novaData;
 		}
 
 		return {
-			diasDoMes : diasDoMes
+			somarDias : somarDias,
+			subtrairDias : subtrairDias
 		};
 	}
 })();
