@@ -1,4 +1,7 @@
 {
+    "directives.language-select.Language": "Language",
     "views.main.calendario": "Calendar",
-    "directives.language-select.Language": "Language"
+    "views.calendario.hoje": "Today",
+    "views.calendario.anterior": "Previous",
+    "views.calendario.proximo": "Next"
 }

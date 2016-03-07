@@ -1,2 +1,6 @@
 /* Padding */
 .no-p { padding: 0px; }
+.p-10 { padding: 10px; }
+
+/* Text Center */
+.text-center { text-align:center; }

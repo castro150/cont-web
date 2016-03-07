@@ -24,6 +24,7 @@ module.exports = function(config) {
       // bower:js
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
+      'bower_components/moment/moment.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-resource/angular-resource.js',
@@ -35,8 +36,10 @@ module.exports = function(config) {
       'bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
       'bower_components/angular-translate-handler-log/angular-translate-handler-log.js',
       'bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js',
+      'bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js',
       'bower_components/mootools-core/dist/mootools-core.js',
       'bower_components/mootools-core/dist/mootools-core-compat.js',
+      'bower_components/interact/interact.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

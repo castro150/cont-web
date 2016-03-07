@@ -18,7 +18,7 @@
 									+ 'ng-options="localesDisplayName for localesDisplayName in localesDisplayNames"'
 									+ 'ng-change="changeLanguage(currentLocaleDisplayName)">'
 									+ '</select>' + '</label>' + '</div>' + '',
-							controller : function($scope) {
+							controller : function($scope, moment) {
 								$scope.currentLocaleDisplayName = LocaleService
 										.getLocaleDisplayName();
 								$scope.localesDisplayNames = LocaleService
@@ -29,6 +29,12 @@
 								$scope.changeLanguage = function(locale) {
 									LocaleService
 											.setLocaleByDisplayName(locale);
+									// FIXME do better:
+									if (locale === 'English') {
+										moment.locale('en');
+									} else {
+										moment.locale('pt');
+									}
 								};
 							}
 						};
