@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container p-b-15">
 
 	<div class="row text-center">
 	</div>
 
-	<div class="row p-10">
-		<div class="btn-group col-md-4">
+	<div class="row p-15">
+		<div class="p-t-15 btn-group col-md-4">
 			<button class="btn btn-primary ng-isolate-scope" mwl-date-modifier
 				date="ctrl.model.dataViewCalendario" decrement="ctrl.model.viewCalendario">
 				{{ :: "views.calendario.anterior" | translate}}
@@ -25,11 +25,18 @@
 			<h3><strong>{{ctrl.model.tituloCalendario}}</strong></h3>
 		</div>
 		
-		Fazer aqui
-<!-- 		<div class="btn-group col-md-4"> -->
-<!-- 	        <label class="btn btn-primary ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="ctrl.model.viewCalendario" uib-btn-radio="'year'" style="">Year</label> -->
-<!-- 	        <label class="btn btn-primary ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="ctrl.model.viewCalendario" uib-btn-radio="'month'">Month</label> -->
-<!--      	</div> -->
+		<div class="p-t-15 btn-group col-md-offset-2 col-md-2">
+	        <label class="btn btn-primary ng-pristine ng-untouched ng-valid ng-not-empty"
+	        	ng-click="ctrl.mudarViewAno()"
+	        	ng-class="{'active': ctrl.model.viewCalendario === 'year'}">
+	        	{{ :: "views.calendario.ano" | translate}}
+	        </label>
+	        <label class="btn btn-primary ng-pristine ng-untouched ng-valid ng-not-empty"
+	        	ng-click="ctrl.mudarViewMes()"
+	        	ng-class="{'active': ctrl.model.viewCalendario === 'month'}">
+	        	{{ :: "views.calendario.mes" | translate}}
+        	</label>
+     	</div>
 	</div>
 	
 	<mwl-calendar
@@ -47,92 +54,5 @@
 	<!--     cell-is-open="true" -->
 	<!--     > -->
 	</mwl-calendar>
-</div>
-
-<div class="col-md-10">
-	<p>{{ :: "views.main.calendario" | translate}} {{ctrl.teste}}</p>
-
-	<br />
 	
-	<div class="calendar">
-		<div class="row row-centered week" ng-repeat="semana in ctrl.model.calendario.semanas">
-			<div class="col-md-1 col-centered day" ng-repeat="dia in semana">
-				<span class="day-number">1</span>
-			</div>
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">1</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">2</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">3</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">4</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">5</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">6</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">7</span> -->
-<!-- 			</div> -->
-		</div>
-	</div>
-	
-	
-<!-- 	<div class="calendar"> -->
-<!-- 		<div class="row row-centered week"> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">1</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">2</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">3</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">4</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">5</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">6</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">7</span> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-		
-<!-- 		<div class="row row-centered week"> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">1</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">2</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">3</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">4</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">5</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">6</span> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-1 col-centered day"> -->
-<!-- 				<span class="day-number">7</span> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-
-	<br />
 </div>
