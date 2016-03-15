@@ -1,0 +1,9 @@
+{
+    "directives.language-select.Language": "Linguagem",
+    "views.main.calendario": "Calend\u00E1rio",
+    "views.calendario.hoje": "Hoje",
+    "views.calendario.anterior": "Anterior",
+    "views.calendario.proximo": "Pr\u00F3ximo",
+    "views.calendario.ano": "Ano",
+    "views.calendario.mes": "M\u00EAs"
+}
