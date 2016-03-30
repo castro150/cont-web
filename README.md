@@ -1,6 +1,6 @@
-# cont-web
+# simple-docfy-web
 
-Cont-WEB
+Simple-Docfy-WEB
 
 ## Build & development
 
