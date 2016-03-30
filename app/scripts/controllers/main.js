@@ -3,11 +3,11 @@
 
 	/**
 	 * @ngdoc function
-	 * @name contWebApp.controller:MainCtrl
-	 * @description # MainCtrl Controller of the contWebApp
+	 * @name simpleDocfyWebApp.controller:MainCtrl
+	 * @description # MainCtrl Controller of the simpleDocfyWebApp
 	 */
 	// FIXME $scope é apenas um exemplo de injeção. Remover depois.
-	angular.module('contWebApp').controller('MainCtrl', [ '$scope', MainCtrl ]);
+	angular.module('simpleDocfyWebApp').controller('MainCtrl', [ '$scope', MainCtrl ]);
 
 	function MainCtrl($scope) {
 		this.awesomeThings = [ 'HTML5 Boilerplate', 'AngularJS', 'Karma' ];

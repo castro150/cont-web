@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('contWebApp').factory('DateUtils', [ DateUtils ]);
+	angular.module('simpleDocfyWebApp').factory('DateUtils', [ DateUtils ]);
 
 	function DateUtils() {
 

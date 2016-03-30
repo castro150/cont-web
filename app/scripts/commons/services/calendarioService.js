@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('contWebApp').factory('CalendarioService',
+	angular.module('simpleDocfyWebApp').factory('CalendarioService',
 			[ 'DateUtils', CalendarioService ]);
 
 	function CalendarioService(DateUtils) {

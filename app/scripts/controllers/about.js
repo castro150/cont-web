@@ -3,11 +3,11 @@
 
 	/**
 	 * @ngdoc function
-	 * @name contWebApp.controller:AboutCtrl
-	 * @description # AboutCtrl Controller of the contWebApp
+	 * @name simpleDocfyWebApp.controller:AboutCtrl
+	 * @description # AboutCtrl Controller of the simpleDocfyWebApp
 	 */
 	// FIXME $scope é apenas um exemplo de injeção. Remover depois.
-	angular.module('contWebApp').controller('AboutCtrl',
+	angular.module('simpleDocfyWebApp').controller('AboutCtrl',
 			[ '$scope', AboutCtrl ]);
 
 	function AboutCtrl($scope) {

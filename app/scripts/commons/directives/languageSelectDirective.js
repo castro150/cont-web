@@ -1,7 +1,7 @@
 (function() {
 
 	angular
-			.module('contWebApp')
+			.module('simpleDocfyWebApp')
 			.directive(
 					'ngTranslateLanguageSelect',
 					function(LocaleService) {

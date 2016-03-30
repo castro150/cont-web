@@ -29,7 +29,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     // Project settings
-    contweb: appConfig,
+    simpledocfyweb: appConfig,
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= contweb.app %>/scripts/{,*/}*.js'],
+        files: ['<%= simpledocfyweb.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       styles: {
-        files: ['<%= contweb.app %>/styles/{,*/}*.css'],
+        files: ['<%= simpledocfyweb.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
       },
       gruntfile: {
@@ -60,10 +60,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= contweb.app %>/{,*/}*.html',
+          '<%= simpledocfyweb.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= contweb.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= contweb.app %>/resources/{,*/}*.json'
+          '<%= simpledocfyweb.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= simpledocfyweb.app %>/resources/{,*/}*.json'
         ]
       }
     },
@@ -114,7 +114,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           open: true,
-          base: '<%= contweb.dist %>'
+          base: '<%= simpledocfyweb.dist %>'
         }
       }
     },
@@ -128,7 +128,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= contweb.app %>/scripts/{,*/}*.js'
+          '<%= simpledocfyweb.app %>/scripts/{,*/}*.js'
         ]
       },
       test: {
@@ -148,7 +148,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= contweb.app %>/scripts/{,*/}*.js'
+          '<%= simpledocfyweb.app %>/scripts/{,*/}*.js'
         ]
       },
       test: {
@@ -163,8 +163,8 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= contweb.dist %>/{,*/}*',
-            '!<%= contweb.dist %>/.git{,*/}*'
+            '<%= simpledocfyweb.dist %>/{,*/}*',
+            '!<%= simpledocfyweb.dist %>/.git{,*/}*'
           ]
         }]
       },
@@ -202,7 +202,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
-        src: ['<%= contweb.app %>/index.html'],
+        src: ['<%= simpledocfyweb.app %>/index.html'],
         ignorePath:  /\.\.\//
       },
       test: {
@@ -227,10 +227,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= contweb.dist %>/scripts/{,*/}*.js',
-          '<%= contweb.dist %>/styles/{,*/}*.css',
-          '<%= contweb.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= contweb.dist %>/styles/fonts/*'
+          '<%= simpledocfyweb.dist %>/scripts/{,*/}*.js',
+          '<%= simpledocfyweb.dist %>/styles/{,*/}*.css',
+          '<%= simpledocfyweb.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= simpledocfyweb.dist %>/styles/fonts/*'
         ]
       }
     },
@@ -239,9 +239,9 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%= contweb.app %>/index.html',
+      html: '<%= simpledocfyweb.app %>/index.html',
       options: {
-        dest: '<%= contweb.dist %>',
+        dest: '<%= simpledocfyweb.dist %>',
         flow: {
           html: {
             steps: {
@@ -256,14 +256,14 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= contweb.dist %>/{,*/}*.html'],
-      css: ['<%= contweb.dist %>/styles/{,*/}*.css'],
-      js: ['<%= contweb.dist %>/scripts/{,*/}*.js'],
+      html: ['<%= simpledocfyweb.dist %>/{,*/}*.html'],
+      css: ['<%= simpledocfyweb.dist %>/styles/{,*/}*.css'],
+      js: ['<%= simpledocfyweb.dist %>/scripts/{,*/}*.js'],
       options: {
         assetsDirs: [
-          '<%= contweb.dist %>',
-          '<%= contweb.dist %>/images',
-          '<%= contweb.dist %>/styles'
+          '<%= simpledocfyweb.dist %>',
+          '<%= simpledocfyweb.dist %>/images',
+          '<%= simpledocfyweb.dist %>/styles'
         ],
         patterns: {
           js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
@@ -278,7 +278,7 @@ module.exports = function (grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       '<%= contweb.dist %>/styles/main.css': [
+    //       '<%= simpledocfyweb.dist %>/styles/main.css': [
     //         '.tmp/styles/{,*/}*.css'
     //       ]
     //     }
@@ -287,8 +287,8 @@ module.exports = function (grunt) {
     // uglify: {
     //   dist: {
     //     files: {
-    //       '<%= contweb.dist %>/scripts/scripts.js': [
-    //         '<%= contweb.dist %>/scripts/scripts.js'
+    //       '<%= simpledocfyweb.dist %>/scripts/scripts.js': [
+    //         '<%= simpledocfyweb.dist %>/scripts/scripts.js'
     //       ]
     //     }
     //   }
@@ -301,9 +301,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= contweb.app %>/images',
+          cwd: '<%= simpledocfyweb.app %>/images',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= contweb.dist %>/images'
+          dest: '<%= simpledocfyweb.dist %>/images'
         }]
       }
     },
@@ -312,9 +312,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= contweb.app %>/images',
+          cwd: '<%= simpledocfyweb.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= contweb.dist %>/images'
+          dest: '<%= simpledocfyweb.dist %>/images'
         }]
       }
     },
@@ -329,9 +329,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= contweb.dist %>',
+          cwd: '<%= simpledocfyweb.dist %>',
           src: ['*.html'],
-          dest: '<%= contweb.dist %>'
+          dest: '<%= simpledocfyweb.dist %>'
         }]
       }
     },
@@ -339,11 +339,11 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'contWebApp',
+          module: 'simpleDocfyApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
-        cwd: '<%= contweb.app %>',
+        cwd: '<%= simpledocfyweb.app %>',
         src: 'views/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
@@ -365,7 +365,7 @@ module.exports = function (grunt) {
     // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['<%= contweb.dist %>/*.html']
+        html: ['<%= simpledocfyweb.dist %>/*.html']
       }
     },
 
@@ -375,8 +375,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%= contweb.app %>',
-          dest: '<%= contweb.dist %>',
+          cwd: '<%= simpledocfyweb.app %>',
+          dest: '<%= simpledocfyweb.dist %>',
           src: [
             '*.{ico,png,txt}',
             '*.html',
@@ -387,23 +387,23 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/images',
-          dest: '<%= contweb.dist %>/images',
+          dest: '<%= simpledocfyweb.dist %>/images',
           src: ['generated/*']
         }, {
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
-          dest: '<%= contweb.dist %>'
+          dest: '<%= simpledocfyweb.dist %>'
         }, {
           expand: true,
           cwd: 'bower_components/angular-i18n/',
           src: '*.js',
-          dest: '<%= contweb.dist %>/bower_components/angular-i18n'
+          dest: '<%= simpledocfyweb.dist %>/bower_components/angular-i18n'
         }]
       },
       styles: {
         expand: true,
-        cwd: '<%= contweb.app %>/styles',
+        cwd: '<%= simpledocfyweb.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       }

@@ -3,12 +3,12 @@
 
 	/**
 	 * @ngdoc overview
-	 * @name contWebApp
-	 * @description # contWebApp
+	 * @name simpleDocfyWebApp
+	 * @description # simpleDocfyWebApp
 	 * 
 	 * Main module of the application.
 	 */
-	angular.module('contWebApp').config(
+	angular.module('simpleDocfyWebApp').config(
 			[ '$routeProvider', function($routeProvider) {
 				$routeProvider.when('/', {
 					templateUrl : 'views/main.html',

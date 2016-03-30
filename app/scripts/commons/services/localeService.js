@@ -1,6 +1,6 @@
 (function() {
 
-	angular.module('contWebApp').service(
+	angular.module('simpleDocfyWebApp').service(
 			'LocaleService',
 			function($translate, LOCALES, $rootScope, tmhDynamicLocale) {
 				'use strict';

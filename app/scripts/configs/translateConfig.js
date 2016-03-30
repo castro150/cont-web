@@ -3,12 +3,12 @@
 
 	/**
 	 * @ngdoc overview
-	 * @name contWebApp
-	 * @description # contWebApp
+	 * @name simpleDocfyWebApp
+	 * @description # simpleDocfyWebApp
 	 * 
 	 * Main module of the application.
 	 */
-	angular.module('contWebApp').config(function ($translateProvider) {
+	angular.module('simpleDocfyWebApp').config(function ($translateProvider) {
 			    $translateProvider.useMissingTranslationHandlerLog();
 			}).config(function ($translateProvider) {
 			    $translateProvider.useStaticFilesLoader({

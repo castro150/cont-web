@@ -3,13 +3,13 @@
 
 	/**
 	 * @ngdoc overview
-	 * @name contWebApp
-	 * @description # contWebApp
+	 * @name simpleDocfyWebApp
+	 * @description # simpleDocfyWebApp
 	 * 
 	 * Main module of the application.
 	 */
 	angular.module(
-			'contWebApp',
+			'simpleDocfyWebApp',
 			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize',
 					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar' ]).constant('LOCALES', {
 			    'locales': {

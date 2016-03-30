@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name contWebApp.controller:CalendarioCtrl
-	 * @description # CalendarioCtrl Controller of the contWebApp
+	 * @name simpleDocfyWebApp.controller:CalendarioCtrl
+	 * @description # CalendarioCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('contWebApp').controller('CalendarioCtrl',
+	angular.module('simpleDocfyWebApp').controller('CalendarioCtrl',
 			[ 'DateUtils', 'CalendarioService', CalendarioCtrl ]);
 
 	function CalendarioCtrl(DateUtils, CalendarioService) {
