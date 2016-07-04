@@ -5,12 +5,12 @@
 	 * @ngdoc overview
 	 * @name simpleDocfyWebApp
 	 * @description # simpleDocfyWebApp
-	 * 
+	 *
 	 * Main module of the application.
 	 */
 	angular.module(
 			'simpleDocfyWebApp',
-			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize',
+			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial',
 					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar' ]).constant('LOCALES', {
 			    'locales': {
 			        'pt_BR': 'Portugu\u00EAs',
