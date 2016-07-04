@@ -40,6 +40,10 @@ module.exports = function(config) {
       'bower_components/mootools-core/dist/mootools-core.js',
       'bower_components/mootools-core/dist/mootools-core-compat.js',
       'bower_components/interact/interact.js',
+      'bower_components/angular-animate/angular-animate.js',
+      'bower_components/angular-aria/angular-aria.js',
+      'bower_components/angular-messages/angular-messages.js',
+      'bower_components/angular-material/angular-material.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
