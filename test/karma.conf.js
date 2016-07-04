@@ -37,8 +37,6 @@ module.exports = function(config) {
       'bower_components/angular-translate-handler-log/angular-translate-handler-log.js',
       'bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js',
       'bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js',
-      'bower_components/mootools-core/dist/mootools-core.js',
-      'bower_components/mootools-core/dist/mootools-core-compat.js',
       'bower_components/interact/interact.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-aria/angular-aria.js',
