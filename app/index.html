@@ -32,14 +32,17 @@
       <md-sidenav md-is-locked-open="true" class="md-whiteframe-3dp">
         <md-list>
           <md-list-item>
-            <md-button class="sidenav-button">
+            <md-button class="sidenav-button" href="#/guias">
               <md-icon md-svg-src="images/svg/calendar.svg" class="sidenav-icon"></md-icon>
               Button name
             </md-button>
           </md-list-item>
         </md-list>
       </md-sidenav>
-      <md-content id="content" flex>Content</md-content>
+
+      <md-content id="content" flex>
+        <div ng-view=""></div>
+      </md-content>
     </div>
 
     <!-- <div class="container-fluid">
@@ -84,6 +87,7 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/calendario.js"></script>
+    <script src="scripts/controllers/payments.js"></script>
     <!-- endbuild -->
   </body>
 </html>

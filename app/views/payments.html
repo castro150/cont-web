@@ -1,0 +1,27 @@
+<div id="payments">
+  <div class="row">
+    <h3>Guias</h3>
+  </div>
+  <div class="row">
+    <!--
+      CONSULTAR DOCUMENTAÇÃO EM:
+      https://material.angularjs.org/latest/demo/autocomplete
+    -->
+    <md-autocomplete
+        class="col-md-8"
+        md-selected-item="ctrl.selectedItem"
+        md-search-text="ctrl.searchText"
+        md-items="item in [Empresa1, Empresa2, Empresa3]"
+        md-item-text="item"
+        md-min-length="0"
+        placeholder="Selecione uma empresa...">
+      <md-item-template>
+        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+      </md-item-template>
+      <md-not-found>
+        Nenhuma empresa com o nome "{{ctrl.searchText}}" foi encontrada.
+        <a ng-click="ctrl.createCompany(ctrl.searchText)">Cadastre uma.</a>
+      </md-not-found>
+    </md-autocomplete>
+  </div>
+</div>

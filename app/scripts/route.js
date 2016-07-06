@@ -5,7 +5,7 @@
 	 * @ngdoc overview
 	 * @name simpleDocfyWebApp
 	 * @description # simpleDocfyWebApp
-	 * 
+	 *
 	 * Main module of the application.
 	 */
 	angular.module('simpleDocfyWebApp').config(
@@ -21,6 +21,10 @@
 				}).when('/calendario', {
 					templateUrl : 'views/calendario.html',
 					controller : 'CalendarioCtrl',
+					controllerAs : 'ctrl'
+				}).when('/guias', {
+					templateUrl : 'views/payments.html',
+					controller : 'PaymentsCtrl',
 					controllerAs : 'ctrl'
 				}).otherwise({
 					redirectTo : '/'
