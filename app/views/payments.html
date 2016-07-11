@@ -1,7 +1,9 @@
 <div id="payments">
+
   <div class="row">
     <h3>Guias</h3>
   </div>
+
   <div class="row">
     <!--
       CONSULTAR DOCUMENTAÇÃO EM:
@@ -9,10 +11,11 @@
     -->
     <md-autocomplete
         class="col-md-8"
-        md-selected-item="ctrl.selectedItem"
+        md-no-cache="true"
+        md-selected-item="ctrl.model.selectedCompany"
         md-search-text="ctrl.searchText"
-        md-items="item in [Empresa1, Empresa2, Empresa3]"
-        md-item-text="item"
+        md-items="item in ctrl.querySearch(ctrl.searchText)"
+        md-item-text="item.display"
         md-min-length="0"
         placeholder="Selecione uma empresa...">
       <md-item-template>
@@ -20,8 +23,9 @@
       </md-item-template>
       <md-not-found>
         Nenhuma empresa com o nome "{{ctrl.searchText}}" foi encontrada.
-        <a ng-click="ctrl.createCompany(ctrl.searchText)">Cadastre uma.</a>
+        <a ng-click="ctrl.createCompany(ctrl.model.searchText)">Cadastre uma.</a>
       </md-not-found>
     </md-autocomplete>
   </div>
+  
 </div>

@@ -1,9 +1,14 @@
 /* Padding */
 .no-p { padding: 0px; }
+.p-10 { padding: 5px; }
 .p-10 { padding: 10px; }
 .p-15 { padding: 15px; }
+
 .p-t-15 { padding-top: 15px; }
+
 .p-b-15 { padding-bottom: 15px; }
+
+.p-r-15 { padding-right: 15px; }
 
 /* Text Center */
 .text-center { text-align:center; }
