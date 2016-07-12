@@ -15,13 +15,19 @@
 
 		ctrl.querySearch = querySearch;
 		ctrl.createCompany = createCompany;
+		ctrl.loadPayments = loadPayments;
+		ctrl.formatDate = formatDate;
 
 		// ******************************
 		// Init method
 		// ******************************
 		init();
 		function init() {
+			// TODO carregar a partir do usuário logado.
 			ctrl.companies = loadCompanies();
+
+			ctrl.model = {};
+			ctrl.model.payments = [];
 		}
 
 		// ******************************
@@ -36,6 +42,44 @@
 		function createCompany(name) {
 			// TODO implementar quando caso de uso estiver pronto.
 			$log.warn('Função não implementada. Nome: ' + name);
+		}
+
+		function loadPayments(company) {
+			ctrl.model.payments = [];
+			if(company) {
+				// TODO implementar serviço para retornar pagamentos.
+				// TODO lembrar que o mês é um a menos.
+				ctrl.model.payments = [{
+					name: 'Honorário',
+					dueDate: moment(new Date(2016, 7, 12)),
+					paid: false,
+					paymentAccepted: false
+				}, {
+					name: 'Guia de DCTF',
+					dueDate: moment(new Date(2016, 6, 12)),
+					paid: false,
+					paymentAccepted: false
+				}, {
+					name: 'Guia de DASN',
+					dueDate: moment(new Date(2016, 6, 15)),
+					paid: false,
+					paymentAccepted: false
+				}, {
+					name: 'Guia de Serviço',
+					dueDate: moment(new Date(2016, 6, 15)),
+					paid: true,
+					paymentAccepted: false
+				}, {
+					name: 'Honorário',
+					dueDate: moment(new Date(2016, 4, 24)),
+					paid: true,
+					paymentAccepted: true
+				}];
+			}
+		}
+
+		function formatDate(momentDate) {
+			return momentDate.format('DD/MM/YYYY');
 		}
 
 		// ******************************
