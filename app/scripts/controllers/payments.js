@@ -7,13 +7,14 @@
 	 * @description # CalendarioCtrl Controller of the simpleDocfyWebApp
 	 */
 	angular.module('simpleDocfyWebApp').controller('PaymentsCtrl',
-			[ PaymentsCtrl ]);
+			[ '$log', PaymentsCtrl ]);
 
-	function PaymentsCtrl() {
+	function PaymentsCtrl($log) {
 
 		var ctrl = this;
 
 		ctrl.querySearch = querySearch;
+		ctrl.createCompany = createCompany;
 
 		// ******************************
 		// Init method
@@ -30,6 +31,11 @@
 			return text ? ctrl.companies.filter(function(company) {
 				return company.value.indexOf(angular.lowercase(text)) === 0;
 			}) : ctrl.companies;
+		}
+
+		function createCompany(name) {
+			// TODO implementar quando caso de uso estiver pronto.
+			$log.warn('Função não implementada. Nome: ' + name);
 		}
 
 		// ******************************
