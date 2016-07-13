@@ -32,9 +32,16 @@
   <div class="row p-t-15">
     <div class="col-md-4" ng-repeat="payment in ctrl.model.payments">
       <md-card>
-        <div style="min-height: 100px">
-          <span>Teste</span>
+        <div ng-if="ctrl.isPaid(payment)" style="min-height: 100px; background: #66BB6A; color: #FFF">
+          <i class="glyphicon glyphicon-ok" />
         </div>
+        <div ng-if="!ctrl.isPaid(payment)" style="min-height: 100px; background: #EF5350; color: #FFF">
+            <!-- VENCIDO -->
+        </div>
+        <!-- VENCIMENTO PRÓXIMO -->
+        <!-- PAGAMENTO PENDENTE -->
+        <!-- PAGAMENTO EM APROVAÇÃO -->
+        <!-- PAGAMENTO NÃO APROVADO -->
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{payment.name}}</span>

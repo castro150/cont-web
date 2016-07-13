@@ -17,6 +17,7 @@
 		ctrl.createCompany = createCompany;
 		ctrl.loadPayments = loadPayments;
 		ctrl.formatDate = formatDate;
+		ctrl.isPaid = isPaid;
 
 		// ******************************
 		// Init method
@@ -53,26 +54,31 @@
 					name: 'Honorário',
 					dueDate: moment(new Date(2016, 7, 12)),
 					paid: false,
+					pending: false,
 					paymentAccepted: false
 				}, {
 					name: 'Guia de DCTF',
 					dueDate: moment(new Date(2016, 6, 12)),
 					paid: false,
+					pending: false,
 					paymentAccepted: false
 				}, {
 					name: 'Guia de DASN',
 					dueDate: moment(new Date(2016, 6, 15)),
 					paid: false,
+					pending: false,
 					paymentAccepted: false
 				}, {
 					name: 'Guia de Serviço',
 					dueDate: moment(new Date(2016, 6, 15)),
 					paid: true,
+					pending: false,
 					paymentAccepted: false
 				}, {
 					name: 'Honorário',
 					dueDate: moment(new Date(2016, 4, 24)),
 					paid: true,
+					pending: false,
 					paymentAccepted: true
 				}];
 			}
@@ -80,6 +86,10 @@
 
 		function formatDate(momentDate) {
 			return momentDate.format('DD/MM/YYYY');
+		}
+
+		function isPaid(payment) {
+			return payment.paid && payment.paymentAccepted;
 		}
 
 		// ******************************
