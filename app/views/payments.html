@@ -32,11 +32,12 @@
   <div class="row p-t-15">
     <div class="col-md-4" ng-repeat="payment in ctrl.model.payments">
       <md-card>
-        <div ng-if="ctrl.isPaid(payment)" style="min-height: 100px; background: #66BB6A; color: #FFF">
-          <i class="glyphicon glyphicon-ok" />
+        <div ng-if="ctrl.isPaid(payment)" class="p-10" style="min-height: 55px; background: #66BB6A; color: #FFF; text-align: center;">
+          <i class="glyphicon glyphicon-ok" style="font-size: 40px;" />
         </div>
-        <div ng-if="!ctrl.isPaid(payment)" style="min-height: 100px; background: #EF5350; color: #FFF">
-            <!-- VENCIDO -->
+        <div ng-if="!ctrl.isPaid(payment)" class="p-10"  style="min-height: 55px; background: #EF5350; color: #FFF; text-align: center;">
+          <!-- VENCIDO -->
+          <i class="glyphicon glyphicon-exclamation-sign" style="font-size: 40px;" />
         </div>
         <!-- VENCIMENTO PRÓXIMO -->
         <!-- PAGAMENTO PENDENTE -->
