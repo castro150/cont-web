@@ -32,11 +32,29 @@
   <div class="row p-t-15">
     <div class="col-md-4" ng-repeat="payment in ctrl.model.payments">
       <md-card>
-        <div ng-if="ctrl.isPaid(payment)" class="p-10" style="min-height: 55px; background: #66BB6A; color: #FFF; text-align: center;">
-          <i class="glyphicon glyphicon-ok" style="font-size: 40px;" />
+        <div ng-if="ctrl.isPaid(payment)" class="p-10 payment-card-alert payment-card-alert-paid">
+          <i class="glyphicon glyphicon-ok payment-card-icon" />
+          <div class="payment-card-alert-title">Pagamento Efetuado</div>
         </div>
-        <div ng-if="ctrl.isOverdue(payment)" class="p-10"  style="min-height: 55px; background: #EF5350; color: #FFF; text-align: center;">
-          <i class="glyphicon glyphicon-exclamation-sign" style="font-size: 40px;" />
+        <div ng-if="ctrl.isOverdue(payment)" class="p-10 payment-card-alert payment-card-alert-overdue">
+          <i class="glyphicon glyphicon-exclamation-sign payment-card-icon" />
+          <div class="payment-card-alert-title">Vencido</div>
+        </div>
+        <div ng-if="ctrl.isNearbyDueDate(payment)" class="p-10 payment-card-alert payment-card-alert-nearby">
+          <i class="glyphicon glyphicon-alert payment-card-icon" />
+          <div class="payment-card-alert-title">Vencimento Próximo</div>
+        </div>
+        <div ng-if="ctrl.isPending(payment)" class="p-10 payment-card-alert payment-card-alert-pending">
+          <i class="glyphicon glyphicon-alert payment-card-icon" />
+          <div class="payment-card-alert-title">Pagamento Pendente</div>
+        </div>
+        <div ng-if="ctrl.isAnalyzing(payment)" class="p-10 payment-card-alert payment-card-alert-analyzing">
+          <i class="glyphicon glyphicon-refresh payment-card-icon" />
+          <div class="payment-card-alert-title">Analisando Pagamento</div>
+        </div>
+        <div ng-if="ctrl.isNotApproved(payment)" class="p-10 payment-card-alert payment-card-alert-napproved">
+          <i class="glyphicon glyphicon-remove payment-card-icon" />
+          <div class="payment-card-alert-title">Não Aprovado</div>
         </div>
         <md-card-title>
           <md-card-title-text>

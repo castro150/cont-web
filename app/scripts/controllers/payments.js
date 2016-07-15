@@ -24,6 +24,10 @@
 		ctrl.formatDate = formatDate;
 		ctrl.isPaid = isPaid;
 		ctrl.isOverdue = isOverdue;
+		ctrl.isNearbyDueDate = isNearbyDueDate;
+		ctrl.isPending = isPending;
+		ctrl.isAnalyzing = isAnalyzing;
+		ctrl.isNotApproved = isNotApproved;
 
 		// ******************************
 		// Init method
@@ -55,13 +59,6 @@
 			ctrl.model.payments = [];
 			if(company) {
 				// TODO implementar serviço para retornar pagamentos.
-				// TODO lembrar que o mês é um a menos.
-        // <!-- PAGO: paid --> OK
-        // <!-- VENCIDO: pending e data menor --> OK
-        // <!-- VENCIMENTO PRÓXIMO: pending e data maior perto --> OK
-        // <!-- PAGAMENTO PENDENTE: pending e data maior longe --> OK
-        // <!-- PAGAMENTO EM APROVAÇÃO: analyzing --> OK
-        // <!-- PAGAMENTO NÃO APROVADO: not approved --> OK
 				ctrl.model.payments = [{
 					name: 'Honorário',
 					dueDate: moment(new Date(2016, 7, 30)),
@@ -100,6 +97,24 @@
 
 		function isOverdue(payment) {
 			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') > 0;
+		}
+
+		function isNearbyDueDate(payment) {
+			return payment.status === PENDING &&
+					moment().diff(payment.dueDate, 'days') <= 0 &&
+					moment().diff(payment.dueDate, 'days') > -7;
+		}
+
+		function isPending(payment) {
+			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') <= -7;
+		}
+
+		function isAnalyzing(payment) {
+			return payment.status === ANALYZING;
+		}
+
+		function isNotApproved(payment) {
+			return payment.status === NOT_APPROVED;
 		}
 
 		// ******************************

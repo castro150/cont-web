@@ -91,10 +91,6 @@ html, body {
 	text-align: left;
 }
 
-.calendar>.week {
-	padding-bottom: 20px;
-}
-
 md-toolbar h3 {
   margin: auto;
   font-weight: bold;
@@ -125,16 +121,41 @@ md-toolbar h3 {
   -moz-transform: scale(0.70);
 }
 
-.week>.day {
-	width: 90px;
-	height: 120px;
-	border-radius: 4px;
-	background-color: #e7e7e7;
-	box-shadow: 1px 1px 5px #888888;
-	margin-right: 5px;
-	padding: 7px;
+.payment-card-icon {
+	font-size: 40px;
 }
 
-.day>.day-number {
+.payment-card-alert-title {
 	font-weight: bold;
+	font-size: 21px;
+}
+
+.payment-card-alert {
+	min-height: 55px;
+	color: #FFF;
+	text-align: center;
+}
+
+.payment-card-alert-paid {
+	background: #66BB6A;
+}
+
+.payment-card-alert-overdue {
+	background: #EF5350;
+}
+
+.payment-card-alert-nearby {
+	background: #FF9800;
+}
+
+.payment-card-alert-pending {
+	background: #FDD835;
+}
+
+.payment-card-alert-analyzing {
+	background: #FDD835;
+}
+
+.payment-card-alert-napproved {
+	background: #EF5350;
 }
