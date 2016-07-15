@@ -10,12 +10,15 @@
 	 */
 	angular.module(
 			'simpleDocfyWebApp',
-			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial',
-					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar' ]).constant('LOCALES', {
-			    'locales': {
-			        'pt_BR': 'Portugu\u00EAs',
-			        'en_US': 'English'
-			    },
-			    'preferredLocale': 'pt_BR'
-			});
+			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial', 'ui.bootstrap',
+					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar' ])
+					.constant(
+						'LOCALES', {
+					    'locales': {
+					        'pt_BR': 'Portugu\u00EAs',
+					        'en_US': 'English'
+					    },
+					    'preferredLocale': 'pt_BR'
+						}
+					);
 })();

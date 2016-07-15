@@ -65,7 +65,7 @@
           <span><b>Vencimento: </b>{{ctrl.formatDate(payment.dueDate)}}</span>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center" class="p-r-5 p-b-5">
-          <md-button class="md-primary md-hue-1">
+          <md-button class="md-primary md-hue-1" ng-click="ctrl.viewDetail(payment)">
             <i class="glyphicon glyphicon-plus p-r-5" />Ver Detalhes
           </md-button>
         </md-card-actions>

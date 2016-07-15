@@ -4,12 +4,12 @@
 	/**
 	 * @ngdoc function
 	 * @name simpleDocfyWebApp.controller:PaymentsCtrl
-	 * @description # CalendarioCtrl Controller of the simpleDocfyWebApp
+	 * @description # PaymentsCtrl Controller of the simpleDocfyWebApp
 	 */
 	angular.module('simpleDocfyWebApp').controller('PaymentsCtrl',
-			[ '$log', PaymentsCtrl ]);
+			[ '$log', '$uibModal', PaymentsCtrl ]);
 
-	function PaymentsCtrl($log) {
+	function PaymentsCtrl($log, $uibModal) {
 
 		var ctrl = this;
 
@@ -28,6 +28,7 @@
 		ctrl.isPending = isPending;
 		ctrl.isAnalyzing = isAnalyzing;
 		ctrl.isNotApproved = isNotApproved;
+		ctrl.viewDetail = viewDetail;
 
 		// ******************************
 		// Init method
@@ -115,6 +116,19 @@
 
 		function isNotApproved(payment) {
 			return payment.status === NOT_APPROVED;
+		}
+
+		function viewDetail(payment) {
+			$uibModal.open({
+				templateUrl: 'views/paymentDetail.html',
+				size: 'md',
+				controller: 'PaymentDetailCtrl',
+				resolve: {
+					payment: function() {
+						return payment;
+					}
+				}
+			});
 		}
 
 		// ******************************
