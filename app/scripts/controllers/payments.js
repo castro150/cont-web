@@ -13,11 +13,17 @@
 
 		var ctrl = this;
 
+		var PAID = "PAID";
+		var PENDING = "PENDING";
+		var ANALYZING = "ANALYZING";
+		var NOT_APPROVED = "NOT_APPROVED";
+
 		ctrl.querySearch = querySearch;
 		ctrl.createCompany = createCompany;
 		ctrl.loadPayments = loadPayments;
 		ctrl.formatDate = formatDate;
 		ctrl.isPaid = isPaid;
+		ctrl.isOverdue = isOverdue;
 
 		// ******************************
 		// Init method
@@ -50,36 +56,36 @@
 			if(company) {
 				// TODO implementar serviço para retornar pagamentos.
 				// TODO lembrar que o mês é um a menos.
+        // <!-- PAGO: paid --> OK
+        // <!-- VENCIDO: pending e data menor --> OK
+        // <!-- VENCIMENTO PRÓXIMO: pending e data maior perto --> OK
+        // <!-- PAGAMENTO PENDENTE: pending e data maior longe --> OK
+        // <!-- PAGAMENTO EM APROVAÇÃO: analyzing --> OK
+        // <!-- PAGAMENTO NÃO APROVADO: not approved --> OK
 				ctrl.model.payments = [{
 					name: 'Honorário',
-					dueDate: moment(new Date(2016, 7, 12)),
-					paid: false,
-					pending: false,
-					paymentAccepted: false
+					dueDate: moment(new Date(2016, 7, 30)),
+					status: PENDING
 				}, {
 					name: 'Guia de DCTF',
-					dueDate: moment(new Date(2016, 6, 12)),
-					paid: false,
-					pending: false,
-					paymentAccepted: false
+					dueDate: moment(new Date(2016, 6, 14)),
+					status: ANALYZING
 				}, {
 					name: 'Guia de DASN',
-					dueDate: moment(new Date(2016, 6, 15)),
-					paid: false,
-					pending: false,
-					paymentAccepted: false
+					dueDate: moment(new Date(2016, 6, 13)),
+					status: NOT_APPROVED
 				}, {
 					name: 'Guia de Serviço',
-					dueDate: moment(new Date(2016, 6, 15)),
-					paid: true,
-					pending: false,
-					paymentAccepted: false
+					dueDate: moment(new Date(2016, 6, 18)),
+					status: PENDING
 				}, {
 					name: 'Honorário',
+					dueDate: moment(new Date(2016, 4, 27)),
+					status: PENDING
+				}, {
+					name: 'Imposto de Renda',
 					dueDate: moment(new Date(2016, 4, 24)),
-					paid: true,
-					pending: false,
-					paymentAccepted: true
+					status: PAID
 				}];
 			}
 		}
@@ -89,7 +95,11 @@
 		}
 
 		function isPaid(payment) {
-			return payment.paid && payment.paymentAccepted;
+			return payment.status === PAID;
+		}
+
+		function isOverdue(payment) {
+			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') > 0;
 		}
 
 		// ******************************

@@ -35,14 +35,9 @@
         <div ng-if="ctrl.isPaid(payment)" class="p-10" style="min-height: 55px; background: #66BB6A; color: #FFF; text-align: center;">
           <i class="glyphicon glyphicon-ok" style="font-size: 40px;" />
         </div>
-        <div ng-if="!ctrl.isPaid(payment)" class="p-10"  style="min-height: 55px; background: #EF5350; color: #FFF; text-align: center;">
-          <!-- VENCIDO -->
+        <div ng-if="ctrl.isOverdue(payment)" class="p-10"  style="min-height: 55px; background: #EF5350; color: #FFF; text-align: center;">
           <i class="glyphicon glyphicon-exclamation-sign" style="font-size: 40px;" />
         </div>
-        <!-- VENCIMENTO PRÓXIMO -->
-        <!-- PAGAMENTO PENDENTE -->
-        <!-- PAGAMENTO EM APROVAÇÃO -->
-        <!-- PAGAMENTO NÃO APROVADO -->
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{payment.name}}</span>
