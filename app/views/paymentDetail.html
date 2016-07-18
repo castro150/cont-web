@@ -1,14 +1,50 @@
 <div class="modal-header">
-  <h3 class="modal-title">Teste {{ctrl.model.payment.name}}</h3>
+  <h3 class="modal-title">{{ctrl.model.selectedPayment.name}}</h3>
+  <b>Status: </b>{{ctrl.getTitleByPaymentStatus(ctrl.model.selectedPayment)}}
 </div>
 <div class="modal-body">
-  <ul>
-    <li ng-repeat="item in items">
-      <a href="#" ng-click="$event.preventDefault(); selected.item = item">Item</a>
-    </li>
-  </ul>
-  Selected: <b>Selected Item</b>
+  <div ng-if="!ctrl.detailModal.isEditMode">
+    <div layout-gt-sm="row">
+      <span><b>Vencimento: </b>{{ctrl.formatDate(ctrl.model.selectedPayment.dueDate)}}</span>
+    </div>
+    <div layout-gt-sm="row">
+      <span><b>Detalhes: </b>{{ctrl.model.selectedPayment.details}}</span>
+    </div>
+    <div layout-gt-sm="row">
+      <!-- TODO fazer a edição do download (arquivo) -->
+      <a href="" ng-click="ctrl.downloadPayments(ctrl.model.selectedPayment)">Baixar</a>
+    </div>
+  </div>
+  <div ng-if="ctrl.detailModal.isEditMode">
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Nome</label>
+        <input ng-model="ctrl.model.editedName">
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <!-- TODO fazer máscara de datas -->
+        <label>Vencimento</label>
+        <input ng-model="ctrl.model.editedDueDate">
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Detalhes</label>
+        <input ng-model="ctrl.model.editedDetails">
+      </md-input-container>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
-  <md-button class="md-raised md-primary" ng-click="ctrl.teste()">Primary</md-button>
+  <md-button ng-if="!ctrl.detailModal.isEditMode" class="md-raised md-primary"
+      ng-click="ctrl.editPayment(ctrl.model.selectedPayment)">
+    Editar
+  </md-button>
+  <md-button ng-if="ctrl.detailModal.isEditMode" class="md-raised md-primary"
+      ng-click="ctrl.saveChanges(ctrl.model.selectedPayment)">
+    Salvar
+  </md-button>
+  <md-button class="md-warn md-raised md-hue-2 md-button md-ink-ripple" ng-click="ctrl.closeDetail()">
+    Fechar
+  </md-button>
 </div>

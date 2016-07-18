@@ -34,27 +34,27 @@
       <md-card>
         <div ng-if="ctrl.isPaid(payment)" class="p-10 payment-card-alert payment-card-alert-paid">
           <i class="glyphicon glyphicon-ok payment-card-icon" />
-          <div class="payment-card-alert-title">Pagamento Efetuado</div>
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
         </div>
         <div ng-if="ctrl.isOverdue(payment)" class="p-10 payment-card-alert payment-card-alert-overdue">
           <i class="glyphicon glyphicon-exclamation-sign payment-card-icon" />
-          <div class="payment-card-alert-title">Vencido</div>
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
         </div>
         <div ng-if="ctrl.isNearbyDueDate(payment)" class="p-10 payment-card-alert payment-card-alert-nearby">
           <i class="glyphicon glyphicon-alert payment-card-icon" />
-          <div class="payment-card-alert-title">Vencimento Próximo</div>
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
         </div>
         <div ng-if="ctrl.isPending(payment)" class="p-10 payment-card-alert payment-card-alert-pending">
           <i class="glyphicon glyphicon-alert payment-card-icon" />
-          <div class="payment-card-alert-title">Pagamento Pendente</div>
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
         </div>
         <div ng-if="ctrl.isAnalyzing(payment)" class="p-10 payment-card-alert payment-card-alert-analyzing">
           <i class="glyphicon glyphicon-refresh payment-card-icon" />
-          <div class="payment-card-alert-title">Analisando Pagamento</div>
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
         </div>
         <div ng-if="ctrl.isNotApproved(payment)" class="p-10 payment-card-alert payment-card-alert-napproved">
           <i class="glyphicon glyphicon-remove payment-card-icon" />
-          <div class="payment-card-alert-title">Não Aprovado</div>
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
         </div>
         <md-card-title>
           <md-card-title-text>
@@ -67,6 +67,9 @@
         <md-card-actions layout="row" layout-align="end center" class="p-r-5 p-b-5">
           <md-button class="md-primary md-hue-1" ng-click="ctrl.viewDetail(payment)">
             <i class="glyphicon glyphicon-plus p-r-5" />Ver Detalhes
+          </md-button>
+          <md-button class="md-raised md-primary" ng-click="ctrl.downloadPayments(payment)">
+            <i class="glyphicon glyphicon-download-alt p-r-5" />Baixar
           </md-button>
         </md-card-actions>
       </md-card>

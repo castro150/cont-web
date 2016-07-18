@@ -7,9 +7,9 @@
 	 * @description # PaymentsCtrl Controller of the simpleDocfyWebApp
 	 */
 	angular.module('simpleDocfyWebApp').controller('PaymentsCtrl',
-			[ '$log', '$uibModal', PaymentsCtrl ]);
+			[ '$log', '$scope', '$uibModal', PaymentsCtrl ]);
 
-	function PaymentsCtrl($log, $uibModal) {
+	function PaymentsCtrl($log, $scope, $uibModal) {
 
 		var ctrl = this;
 
@@ -28,7 +28,13 @@
 		ctrl.isPending = isPending;
 		ctrl.isAnalyzing = isAnalyzing;
 		ctrl.isNotApproved = isNotApproved;
+		ctrl.getTitleByPaymentStatus = getTitleByPaymentStatus;
+		ctrl.downloadPayments = downloadPayments;
+
 		ctrl.viewDetail = viewDetail;
+		ctrl.closeDetail = closeDetail;
+		ctrl.editPayment = editPayment;
+		ctrl.saveChanges = saveChanges;
 
 		// ******************************
 		// Init method
@@ -40,6 +46,9 @@
 
 			ctrl.model = {};
 			ctrl.model.payments = [];
+			ctrl.model.selectedPayment = {};
+
+			ctrl.detailModal = {};
 		}
 
 		// ******************************
@@ -63,26 +72,32 @@
 				ctrl.model.payments = [{
 					name: 'Honorário',
 					dueDate: moment(new Date(2016, 7, 30)),
+					details: 'Pagamento do honorário de mês de referência.',
 					status: PENDING
 				}, {
 					name: 'Guia de DCTF',
 					dueDate: moment(new Date(2016, 6, 14)),
+					details: 'Pagamento da DCTF.',
 					status: ANALYZING
 				}, {
 					name: 'Guia de DASN',
 					dueDate: moment(new Date(2016, 6, 13)),
+					details: 'Pagamento da DASN.',
 					status: NOT_APPROVED
 				}, {
 					name: 'Guia de Serviço',
 					dueDate: moment(new Date(2016, 6, 18)),
+					details: 'Pagamento de guia de prestação de serviço.',
 					status: PENDING
 				}, {
 					name: 'Honorário',
 					dueDate: moment(new Date(2016, 4, 27)),
+					details: 'Pagamento do honorário de mês de referência.',
 					status: PENDING
 				}, {
 					name: 'Imposto de Renda',
 					dueDate: moment(new Date(2016, 4, 24)),
+					details: 'Pagamento do imposto de renda.',
 					status: PAID
 				}];
 			}
@@ -118,17 +133,30 @@
 			return payment.status === NOT_APPROVED;
 		}
 
-		function viewDetail(payment) {
-			$uibModal.open({
-				templateUrl: 'views/paymentDetail.html',
-				size: 'md',
-				controller: 'PaymentDetailCtrl',
-				resolve: {
-					payment: function() {
-						return payment;
-					}
-				}
-			});
+		function getTitleByPaymentStatus(payment) {
+			if (isPaid(payment)) {
+				return 'Pagamento Efetuado';
+			}
+			if (isOverdue(payment)) {
+				return 'Vencido';
+			}
+			if (isNearbyDueDate(payment)) {
+				return 'Vencimento Próximo';
+			}
+			if (isPending(payment)) {
+				return 'Pagamento Pendente';
+			}
+			if (isAnalyzing(payment)) {
+				return 'Analisando Pagamento';
+			}
+			if (isNotApproved(payment)) {
+				return 'Não Aprovado';
+			}
+		}
+
+		function downloadPayments(payment) {
+			// TODO implementar download do sistema de arquivos.
+			$log.info('Bainxando guia: ' + payment.name);
 		}
 
 		// ******************************
@@ -143,6 +171,43 @@
 					display: company
 				};
 			});
+		}
+
+		// ----------------------------
+		// Modal functions
+		// ----------------------------
+		function viewDetail(payment) {
+			ctrl.model.selectedPayment = payment;
+			ctrl.detailModal.isEditMode = false;
+			ctrl.detailModal = $uibModal.open({
+				templateUrl: 'views/paymentDetail.html',
+				size: 'md',
+				scope: $scope
+			});
+		}
+
+		function closeDetail() {
+			ctrl.detailModal.close();
+		}
+
+		function editPayment(payment) {
+			ctrl.detailModal.isEditMode = true;
+
+			ctrl.model.editedName = payment.name;
+			ctrl.model.editedDueDate = ctrl.formatDate(payment.dueDate);
+			ctrl.model.editedDetails = payment.details;
+		}
+
+		function saveChanges(payment) {
+			ctrl.detailModal.isEditMode = false;
+
+			payment.name = ctrl.model.editedName;
+			payment.dueDate = moment(ctrl.model.editedDueDate, 'DD-MM-YYYY');
+			payment.details = ctrl.model.editedDetails;
+
+			// TODO salvar no servidor
+			$log.info('Salvando edições: ' + payment);
+			closeDetail();
 		}
 
 	}
