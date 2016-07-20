@@ -4,35 +4,64 @@
 </div>
 <div class="modal-body">
   <div ng-if="!ctrl.detailModal.isEditMode">
-    <div layout-gt-sm="row">
-      <span><b>Vencimento: </b>{{ctrl.formatDate(ctrl.model.selectedPayment.dueDate)}}</span>
+    <div class="row p-r-15 p-l-15">
+      <div class="col-md-6 payment-detail-show-field">
+        <div layout-gt-sm="row">
+          <span class="font-size-11"><b>Nome:</b></span>
+        </div>
+        <div layout-gt-sm="row">
+          <span class="font-size-15">{{ctrl.model.selectedPayment.name}}</span>
+        </div>
+      </div>
+      <div class="col-md-6 payment-detail-show-field">
+        <div layout-gt-sm="row">
+          <span class="font-size-11"><b>Vencimento:</b></span>
+        </div>
+        <div layout-gt-sm="row">
+          <span class="font-size-15">{{ctrl.formatDate(ctrl.model.selectedPayment.dueDate)}}</span>
+        </div>
+      </div>
     </div>
-    <div layout-gt-sm="row">
-      <span><b>Detalhes: </b>{{ctrl.model.selectedPayment.details}}</span>
+    <div class="row p-r-15 p-l-15">
+      <div class="col-md-12 payment-detail-show-field">
+        <div layout-gt-sm="row">
+          <span class="font-size-11"><b>Detalhes:</b></span>
+        </div>
+        <div layout-gt-sm="row">
+          <span class="font-size-15">{{ctrl.model.selectedPayment.details}}</span>
+        </div>
+      </div>
     </div>
-    <div layout-gt-sm="row">
-      <!-- TODO fazer a edição do download (arquivo) -->
-      <a href="" ng-click="ctrl.downloadPayments(ctrl.model.selectedPayment)">Baixar</a>
+    <div class="row p-r-15 p-l-15">
+      <div class="col-md-12 payment-detail-show-field">
+        <!-- TODO fazer a edição do download (arquivo) -->
+        <a href="" ng-click="ctrl.downloadPayments(ctrl.model.selectedPayment)">Baixar</a>
+      </div>
     </div>
   </div>
   <div ng-if="ctrl.detailModal.isEditMode">
-    <div layout-gt-sm="row">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Nome</label>
-        <input ng-model="ctrl.model.editedName">
-      </md-input-container>
-      <md-input-container class="md-block" flex-gt-sm>
-        <!-- TODO fazer máscara de datas -->
-        <label>Vencimento</label>
-        <input ng-model="ctrl.model.editedDueDate">
-      </md-input-container>
-    </div>
-    <div layout-gt-sm="row">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Detalhes</label>
-        <input ng-model="ctrl.model.editedDetails">
-      </md-input-container>
-    </div>
+    <form name="editPayment">
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Nome*</label>
+          <input required name="inputField" ng-model="ctrl.model.editedName">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+          <!-- TODO fazer máscara de datas -->
+          <label>Vencimento*</label>
+          <input required name="inputField" ng-model="ctrl.model.editedDueDate">
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Detalhes*</label>
+          <input required name="inputField" ng-model="ctrl.model.editedDetails">
+        </md-input-container>
+      </div>
+      <div class="validation-messages" ng-messages="editPayment.inputField.$error">
+        <div ng-message="required">*: Campo obrigatório</div>
+      </div>
+    </form>
   </div>
 </div>
 <div class="modal-footer">
@@ -40,8 +69,13 @@
       ng-click="ctrl.editPayment(ctrl.model.selectedPayment)">
     Editar
   </md-button>
+  <md-button ng-if="ctrl.detailModal.isEditMode" class="md-raised md-button"
+      ng-click="ctrl.cancelChanges()">
+    Cancelar
+  </md-button>
   <md-button ng-if="ctrl.detailModal.isEditMode" class="md-raised md-primary"
-      ng-click="ctrl.saveChanges(ctrl.model.selectedPayment)">
+      ng-click="ctrl.saveChanges(ctrl.model.selectedPayment)"
+      ng-disabled="!ctrl.isRequiredFieldsFilled()">
     Salvar
   </md-button>
   <md-button class="md-warn md-raised md-hue-2 md-button md-ink-ripple" ng-click="ctrl.closeDetail()">

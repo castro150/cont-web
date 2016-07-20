@@ -34,6 +34,8 @@
 		ctrl.viewDetail = viewDetail;
 		ctrl.closeDetail = closeDetail;
 		ctrl.editPayment = editPayment;
+		ctrl.isRequiredFieldsFilled = isRequiredFieldsFilled;
+		ctrl.cancelChanges = cancelChanges;
 		ctrl.saveChanges = saveChanges;
 
 		// ******************************
@@ -86,7 +88,7 @@
 					status: NOT_APPROVED
 				}, {
 					name: 'Guia de Serviço',
-					dueDate: moment(new Date(2016, 6, 18)),
+					dueDate: moment(new Date(2016, 6, 25)),
 					details: 'Pagamento de guia de prestação de serviço.',
 					status: PENDING
 				}, {
@@ -150,7 +152,7 @@
 				return 'Analisando Pagamento';
 			}
 			if (isNotApproved(payment)) {
-				return 'Não Aprovado';
+				return 'Pagamento Não Aprovado';
 			}
 		}
 
@@ -171,6 +173,10 @@
 					display: company
 				};
 			});
+		}
+
+		function isNotEmpity(text) {
+			return text !== undefined && text !== '';
 		}
 
 		// ----------------------------
@@ -198,6 +204,16 @@
 			ctrl.model.editedDetails = payment.details;
 		}
 
+		function isRequiredFieldsFilled() {
+			return isNotEmpity(ctrl.model.editedName) &&
+					isNotEmpity(ctrl.model.editedDueDate) &&
+					isNotEmpity(ctrl.model.editedDetails);
+		}
+
+		function cancelChanges() {
+			ctrl.detailModal.isEditMode = false;
+		}
+
 		function saveChanges(payment) {
 			ctrl.detailModal.isEditMode = false;
 
@@ -207,7 +223,6 @@
 
 			// TODO salvar no servidor
 			$log.info('Salvando edições: ' + payment);
-			closeDetail();
 		}
 
 	}

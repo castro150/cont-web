@@ -80,6 +80,11 @@ html, body {
 	}
 }
 
+.validation-messages {
+	color: rgb(221,44,0);
+	font-size: 11px;
+}
+
 .row-centered {
 	text-align: center;
 }
@@ -127,7 +132,7 @@ md-toolbar h3 {
 
 .payment-card-alert-title {
 	font-weight: bold;
-	font-size: 21px;
+	font-size: 19px;
 }
 
 .payment-card-alert {
@@ -158,4 +163,10 @@ md-toolbar h3 {
 
 .payment-card-alert-napproved {
 	background: #EF5350;
+}
+
+.payment-detail-show-field {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	padding: 2px;
 }
