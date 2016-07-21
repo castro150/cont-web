@@ -20,7 +20,7 @@
 
 		ctrl.querySearch = querySearch;
 		ctrl.createCompany = createCompany;
-		ctrl.loadPayments = loadPayments;
+		ctrl.changeComany = changeComany;
 		ctrl.formatDate = formatDate;
 		ctrl.isPaid = isPaid;
 		ctrl.isOverdue = isOverdue;
@@ -30,6 +30,7 @@
 		ctrl.isNotApproved = isNotApproved;
 		ctrl.getTitleByPaymentStatus = getTitleByPaymentStatus;
 		ctrl.downloadPayments = downloadPayments;
+		ctrl.filterPayments = filterPayments;
 
 		ctrl.viewDetail = viewDetail;
 		ctrl.closeDetail = closeDetail;
@@ -45,6 +46,7 @@
 		function init() {
 			// TODO carregar a partir do usuário logado.
 			ctrl.companies = loadCompanies();
+			ctrl.status = loadStatus();
 
 			ctrl.model = {};
 			ctrl.model.payments = [];
@@ -67,10 +69,113 @@
 			$log.warn('Função não implementada. Nome: ' + name);
 		}
 
-		function loadPayments(company) {
+		function changeComany(company) {
+			loadPayments(company, moment().subtract(2, 'months'), moment().add(2, 'months'));
+		}
+
+		function formatDate(momentDate) {
+			return momentDate.format('DD/MM/YYYY');
+		}
+
+		function isPaid(payment) {
+			return payment.status === PAID;
+		}
+
+		function isOverdue(payment) {
+			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') > 0;
+		}
+
+		function isNearbyDueDate(payment) {
+			return payment.status === PENDING &&
+					moment().diff(payment.dueDate, 'days') <= 0 &&
+					moment().diff(payment.dueDate, 'days') > -7;
+		}
+
+		function isPending(payment) {
+			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') <= -7;
+		}
+
+		function isAnalyzing(payment) {
+			return payment.status === ANALYZING;
+		}
+
+		function isNotApproved(payment) {
+			return payment.status === NOT_APPROVED;
+		}
+
+		function getTitleByPaymentStatus(payment) {
+			var title = '';
+			ctrl.status.forEach(function(status) {
+				if (status.identificationFunction(payment)) {
+					title = status.display;
+				}
+			});
+
+			return title;
+		}
+
+		function downloadPayments(payment) {
+			// TODO implementar download do sistema de arquivos.
+			$log.info('Bainxando guia: ' + payment.name);
+		}
+
+		function filterPayments() {
+			// TODO implementar com o loadPayments com data e filterByStatus
+		}
+
+		// ******************************
+		// Private methods
+		// ******************************
+		function loadCompanies() {
+			// TODO fazer o serviço para retornar as empresas.
+			var companies = ['Empresa1', 'Empresa2', 'Empresa3'];
+			return companies.map(function(company) {
+				return {
+					value: company.toLowerCase(),
+					display: company
+				};
+			});
+		}
+
+		function loadStatus() {
+			return [{
+				id: 0,
+				display: 'Todos',
+				identificationFunction: function none() {
+					return false;
+				}
+			}, {
+				id: 1,
+				display: 'Pagamento Efetuado',
+				identificationFunction: isPaid
+			}, {
+				id: 2,
+				display: 'Vencido',
+				identificationFunction: isOverdue
+			}, {
+				id: 3,
+				display: 'Vencimento Próximo',
+				identificationFunction: isNearbyDueDate
+			}, {
+				id: 4,
+				display: 'Pagamento Pendente',
+				identificationFunction: isPending
+			}, {
+				id: 5,
+				display: 'Analisando Pagamento',
+				identificationFunction: isAnalyzing
+			}, {
+				id: 6,
+				display: 'Pagamento Não Aprovado',
+				identificationFunction: isNotApproved
+			}];
+		}
+
+		function loadPayments(company, initialDate, finalDate) {
 			ctrl.model.payments = [];
-			if(company) {
+			if(company && initialDate && finalDate) {
 				// TODO implementar serviço para retornar pagamentos.
+				$log.info('Filtrando de ' + initialDate + ' até ' + finalDate);
 				ctrl.model.payments = [{
 					name: 'Honorário',
 					dueDate: moment(new Date(2016, 7, 30)),
@@ -105,78 +210,18 @@
 			}
 		}
 
-		function formatDate(momentDate) {
-			return momentDate.format('DD/MM/YYYY');
-		}
-
-		function isPaid(payment) {
-			return payment.status === PAID;
-		}
-
-		function isOverdue(payment) {
-			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') > 0;
-		}
-
-		function isNearbyDueDate(payment) {
-			return payment.status === PENDING &&
-					moment().diff(payment.dueDate, 'days') <= 0 &&
-					moment().diff(payment.dueDate, 'days') > -7;
-		}
-
-		function isPending(payment) {
-			return payment.status === PENDING && moment().diff(payment.dueDate, 'days') <= -7;
-		}
-
-		function isAnalyzing(payment) {
-			return payment.status === ANALYZING;
-		}
-
-		function isNotApproved(payment) {
-			return payment.status === NOT_APPROVED;
-		}
-
-		function getTitleByPaymentStatus(payment) {
-			if (isPaid(payment)) {
-				return 'Pagamento Efetuado';
-			}
-			if (isOverdue(payment)) {
-				return 'Vencido';
-			}
-			if (isNearbyDueDate(payment)) {
-				return 'Vencimento Próximo';
-			}
-			if (isPending(payment)) {
-				return 'Pagamento Pendente';
-			}
-			if (isAnalyzing(payment)) {
-				return 'Analisando Pagamento';
-			}
-			if (isNotApproved(payment)) {
-				return 'Pagamento Não Aprovado';
-			}
-		}
-
-		function downloadPayments(payment) {
-			// TODO implementar download do sistema de arquivos.
-			$log.info('Bainxando guia: ' + payment.name);
-		}
-
-		// ******************************
-		// Private methods
-		// ******************************
-		function loadCompanies() {
-			// TODO fazer o serviço para retornar as empresas.
-			var companies = ['Empresa1', 'Empresa2', 'Empresa3'];
-			return companies.map(function(company) {
-				return {
-					value: company.toLowerCase(),
-					display: company
-				};
-			});
-		}
-
 		function isNotEmpity(text) {
 			return text !== undefined && text !== '';
+		}
+
+		function filterByStatus(payments, status) {
+			if (status.id !== 0) {
+				return filterByCriteria(payments, status.identificationFunction);
+			}
+		}
+
+		function filterByCriteria(payments, criteria) {
+			return payments.filter(criteria);
 		}
 
 		// ----------------------------

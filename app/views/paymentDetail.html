@@ -47,9 +47,9 @@
           <input required name="inputField" ng-model="ctrl.model.editedName">
         </md-input-container>
         <md-input-container class="md-block" flex-gt-sm>
-          <!-- TODO fazer máscara de datas -->
           <label>Vencimento*</label>
-          <input required name="inputField" ng-model="ctrl.model.editedDueDate">
+          <input required name="inputField" ng-model="ctrl.model.editedDueDate"
+              ui-mask="99/99/9999" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/">
         </md-input-container>
       </div>
       <div layout-gt-sm="row">
