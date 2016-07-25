@@ -5,6 +5,7 @@
 .p-15 { padding: 15px; }
 
 .p-t-5 { padding-top: 5px; }
+.p-t-10 { padding-top: 10px; }
 .p-t-15 { padding-top: 15px; }
 
 .p-b-5 { padding-bottom: 5px; }
@@ -15,6 +16,12 @@
 
 .p-l-5 { padding-left: 5px; }
 .p-l-15 { padding-left: 15px; }
+
+/* Margin */
+.no-m { margin: 0px; }
+.m-5 { margin: 5px; }
+
+.m-t-10 { margin-top: 10px; }
 
 /* Text Center */
 .text-center { text-align:center; }

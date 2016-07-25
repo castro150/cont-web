@@ -71,6 +71,7 @@
 
 		function changeComany(company) {
 			loadPayments(company, moment().subtract(2, 'months'), moment().add(2, 'months'));
+			// TODO limpar filtros
 		}
 
 		function formatDate(momentDate) {
@@ -121,6 +122,8 @@
 
 		function filterPayments() {
 			// TODO implementar com o loadPayments com data e filterByStatus
+			loadPayments(ctrl.model.selectedCompany, ctrl.model.initialDate, ctrl.model.finalDate);
+			filterByStatus(ctrl.model.payments, ctrl.status[0]);
 		}
 
 		// ******************************
@@ -173,8 +176,9 @@
 
 		function loadPayments(company, initialDate, finalDate) {
 			ctrl.model.payments = [];
-			if(company && initialDate && finalDate) {
+			if(company) {
 				// TODO implementar serviço para retornar pagamentos.
+				// TODO filtrar no back pela data, permitindo não mandá-la.
 				$log.info('Filtrando de ' + initialDate + ' até ' + finalDate);
 				ctrl.model.payments = [{
 					name: 'Honorário',
@@ -215,9 +219,11 @@
 		}
 
 		function filterByStatus(payments, status) {
+			var result = payments;
 			if (status.id !== 0) {
-				return filterByCriteria(payments, status.identificationFunction);
+				result = filterByCriteria(payments, status.identificationFunction);
 			}
+			return result;
 		}
 
 		function filterByCriteria(payments, criteria) {
