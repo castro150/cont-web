@@ -33,13 +33,44 @@
   <div ng-if="ctrl.model.selectedCompany">
     <!-- TODO permições de acesso de contabilidade -->
     <div class="row m-5 p-t-10">
-      <!-- TODO filtro de data início: ctrl.model.initialDate -->
-      <!-- TODO filtro de data fim: ctrl.model.finalDate -->
-      <!-- TODO combo de status: ctrl.status -->
+      <div class="col-md-4">
+        <span class="input-label">Status dos Pagamentos</span>
+        <md-input-container class="md-block no-m-t" flex-gt-sm>
+          <md-select aria-label="md-select" ng-model="ctrl.model.selectedStatusName"
+              ng-change="ctrl.updateSelectedStatus(ctrl.model.selectedStatusName)">
+            <md-option ng-repeat="status in ctrl.status" value="{{status.display}}">
+              {{status.display}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
 
-      <md-button class="md-raised md-primary" ng-click="">
-        <i class="glyphicon glyphicon-plus p-r-5" />Adicioanar Guia
-      </md-button>
+      <div class="col-md-3">
+        <span class="input-label">Data de Vencimento Inicial</span>
+        <md-input-container class="md-block no-m-t" flex-gt-sm>
+          <input aria-label="input" ng-model="ctrl.model.initialDate" ui-mask="99/99/9999">
+        </md-input-container>
+      </div>
+
+      <div class="col-md-3">
+        <span class="input-label">Data de Vencimento Final</span>
+        <md-input-container class="md-block no-m-t" flex-gt-sm>
+          <input aria-label="input" ng-model="ctrl.model.finalDate" ui-mask="99/99/9999">
+        </md-input-container>
+      </div>
+
+      <div class="col-md-2">
+        <md-button class="md-raised md-primary" ng-click="ctrl.filterPayments()">
+          <i class="glyphicon glyphicon-filter p-r-5" />Filtrar
+        </md-button>
+      </div>
+
+      <!-- TODO fazer função de adição -->
+      <div class="col-md-3">
+        <md-button class="md-raised md-primary" ng-click="">
+          <i class="glyphicon glyphicon-plus p-r-5" />Adicioanar Guia
+        </md-button>
+      </div>
     </div>
 
     <div class="row p-t-15">

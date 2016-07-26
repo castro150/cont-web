@@ -48,8 +48,9 @@
         </md-input-container>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Vencimento*</label>
+          <!-- TODO validar data digitada -->
           <input required name="inputField" ng-model="ctrl.model.editedDueDate"
-              ui-mask="99/99/9999" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/">
+              ui-mask="99/99/9999">
         </md-input-container>
       </div>
       <div layout-gt-sm="row">

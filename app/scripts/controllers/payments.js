@@ -31,6 +31,7 @@
 		ctrl.getTitleByPaymentStatus = getTitleByPaymentStatus;
 		ctrl.downloadPayments = downloadPayments;
 		ctrl.filterPayments = filterPayments;
+		ctrl.updateSelectedStatus = updateSelectedStatus;
 
 		ctrl.viewDetail = viewDetail;
 		ctrl.closeDetail = closeDetail;
@@ -51,6 +52,7 @@
 			ctrl.model = {};
 			ctrl.model.payments = [];
 			ctrl.model.selectedPayment = {};
+			initializeFilters();
 
 			ctrl.detailModal = {};
 		}
@@ -64,14 +66,20 @@
 			}) : ctrl.companies;
 		}
 
+		function updateSelectedStatus(status) {
+			ctrl.model.selectedStatus = ctrl.status.filter(function(completeStatus) {
+				return completeStatus.display === status;
+			})[0];
+		}
+
 		function createCompany(name) {
 			// TODO implementar quando caso de uso estiver pronto.
 			$log.warn('Função não implementada. Nome: ' + name);
 		}
 
-		function changeComany(company) {
-			loadPayments(company, moment().subtract(2, 'months'), moment().add(2, 'months'));
-			// TODO limpar filtros
+		function changeComany() {
+			initializeFilters();
+			filterPayments();
 		}
 
 		function formatDate(momentDate) {
@@ -121,9 +129,8 @@
 		}
 
 		function filterPayments() {
-			// TODO implementar com o loadPayments com data e filterByStatus
 			loadPayments(ctrl.model.selectedCompany, ctrl.model.initialDate, ctrl.model.finalDate);
-			filterByStatus(ctrl.model.payments, ctrl.status[0]);
+			ctrl.model.payments = filterByStatus(ctrl.model.payments, ctrl.model.selectedStatus);
 		}
 
 		// ******************************
@@ -174,6 +181,13 @@
 			}];
 		}
 
+		function initializeFilters() {
+			ctrl.model.selectedStatus = ctrl.status[0];
+			ctrl.model.selectedStatusName = ctrl.status[0].display;
+			ctrl.model.initialDate = '';
+			ctrl.model.finalDate = '';
+		}
+
 		function loadPayments(company, initialDate, finalDate) {
 			ctrl.model.payments = [];
 			if(company) {
@@ -197,7 +211,7 @@
 					status: NOT_APPROVED
 				}, {
 					name: 'Guia de Serviço',
-					dueDate: moment(new Date(2016, 6, 25)),
+					dueDate: moment().add(2, 'days'),
 					details: 'Pagamento de guia de prestação de serviço.',
 					status: PENDING
 				}, {
@@ -220,6 +234,7 @@
 
 		function filterByStatus(payments, status) {
 			var result = payments;
+			// TODO se id == 0, usar a regra de ordem por status
 			if (status.id !== 0) {
 				result = filterByCriteria(payments, status.identificationFunction);
 			}
