@@ -1,4 +1,24 @@
 <div id="payments">
+  <div class="row p-t-15 p-r-15">
+    <div class="alert alert-danger" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'danger'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+    <div class="alert alert-warning" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'warning'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+    <div class="alert alert-success" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'success'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-md-1">
@@ -109,6 +129,7 @@
             <span><b>Vencimento: </b>{{ctrl.formatDate(payment.dueDate)}}</span>
           </md-card-content>
           <md-card-actions layout="row" layout-align="end center" class="p-r-5 p-b-5">
+            <!-- TODO validar https://material.angularjs.org/latest/demo/dialog -->
             <md-button class="md-primary md-hue-1" ng-click="ctrl.viewDetail(payment)">
               <i class="glyphicon glyphicon-search p-r-5" />Ver Detalhes
             </md-button>

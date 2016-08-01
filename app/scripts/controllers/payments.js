@@ -18,6 +18,10 @@
 		var ANALYZING = "ANALYZING";
 		var NOT_APPROVED = "NOT_APPROVED";
 
+		ctrl.dangerAlert = dangerAlert;
+		ctrl.warningAlert = warningAlert;
+		ctrl.successAlert = successAlert;
+
 		ctrl.querySearch = querySearch;
 		ctrl.createCompany = createCompany;
 		ctrl.changeComany = changeComany;
@@ -45,6 +49,8 @@
 		// ******************************
 		init();
 		function init() {
+			ctrl.alerts = [];
+
 			// TODO carregar a partir do usuário logado.
 			ctrl.companies = loadCompanies();
 			ctrl.status = loadStatus();
@@ -55,6 +61,30 @@
 			initializeFilters();
 
 			ctrl.detailModal = {};
+		}
+
+		// ******************************
+		// Alert methods
+		// ******************************
+		function dangerAlert(message) {
+			ctrl.alerts.push({
+				type: 'danger',
+				message: message
+			});
+		}
+
+		function warningAlert(message) {
+			ctrl.alerts.push({
+				type: 'warning',
+				message: message
+			});
+		}
+
+		function successAlert(message) {
+			ctrl.alerts.push({
+				type: 'success',
+				message: message
+			});
 		}
 
 		// ******************************
@@ -234,15 +264,32 @@
 
 		function filterByStatus(payments, status) {
 			var result = payments;
-			// TODO se id == 0, usar a regra de ordem por status
 			if (status.id !== 0) {
 				result = filterByCriteria(payments, status.identificationFunction);
+			} else {
+				result = filterByUserCriteria(payments);
 			}
 			return result;
 		}
 
 		function filterByCriteria(payments, criteria) {
 			return payments.filter(criteria);
+		}
+
+		function filterByUserCriteria(payments) {
+			// TODO condicional pelo tipo de usuário logado.
+			var result = filterByOfficeCriteria(payments);
+			return result;
+		}
+
+		function filterByOfficeCriteria(payments) {
+			var analyzingPayments = filterByCriteria(payments, isAnalyzing);
+			var paidPayments = filterByCriteria(payments, isPaid);
+			var otherPayments = payments.filter(function(payment) {
+				return !isPaid(payment) && !isAnalyzing(payment);
+			});
+
+			return analyzingPayments.concat(paidPayments).concat(otherPayments);
 		}
 
 		// ----------------------------
