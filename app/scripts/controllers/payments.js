@@ -44,6 +44,11 @@
 		ctrl.cancelChanges = cancelChanges;
 		ctrl.saveChanges = saveChanges;
 
+		ctrl.registerPayment = registerPayment;
+		ctrl.isRegistryRequiredFieldsFilled = isRegistryRequiredFieldsFilled;
+		ctrl.cancelRegistry = cancelRegistry;
+		ctrl.saveRegistry = saveRegistry;
+
 		// ******************************
 		// Init method
 		// ******************************
@@ -61,6 +66,7 @@
 			initializeFilters();
 
 			ctrl.detailModal = {};
+			filterPayments();
 		}
 
 		// ******************************
@@ -108,7 +114,6 @@
 		}
 
 		function changeComany() {
-			initializeFilters();
 			filterPayments();
 		}
 
@@ -212,6 +217,7 @@
 		}
 
 		function initializeFilters() {
+			ctrl.model.selectedCompany = '';
 			ctrl.model.selectedStatus = ctrl.status[0];
 			ctrl.model.selectedStatusName = ctrl.status[0].display;
 			ctrl.model.initialDate = '';
@@ -220,42 +226,40 @@
 
 		function loadPayments(company, initialDate, finalDate) {
 			ctrl.model.payments = [];
-			if(company) {
-				// TODO implementar serviço para retornar pagamentos.
-				// TODO filtrar no back pela data, permitindo não mandá-la.
-				$log.info('Filtrando de ' + initialDate + ' até ' + finalDate);
-				ctrl.model.payments = [{
-					name: 'Honorário',
-					dueDate: moment(new Date(2016, 7, 30)),
-					details: 'Pagamento do honorário de mês de referência.',
-					status: PENDING
-				}, {
-					name: 'Guia de DCTF',
-					dueDate: moment(new Date(2016, 6, 14)),
-					details: 'Pagamento da DCTF.',
-					status: ANALYZING
-				}, {
-					name: 'Guia de DASN',
-					dueDate: moment(new Date(2016, 6, 13)),
-					details: 'Pagamento da DASN.',
-					status: NOT_APPROVED
-				}, {
-					name: 'Guia de Serviço',
-					dueDate: moment().add(2, 'days'),
-					details: 'Pagamento de guia de prestação de serviço.',
-					status: PENDING
-				}, {
-					name: 'Honorário',
-					dueDate: moment(new Date(2016, 4, 27)),
-					details: 'Pagamento do honorário de mês de referência.',
-					status: PENDING
-				}, {
-					name: 'Imposto de Renda',
-					dueDate: moment(new Date(2016, 4, 24)),
-					details: 'Pagamento do imposto de renda.',
-					status: PAID
-				}];
-			}
+			// TODO implementar serviço para retornar pagamentos.
+			// TODO filtrar no back pela empresa e data, permitindo não mandá-las.
+			$log.info('Filtrando de ' + initialDate + ' até ' + finalDate);
+			ctrl.model.payments = [{
+				name: 'Honorário',
+				dueDate: moment(new Date(2016, 7, 30)),
+				details: 'Pagamento do honorário de mês de referência.',
+				status: PENDING
+			}, {
+				name: 'Guia de DCTF',
+				dueDate: moment(new Date(2016, 6, 14)),
+				details: 'Pagamento da DCTF.',
+				status: ANALYZING
+			}, {
+				name: 'Guia de DASN',
+				dueDate: moment(new Date(2016, 6, 13)),
+				details: 'Pagamento da DASN.',
+				status: NOT_APPROVED
+			}, {
+				name: 'Guia de Serviço',
+				dueDate: moment().add(2, 'days'),
+				details: 'Pagamento de guia de prestação de serviço.',
+				status: PENDING
+			}, {
+				name: 'Honorário',
+				dueDate: moment(new Date(2016, 4, 27)),
+				details: 'Pagamento do honorário de mês de referência.',
+				status: PENDING
+			}, {
+				name: 'Imposto de Renda',
+				dueDate: moment(new Date(2016, 4, 24)),
+				details: 'Pagamento do imposto de renda.',
+				status: PAID
+			}];
 		}
 
 		function isNotEmpity(text) {
@@ -293,7 +297,7 @@
 		}
 
 		// ----------------------------
-		// Modal functions
+		// Detail modal functions
 		// ----------------------------
 		function viewDetail(payment) {
 			ctrl.model.selectedPayment = payment;
@@ -336,6 +340,47 @@
 
 			// TODO salvar no servidor
 			$log.info('Salvando edições: ' + payment);
+		}
+
+		// ----------------------------
+		// Registry modal functions
+		// ----------------------------
+		function registerPayment() {
+			initializeRegistryForm();
+			ctrl.registryModal = $uibModal.open({
+				templateUrl: 'views/paymentRegistry.html',
+				size: 'md',
+				scope: $scope
+			});
+		}
+
+		function initializeRegistryForm() {
+			ctrl.model.registryName = '';
+			ctrl.model.registryDueDate = '';
+			ctrl.model.registryDetails = '';
+		}
+
+		function isRegistryRequiredFieldsFilled() {
+			return isNotEmpity(ctrl.model.registryName) &&
+					isNotEmpity(ctrl.model.registryDueDate) &&
+					isNotEmpity(ctrl.model.registryDetails);
+		}
+
+		function cancelRegistry() {
+			initializeRegistryForm();
+			ctrl.registryModal.close();
+		}
+
+		function saveRegistry() {
+			var payment = {};
+			payment.name = ctrl.model.registryName;
+			payment.dueDate = moment(ctrl.model.registryDueDate, 'DD-MM-YYYY');
+			payment.details = ctrl.model.registryDetails;
+
+			// TODO salvar no servidor
+			$log.info('Salvando nova guia: ' + payment);
+			ctrl.registryModal.close();
+			filterPayments();
 		}
 
 	}

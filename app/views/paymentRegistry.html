@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h3 class="modal-title">Adicionar Guia</h3>
+</div>
+<div class="modal-body">
+  <form name="registerPayment">
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Nome*</label>
+        <input required name="inputField" ng-model="ctrl.model.registryName">
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Vencimento*</label>
+        <!-- TODO validar data digitada -->
+        <input required name="inputField" ng-model="ctrl.model.registryDueDate"
+            ui-mask="99/99/9999">
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Detalhes*</label>
+        <input required name="inputField" ng-model="ctrl.model.registryDetails">
+      </md-input-container>
+    </div>
+    <!-- TODO upload do arquivo da guia -->
+    <div class="validation-messages" ng-messages="registerPayment.inputField.$error">
+      <div ng-message="required">*: Campo obrigatório</div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <md-button class="md-raised md-button"
+      ng-click="ctrl.cancelRegistry()">
+    Cancelar
+  </md-button>
+  <md-button class="md-raised md-primary"
+      ng-click="ctrl.saveRegistry()"
+      ng-disabled="!ctrl.isRegistryRequiredFieldsFilled()">
+    Salvar
+  </md-button>
+</div>
