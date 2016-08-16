@@ -3,6 +3,10 @@
   <b>Status: </b>{{ctrl.getTitleByPaymentStatus(ctrl.model.selectedPayment)}}
 </div>
 <div class="modal-body">
+  <div ng-if="ctrl.model.editShowInvalidDateMessage" class="alert alert-danger" role="alert">
+    Data inválida!
+  </div>
+
   <div ng-if="!ctrl.detailModal.isEditMode">
     <div class="row p-r-15 p-l-15">
       <div class="col-md-6 payment-detail-show-field">
@@ -48,7 +52,6 @@
         </md-input-container>
         <md-input-container class="md-block" flex-gt-sm>
           <label>Vencimento*</label>
-          <!-- TODO validar data digitada -->
           <input required name="inputField" ng-model="ctrl.model.editedDueDate"
               ui-mask="99/99/9999">
         </md-input-container>

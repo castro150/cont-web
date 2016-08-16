@@ -164,6 +164,7 @@
 		}
 
 		function filterPayments() {
+			validateFilterDates();
 			loadPayments(ctrl.model.selectedCompany, ctrl.model.initialDate, ctrl.model.finalDate);
 			ctrl.model.payments = filterByStatus(ctrl.model.payments, ctrl.model.selectedStatus);
 		}
@@ -296,6 +297,15 @@
 			return analyzingPayments.concat(paidPayments).concat(otherPayments);
 		}
 
+		function validateFilterDates() {
+			if (!moment(ctrl.model.initialDate, 'DD-MM-YYYY').isValid()) {
+				ctrl.model.initialDate = '';
+			}
+			if (!moment(ctrl.model.finalDate, 'DD-MM-YYYY').isValid()) {
+				ctrl.model.finalDate = '';
+			}
+		}
+
 		// ----------------------------
 		// Detail modal functions
 		// ----------------------------
@@ -332,14 +342,18 @@
 		}
 
 		function saveChanges(payment) {
-			ctrl.detailModal.isEditMode = false;
-
 			payment.name = ctrl.model.editedName;
 			payment.dueDate = moment(ctrl.model.editedDueDate, 'DD-MM-YYYY');
 			payment.details = ctrl.model.editedDetails;
 
-			// TODO salvar no servidor
-			$log.info('Salvando edições: ' + payment);
+			if (payment.dueDate.isValid()) {
+				ctrl.detailModal.isEditMode = false;
+				ctrl.model.editShowInvalidDateMessage = false;
+				// TODO salvar no servidor
+				$log.info('Salvando edições: ' + payment);
+			} else {
+				ctrl.model.editShowInvalidDateMessage = true;
+			}
 		}
 
 		// ----------------------------
@@ -358,6 +372,7 @@
 			ctrl.model.registryName = '';
 			ctrl.model.registryDueDate = '';
 			ctrl.model.registryDetails = '';
+			ctrl.model.registryShowInvalidDateMessage = false;
 		}
 
 		function isRegistryRequiredFieldsFilled() {
@@ -377,10 +392,15 @@
 			payment.dueDate = moment(ctrl.model.registryDueDate, 'DD-MM-YYYY');
 			payment.details = ctrl.model.registryDetails;
 
-			// TODO salvar no servidor
-			$log.info('Salvando nova guia: ' + payment);
-			ctrl.registryModal.close();
-			filterPayments();
+			if (payment.dueDate.isValid()) {
+				ctrl.model.registryShowInvalidDateMessage = false;
+				// TODO salvar no servidor
+				$log.info('Salvando nova guia: ' + payment);
+				ctrl.registryModal.close();
+				filterPayments();
+			} else {
+				ctrl.model.registryShowInvalidDateMessage = true;
+			}
 		}
 
 	}

@@ -2,8 +2,11 @@
   <h3 class="modal-title">Adicionar Guia</h3>
 </div>
 <div class="modal-body">
+  <div ng-if="ctrl.model.registryShowInvalidDateMessage" class="alert alert-danger" role="alert">
+    Data inválida!
+  </div>
+
   <form name="registerPayment">
-    <!-- TODO mudar o formato dos labels AGORA! -->
     <div layout-gt-sm="row">
       <div class="col-md-6">
         <span class="input-label">Nome*</span>
@@ -14,7 +17,6 @@
       <div class="col-md-6">
         <span class="input-label">Vencimento*</span>
         <md-input-container class="md-block no-m-t" flex-gt-sm>
-          <!-- TODO validar data digitada -->
           <input aria-label="input" required name="inputField" ng-model="ctrl.model.registryDueDate"
               ui-mask="99/99/9999">
         </md-input-container>
