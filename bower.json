@@ -19,7 +19,8 @@
     "angular-i18n": "^1.4.0",
     "interact": "^1.2.6",
     "angular-material": "^1.0.9",
-    "angular-ui-mask": "^1.8.6"
+    "angular-ui-mask": "^1.8.6",
+    "angular-ui-router": "^0.2.15"
   },
   "resolutions": {
     "angular": "^1.5.3"

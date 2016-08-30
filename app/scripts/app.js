@@ -10,7 +10,7 @@
 	 */
 	angular.module(
 			'simpleDocfyWebApp',
-			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngMaterial', 'ui.bootstrap',
+			[ 'ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngMaterial', 'ui.bootstrap',
 					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar', 'ui.mask' ])
 					.constant(
 						'LOCALES', {
