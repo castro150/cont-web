@@ -9,7 +9,9 @@
 	 * Main module of the application.
 	 */
 	angular.module('simpleDocfyWebApp').config(
-			[ '$stateProvider', function($stateProvider) {
+			[ '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+				$urlRouterProvider.otherwise('/');
+
 				$stateProvider.state('main', {
 					url: '/',
 					templateUrl: 'views/main.html',
