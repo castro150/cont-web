@@ -37,13 +37,13 @@
     }
 
     function register(user) {
-      return $http.post('/register', user).success(function(data) {
+      return $http.post(sdServer + '/register', user).success(function(data) {
         saveToken(data.token);
       });
     }
 
     function logIn(user) {
-      return $http.post('/login', user).success(function(data) {
+      return $http.post(sdServer + '/login', user).success(function(data) {
         saveToken(data.token);
       });
     }

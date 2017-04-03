@@ -7,9 +7,9 @@
 	 * @description # LoginCtrl Controller of the simpleDocfyWebApp
 	 */
 	angular.module('simpleDocfyWebApp').controller('LoginCtrl',
-			[ '$state', 'AuthService', LoginCtrl ]);
+			[ '$filter', '$state', 'AuthService', LoginCtrl ]);
 
-	function LoginCtrl($state, AuthService) {
+	function LoginCtrl($filter, $state, AuthService) {
 
 		var ctrl = this;
 
@@ -65,11 +65,14 @@
     // Public methods
     // ******************************
     function logIn() {
-      AuthService.logIn(ctrl.model.user).error(function(error) {
-        // TODO analisar código do erro
-        dangerAlert(error);
-      }).then(function() {
+      AuthService.logIn(ctrl.model.user).then(function() {
         $state.go('main');
+      }, function(response) {
+        if (response.status === 401) {
+          dangerAlert($filter('translate')('errors.login.invalid.user'));
+        } else {
+          dangerAlert($filter('translate')('errors.unexpected'));
+        }
       });
     }
 

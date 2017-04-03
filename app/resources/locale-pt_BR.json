@@ -5,5 +5,7 @@
     "views.calendario.anterior": "Anterior",
     "views.calendario.proximo": "Pr\u00F3ximo",
     "views.calendario.ano": "Ano",
-    "views.calendario.mes": "M\u00EAs"
+    "views.calendario.mes": "M\u00EAs",
+    "errors.unexpected": "Erro inesperado",
+    "errors.login.invalid.user": "Usu\u00E1rio/Senha inv\u00E1lidos"
 }
