@@ -25,8 +25,39 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  grunt.loadNpmTasks('grunt-ng-constant');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
+    ngconstant: {
+      // Options for all targets
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= simpledocfyweb.app %>/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            sdServer: 'http://localhost:3000'
+          }
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= simpledocfyweb.dist %>/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            sdServer: 'http://localhost:3000'
+          }
+        }
+      }
+    },
 
     // Project settings
     simpledocfyweb: appConfig,
@@ -221,7 +252,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -441,6 +472,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'wiredep',
       'concurrent:server',
       'postcss:server',

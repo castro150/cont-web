@@ -11,7 +11,7 @@
 	angular.module(
 			'simpleDocfyWebApp',
 			[ 'ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngMaterial', 'ui.bootstrap',
-					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar', 'ui.mask' ])
+					'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar', 'ui.mask', 'config' ])
 					.constant(
 						'LOCALES', {
 					    'locales': {

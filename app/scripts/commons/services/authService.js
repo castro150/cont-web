@@ -2,9 +2,10 @@
 	'use strict';
 
 	angular.module('simpleDocfyWebApp').factory('AuthService',
-			[ '$http', '$window', AuthService ]);
+			[ 'ENV', '$http', '$window', AuthService ]);
 
-	function AuthService($http, $window) {
+	function AuthService(ENV, $http, $window) {
+    var sdServer = ENV.sdServer;
 
     function saveToken(token) {
       $window.localStorage['application-token'] = token;
