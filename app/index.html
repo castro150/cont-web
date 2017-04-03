@@ -29,7 +29,7 @@
     </md-toolbar>
 
     <div layout="row" flex>
-      <md-sidenav md-is-locked-open="true" class="md-whiteframe-3dp">
+      <md-sidenav ng-if="!isLoginState" md-is-locked-open="true" class="md-whiteframe-3dp">
         <md-list>
           <md-list-item>
             <md-button class="sidenav-button" href="#/guias">
@@ -82,12 +82,14 @@
     <script src="scripts/route.js"></script>
     <script src="scripts/commons/utils/dateUtils.js"></script>
     <script src="scripts/commons/services/localeService.js"></script>
+    <script src="scripts/commons/services/authService.js"></script>
     <script src="scripts/commons/services/calendarioService.js"></script>
 		<script src="scripts/commons/directives/languageSelectDirective.js"></script>
 		<script src="scripts/configs/calendarConfig.js"></script>
 		<script src="scripts/configs/momentConfig.js"></script>
 		<script src="scripts/configs/translateConfig.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/calendario.js"></script>
     <script src="scripts/controllers/payments.js"></script>
