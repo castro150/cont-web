@@ -1,65 +1,64 @@
 (function() {
 	'use strict';
 
-	angular.module('simpleDocfyWebApp').factory('AuthService',
-			[ 'ENV', '$http', '$window', AuthService ]);
+	angular.module('simpleDocfyWebApp').factory('AuthService', ['ENV', '$http', '$window', AuthService]);
 
 	function AuthService(ENV, $http, $window) {
-    var sdServer = ENV.sdServer;
+		var sdServer = ENV.sdServer;
 
-    function saveToken(token) {
-      $window.localStorage['application-token'] = token;
-    }
+		function saveToken(token) {
+			$window.localStorage['application-token'] = token;
+		}
 
-    function getToken() {
-      return $window.localStorage['application-token'];
-    }
+		function getToken() {
+			return $window.localStorage['application-token'];
+		}
 
-    function isLoggedIn() {
-      var token = getToken();
+		function isLoggedIn() {
+			var token = getToken();
 
-      if (token) {
-        var payload = JSON.parse($window.atob(token.split('.')[1]));
+			if (token) {
+				var payload = JSON.parse($window.atob(token.split('.')[1]));
 
-        return payload.exp > Date.now() / 1000;
-      } else {
-        return false;
-      }
-    }
+				return payload.exp > Date.now() / 1000;
+			} else {
+				return false;
+			}
+		}
 
-    function currentUser() {
-      if (isLoggedIn()) {
-        var token = getToken();
-        var payload = JSON.parse($window.atob(token.split('.')[1]));
+		function currentUser() {
+			if (isLoggedIn()) {
+				var token = getToken();
+				var payload = JSON.parse($window.atob(token.split('.')[1]));
 
-        return payload.username;
-      }
-    }
+				return payload.username;
+			}
+		}
 
-    function register(user) {
-      return $http.post(sdServer + '/register', user).success(function(data) {
-        saveToken(data.token);
-      });
-    }
+		function register(user) {
+			return $http.post(sdServer + '/register', user).success(function(data) {
+				saveToken(data.token);
+			});
+		}
 
-    function logIn(user) {
-      return $http.post(sdServer + '/login', user).success(function(data) {
-        saveToken(data.token);
-      });
-    }
+		function logIn(user) {
+			return $http.post(sdServer + '/login', user).success(function(data) {
+				saveToken(data.token);
+			});
+		}
 
-    function logOut() {
-      $window.localStorage.removeItem('application-token');
-    }
+		function logOut() {
+			$window.localStorage.removeItem('application-token');
+		}
 
 		return {
 			saveToken: saveToken,
-      getToken: getToken,
-      isLoggedIn: isLoggedIn,
-      currentUser: currentUser,
-      register: register,
-      logIn: logIn,
-      logOut: logOut
+			getToken: getToken,
+			isLoggedIn: isLoggedIn,
+			currentUser: currentUser,
+			register: register,
+			logIn: logIn,
+			logOut: logOut
 		};
 	}
 })();

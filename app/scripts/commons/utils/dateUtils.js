@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('simpleDocfyWebApp').factory('DateUtils', [ DateUtils ]);
+	angular.module('simpleDocfyWebApp').factory('DateUtils', [DateUtils]);
 
 	function DateUtils() {
 
@@ -20,8 +20,8 @@
 		}
 
 		return {
-			somarDias : somarDias,
-			subtrairDias : subtrairDias
+			somarDias: somarDias,
+			subtrairDias: subtrairDias
 		};
 	}
 })();

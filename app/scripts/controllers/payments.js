@@ -6,8 +6,7 @@
 	 * @name simpleDocfyWebApp.controller:PaymentsCtrl
 	 * @description # PaymentsCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('PaymentsCtrl',
-			[ '$log', '$scope', '$uibModal', PaymentsCtrl ]);
+	angular.module('simpleDocfyWebApp').controller('PaymentsCtrl', ['$log', '$scope', '$uibModal', PaymentsCtrl]);
 
 	function PaymentsCtrl($log, $scope, $uibModal) {
 
@@ -53,6 +52,7 @@
 		// Init method
 		// ******************************
 		init();
+
 		function init() {
 			ctrl.alerts = [];
 
@@ -131,8 +131,8 @@
 
 		function isNearbyDueDate(payment) {
 			return payment.status === PENDING &&
-					moment().diff(payment.dueDate, 'days') <= 0 &&
-					moment().diff(payment.dueDate, 'days') > -7;
+				moment().diff(payment.dueDate, 'days') <= 0 &&
+				moment().diff(payment.dueDate, 'days') > -7;
 		}
 
 		function isPending(payment) {
@@ -333,8 +333,8 @@
 
 		function isRequiredFieldsFilled() {
 			return isNotEmpity(ctrl.model.editedName) &&
-					isNotEmpity(ctrl.model.editedDueDate) &&
-					isNotEmpity(ctrl.model.editedDetails);
+				isNotEmpity(ctrl.model.editedDueDate) &&
+				isNotEmpity(ctrl.model.editedDetails);
 		}
 
 		function cancelChanges() {
@@ -377,8 +377,8 @@
 
 		function isRegistryRequiredFieldsFilled() {
 			return isNotEmpity(ctrl.model.registryName) &&
-					isNotEmpity(ctrl.model.registryDueDate) &&
-					isNotEmpity(ctrl.model.registryDetails);
+				isNotEmpity(ctrl.model.registryDueDate) &&
+				isNotEmpity(ctrl.model.registryDetails);
 		}
 
 		function cancelRegistry() {
