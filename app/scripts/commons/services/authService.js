@@ -22,6 +22,14 @@
 			});
 		}
 
+		function renewAccess() {
+			return $http.post(sdServer + '/token', {
+				token: TokenService.getToken()
+			}).success(function(data) {
+				TokenService.saveToken(data.token);
+			});
+		}
+
 		function logOut() {
 			TokenService.removeToken();
 		}
@@ -30,6 +38,7 @@
 			isLoggedIn: isLoggedIn,
 			register: register,
 			logIn: logIn,
+			renewAccess: renewAccess,
 			logOut: logOut
 		};
 	}

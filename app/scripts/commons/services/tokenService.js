@@ -25,6 +25,21 @@
 			}
 		}
 
+		function isExpiringToken() {
+			var token = getToken();
+
+			if (token) {
+				var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+				var reference = new Date(payload.exp * 1000);
+				reference.setMinutes(reference.getMinutes() - 10);
+
+				return payload.exp > Date.now() / 1000 && Date.now() > reference.getTime();
+			} else {
+				return false;
+			}
+		}
+
 		function currentUser() {
 			if (isLoggedIn()) {
 				var token = getToken();
@@ -41,9 +56,10 @@
 		return {
 			saveToken: saveToken,
 			getToken: getToken,
-      isValidToken: isValidToken,
-      currentUser: currentUser,
-      removeToken: removeToken
+			isValidToken: isValidToken,
+			isExpiringToken: isExpiringToken,
+			currentUser: currentUser,
+			removeToken: removeToken
 		};
 	}
 })();
