@@ -32,10 +32,10 @@
 				templateUrl: 'views/login.html',
 				controller: 'LoginCtrl',
 				controllerAs: 'ctrl',
-				onEnter: ['$rootScope', '$state', 'AuthService', function($rootScope, $state, AuthService) {
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
 					$rootScope.isLoginState = true;
 					if (AuthService.isLoggedIn()) {
-						$state.go('main');
+						$location.path('/');
 					}
 				}]
 			}).state('about', {

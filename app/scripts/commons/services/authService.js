@@ -1,61 +1,33 @@
 (function() {
 	'use strict';
 
-	angular.module('simpleDocfyWebApp').factory('AuthService', ['ENV', '$http', '$window', AuthService]);
+	angular.module('simpleDocfyWebApp').factory('AuthService', ['ENV', '$http', 'TokenService', AuthService]);
 
-	function AuthService(ENV, $http, $window) {
+	function AuthService(ENV, $http, TokenService) {
 		var sdServer = ENV.sdServer;
 
-		function saveToken(token) {
-			$window.localStorage['application-token'] = token;
-		}
-
-		function getToken() {
-			return $window.localStorage['application-token'];
-		}
-
 		function isLoggedIn() {
-			var token = getToken();
-
-			if (token) {
-				var payload = JSON.parse($window.atob(token.split('.')[1]));
-
-				return payload.exp > Date.now() / 1000;
-			} else {
-				return false;
-			}
-		}
-
-		function currentUser() {
-			if (isLoggedIn()) {
-				var token = getToken();
-				var payload = JSON.parse($window.atob(token.split('.')[1]));
-
-				return payload.username;
-			}
+			return TokenService.isValidToken();
 		}
 
 		function register(user) {
 			return $http.post(sdServer + '/register', user).success(function(data) {
-				saveToken(data.token);
+				TokenService.saveToken(data.token);
 			});
 		}
 
 		function logIn(user) {
 			return $http.post(sdServer + '/login', user).success(function(data) {
-				saveToken(data.token);
+				TokenService.saveToken(data.token);
 			});
 		}
 
 		function logOut() {
-			$window.localStorage.removeItem('application-token');
+			TokenService.removeToken();
 		}
 
 		return {
-			saveToken: saveToken,
-			getToken: getToken,
 			isLoggedIn: isLoggedIn,
-			currentUser: currentUser,
 			register: register,
 			logIn: logIn,
 			logOut: logOut
