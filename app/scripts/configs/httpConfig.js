@@ -9,22 +9,27 @@
 	 * Main module of the application.
 	 */
 	angular.module('simpleDocfyWebApp').config(['$httpProvider', function($httpProvider) {
-		$httpProvider.interceptors.push('tokenInterceptor');
+		$httpProvider.interceptors.push('httpInterceptor');
 	}]).run(['$rootScope', 'AuthService', function($rootScope, AuthService) {
 		$rootScope.$on('expiringToken', function() {
 			AuthService.renewAccess();
 		});
-	}]).service('tokenInterceptor', ['$rootScope', 'ENV', 'TokenService', function($rootScope, ENV, TokenService) {
-		var tokenInjector = {
+	}]).service('httpInterceptor', ['$rootScope', '$location', 'ENV', 'TokenService', function($rootScope, $location, ENV, TokenService) {
+		var httpInjector = {
 			request: function(config) {
 				if (TokenService.isExpiringToken() && config.url !== ENV.sdServer + '/token') {
 					$rootScope.$emit('expiringToken');
 				}
 				config.headers.Authorization = 'Bearer ' + TokenService.getToken();
 				return config;
-			}
+			},
 			// TODO redirect de token expirado
+			responseError: function(rejection) {
+				if (rejection.status === 401) {
+					$location.path('/unauthorized');
+				}
+			}
 		};
-		return tokenInjector;
+		return httpInjector;
 	}]);
 })();

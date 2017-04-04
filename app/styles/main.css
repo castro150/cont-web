@@ -126,6 +126,14 @@ md-toolbar h3 {
   -moz-transform: scale(0.70);
 }
 
+.unauthorized-alert-icon {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin: 0px;
+  vertical-align: middle;
+}
+
 .input-label {
 	color: rgba(0,0,0,0.54);
 	font-family: 'Roboto', sans-serif;

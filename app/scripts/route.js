@@ -38,6 +38,14 @@
 						$location.path('/');
 					}
 				}]
+			}).state('unauthorized', {
+				url: '/unauthorized',
+				templateUrl: 'views/unauthorized.html',
+				controller: 'UnauthorizedCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', function($rootScope) {
+					$rootScope.isLoginState = true;
+				}]
 			}).state('about', {
 				url: '/about',
 				templateUrl: 'views/about.html',
