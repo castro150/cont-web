@@ -14,7 +14,7 @@
 		$rootScope.$on('expiringToken', function() {
 			AuthService.renewAccess();
 		});
-	}]).service('httpInterceptor', ['$rootScope', '$location', 'ENV', 'TokenService', function($rootScope, $location, ENV, TokenService) {
+	}]).service('httpInterceptor', ['$rootScope', '$location', '$q', 'ENV', 'TokenService', function($rootScope, $location, $q, ENV, TokenService) {
 		var httpInjector = {
 			request: function(config) {
 				if (TokenService.isExpiringToken() && config.url !== ENV.sdServer + '/token') {
@@ -24,9 +24,11 @@
 				return config;
 			},
 			responseError: function(rejection) {
-				if (rejection.status === 401) {
+				if (rejection.status === 401 && rejection.config.url !== ENV.sdServer + '/login') {
+					$q.defer().resolve('Unauthorized');
 					$location.path('/unauthorized');
 				}
+				return $q.reject(rejection);
 			}
 		};
 		return httpInjector;
