@@ -25,6 +25,9 @@
     <![endif]-->
 
     <md-toolbar layout="row" ng-controller="NavCtrl as ctrl">
+      <md-button ng-if="ctrl.isLoggedIn()" ng-click="ctrl.goHome()" class="md-button">
+        Home
+      </md-button>
       <h3>Simple Docfy</h3>
       <md-button ng-if="ctrl.isLoggedIn()" ng-click="ctrl.logout()" class="md-button">
         Logout

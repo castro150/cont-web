@@ -6,14 +6,15 @@
 	 * @name simpleDocfyWebApp.controller:NavCtrl
 	 * @description # NavCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('NavCtrl', ['AuthService', '$state', NavCtrl]);
+	angular.module('simpleDocfyWebApp').controller('NavCtrl', ['AuthService', '$location', NavCtrl]);
 
-	function NavCtrl(AuthService, $state) {
+	function NavCtrl(AuthService, $location) {
 
 		var ctrl = this;
 
 		ctrl.isLoggedIn = isLoggedIn;
 		ctrl.logout = logout;
+		ctrl.goHome = goHome;
 
 		function isLoggedIn() {
 			return AuthService.isLoggedIn();
@@ -21,7 +22,11 @@
 
 		function logout() {
 			AuthService.logOut();
-			$state.go('login');
+			$location.path('/login');
+		}
+
+		function goHome() {
+			$location.path('/');
 		}
 	}
 })();
