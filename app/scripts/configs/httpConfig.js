@@ -23,7 +23,6 @@
 				config.headers.Authorization = 'Bearer ' + TokenService.getToken();
 				return config;
 			},
-			// TODO redirect de token expirado
 			responseError: function(rejection) {
 				if (rejection.status === 401) {
 					$location.path('/unauthorized');

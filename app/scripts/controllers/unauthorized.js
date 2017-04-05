@@ -6,21 +6,27 @@
 	 * @name simpleDocfyWebApp.controller:UnauthorizedCtrl
 	 * @description # UnauthorizedCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('UnauthorizedCtrl', ['$filter', 'TokenService', UnauthorizedCtrl]);
+	angular.module('simpleDocfyWebApp').controller('UnauthorizedCtrl', ['$filter', '$timeout', '$location', 'TokenService', 'AuthService', UnauthorizedCtrl]);
 
-	function UnauthorizedCtrl($filter, TokenService) {
+	function UnauthorizedCtrl($filter, $timeout, $location, TokenService, AuthService) {
 
 		var ctrl = this;
 
-    init();
-    function init() {
-      if (TokenService.getToken()) {
-        ctrl.message = $filter('translate')('errors.unauthorized.expired');
-        // TODO deslogar e redirecionar em 3 segundos
-      } else {
-        ctrl.message = $filter('translate')('errors.unauthorized.others');
-        // TODO redirecionar em 3 segundos
-      }
-    }
+		// ******************************
+		// Init method
+		// ******************************
+		init();
+
+		function init() {
+			if (TokenService.getToken()) {
+				ctrl.message = $filter('translate')('errors.unauthorized.expired');
+				AuthService.logOut();
+			} else {
+				ctrl.message = $filter('translate')('errors.unauthorized.others');
+			}
+			$timeout(function() {
+				$location.path('/login');
+			}, 3000);
+		}
 	}
 })();

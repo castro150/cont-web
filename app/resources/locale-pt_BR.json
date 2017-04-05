@@ -8,6 +8,6 @@
     "views.calendario.mes": "M\u00EAs",
     "errors.unexpected": "Erro inesperado",
     "errors.login.invalid.user": "Usu\u00E1rio/Senha inv\u00E1lidos",
-    "errors.unauthorized.expired": "Sess\u00E3o expirada!",
-    "errors.unauthorized.others": "Acesso negado!"
+    "errors.unauthorized.expired": "Sess\u00E3o expirada! Redirecionando para Login.",
+    "errors.unauthorized.others": "Acesso negado! Redirecionando para Login."
 }
