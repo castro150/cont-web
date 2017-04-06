@@ -141,6 +141,16 @@ md-toolbar h3 {
 	font-weight: bold;
 }
 
+.app-sub-menu {
+	background-color: #f7f7f7;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 3px -2px;
+}
+
+.app-menu-button {
+	text-align: left;
+	padding-left: 30px;
+}
+
 .payment-card-icon {
 	font-size: 40px;
 }

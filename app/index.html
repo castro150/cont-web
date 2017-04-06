@@ -38,7 +38,33 @@
       <md-sidenav ng-if="!isLoginState" md-is-locked-open="true" class="md-whiteframe-3dp">
         <md-list>
           <md-list-item>
-            <md-button class="sidenav-button" href="#/guias">
+            <md-button class="sidenav-button app-menu-button" slide-toggle="#cMenu">
+              <md-icon md-svg-src="images/svg/notebook.svg" class="sidenav-icon"></md-icon>
+              Cadastro
+            </md-button>
+          </md-list-item>
+          <md-menu-content id="cMenu" class="slideable no-p app-sub-menu" width="4">
+            <md-menu-item>
+              <md-button href="#/">
+                <md-icon></md-icon>
+                Pessoa Física
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button href="#/">
+                <md-icon></md-icon>
+                Lucro Presumido
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button href="#/">
+                <md-icon></md-icon>
+                Simples Nacional
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+          <md-list-item>
+            <md-button class="sidenav-button app-menu-button" href="#/guias">
               <md-icon md-svg-src="images/svg/calendar.svg" class="sidenav-icon"></md-icon>
               Guias
             </md-button>
@@ -93,6 +119,7 @@
     <script src="scripts/commons/services/authService.js"></script>
     <script src="scripts/commons/services/calendarioService.js"></script>
 		<script src="scripts/commons/directives/languageSelectDirective.js"></script>
+		<script src="scripts/commons/directives/slideableDirective.js"></script>
 		<script src="scripts/configs/httpConfig.js"></script>
 		<script src="scripts/configs/calendarConfig.js"></script>
 		<script src="scripts/configs/momentConfig.js"></script>
