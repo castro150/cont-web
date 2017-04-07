@@ -79,6 +79,38 @@
 						$location.path('/login');
 					}
 				}]
+			}).state('cadastro-pf', {
+				url: '/cadastro/pf',
+				templateUrl: 'views/customer/create/createPf.html',
+				controller: 'CreateCustomerCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}],
+				resolve: {
+					type: function() {
+						return null;
+					}
+				}
+			}).state('cadastro-sn', {
+				url: '/cadastro/sn',
+				templateUrl: 'views/customer/create/createSn.html',
+				controller: 'CreateCustomerCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}],
+				resolve: {
+					type: function() {
+						return 'create.customer.pf.type.sn';
+					}
+				}
 			});
 		}]);
 })();

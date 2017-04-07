@@ -9,7 +9,7 @@
 	 * Main module of the application.
 	 */
 	angular.module(
-			'simpleDocfyWebApp', ['ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngMaterial', 'ui.bootstrap',
+			'simpleDocfyWebApp', ['ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngMessages', 'ngMaterial', 'ui.bootstrap',
 				'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar', 'ui.mask', 'config'
 			])
 		.constant(

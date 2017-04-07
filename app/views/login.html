@@ -27,7 +27,7 @@
       <div class="col-md-offset-1 col-md-10">
         <md-content layout-padding>
           <md-card>
-            <form ng-submit="ctrl.logIn()">
+            <form ng-submit="ctrl.logIn()" name="projectForm">
               <md-card-title>
                 <md-card-title-text>
                   <span class="md-headline">Login</span>
@@ -37,7 +37,7 @@
                 <md-input-container class="md-block">
                   <label>Usuário</label>
                   <input required md-no-asterisk name="user" ng-model="ctrl.model.user.username">
-                  <div ng-messages="projectForm.description.$error">
+                  <div ng-messages="projectForm.user.$error">
                     <div ng-message="required">Campo obrigatório</div>
                   </div>
                 </md-input-container>
@@ -45,7 +45,7 @@
                 <md-input-container class="md-block">
                   <label>Senha</label>
                   <input type="password" required md-no-asterisk name="password" ng-model="ctrl.model.user.password">
-                  <div ng-messages="projectForm.description.$error">
+                  <div ng-messages="projectForm.password.$error">
                     <div ng-message="required">Campo obrigatório</div>
                   </div>
                 </md-input-container>

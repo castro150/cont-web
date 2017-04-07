@@ -1,0 +1,141 @@
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Contatos</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <div class="row">
+      <div class="col-md-6">
+        <md-input-container class="md-block">
+          <label>E-mail</label>
+          <input required name="customerEmail" ng-model="ctrl.model.customer.email" />
+          <div ng-messages="projectForm.customerEmail.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Quantidade de Contatos</label>
+          <md-select ng-model="ctrl.model.contactQuantity">
+            <md-option ng-repeat="number in [1, 2, 3, 4, 5]" value="{{number}}" ng-selected="$first">
+              {{number}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.model.contactQuantity >= 1">
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Nome do Contato</label>
+          <input required name="contactName1" ng-model="ctrl.model.customer.contacts[0].name" />
+          <div ng-messages="projectForm.contactName1.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Telefone</label>
+          <input required name="contactTel1" ng-model="ctrl.model.customer.contacts[0].tel" />
+          <div ng-messages="projectForm.contactTel1.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Celular</label>
+          <input required name="contactCel1" ng-model="ctrl.model.customer.contacts[0].cel" />
+          <div ng-messages="projectForm.contactCel1.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.model.contactQuantity >= 2">
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Nome do Contato</label>
+          <input name="contactName2" ng-model="ctrl.model.customer.contacts[1].name" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Telefone</label>
+          <input name="contactTel2" ng-model="ctrl.model.customer.contacts[1].tel" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Celular</label>
+          <input name="contactCel2" ng-model="ctrl.model.customer.contacts[1].cel" />
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.model.contactQuantity >= 3">
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Nome do Contato</label>
+          <input name="contactName3" ng-model="ctrl.model.customer.contacts[2].name" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Telefone</label>
+          <input name="contactTel3" ng-model="ctrl.model.customer.contacts[2].tel" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Celular</label>
+          <input name="contactCel3" ng-model="ctrl.model.customer.contacts[2].cel" />
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.model.contactQuantity >= 4">
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Nome do Contato</label>
+          <input name="contactName4" ng-model="ctrl.model.customer.contacts[3].name" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Telefone</label>
+          <input name="contactTel4" ng-model="ctrl.model.customer.contacts[3].tel" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Celular</label>
+          <input name="contactCel4" ng-model="ctrl.model.customer.contacts[3].cel" />
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.model.contactQuantity >= 5">
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Nome do Contato</label>
+          <input name="contactName5" ng-model="ctrl.model.customer.contacts[4].name" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Telefone</label>
+          <input name="contactTel5" ng-model="ctrl.model.customer.contacts[4].tel" />
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Celular</label>
+          <input name="contactCel5" ng-model="ctrl.model.customer.contacts[4].cel" />
+        </md-input-container>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
