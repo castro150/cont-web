@@ -17,7 +17,7 @@
     <div class="col-md-offset-4 col-md-4">
       <md-input-container class="md-block" flex-gt-sm>
         <label>Tipo</label>
-        <md-select ng-model="ctrl.model.type" ng-change="ctrl.model.createProgress = 50">
+        <md-select ng-model="ctrl.selected.type" ng-change="ctrl.updateType()">
           <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option}}">
             {{option}}
           </md-option>
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <div class="row" ng-if="ctrl.model.type === ctrl.typeComboOptions[0]">
+  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[0]">
     <div class="col-md-12">
       <div ng-if="ctrl.model.page === 1">
         <ng-include src="'views/customer/create/createPfPl.html'"></ng-include>
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="row" ng-if="ctrl.model.type === ctrl.typeComboOptions[1]">
+  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[1]">
     <div class="col-md-12">
       <div ng-if="ctrl.model.page === 1">
         <ng-include src="'views/customer/create/createPfEd.html'"></ng-include>

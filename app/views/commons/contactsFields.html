@@ -41,19 +41,13 @@
       <div class="col-md-4">
         <md-input-container class="md-block">
           <label>Telefone</label>
-          <input required name="contactTel1" ng-model="ctrl.model.customer.contacts[0].tel" />
-          <div ng-messages="projectForm.contactTel1.$error">
-            <div ng-message="required">Campo obrigatório</div>
-          </div>
+          <input name="contactTel1" ng-model="ctrl.model.customer.contacts[0].tel" />
         </md-input-container>
       </div>
       <div class="col-md-4">
         <md-input-container class="md-block">
           <label>Celular</label>
-          <input required name="contactCel1" ng-model="ctrl.model.customer.contacts[0].cel" />
-          <div ng-messages="projectForm.contactCel1.$error">
-            <div ng-message="required">Campo obrigatório</div>
-          </div>
+          <input name="contactCel1" ng-model="ctrl.model.customer.contacts[0].cel" />
         </md-input-container>
       </div>
     </div>

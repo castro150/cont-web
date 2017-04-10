@@ -17,6 +17,7 @@
 		ctrl.successAlert = successAlert;
 		ctrl.closeAlert = closeAlert;
 
+		ctrl.updateType = updateType;
 		ctrl.createCustomer = createCustomer;
 
 		// ******************************
@@ -26,18 +27,14 @@
 
 		function init() {
 			ctrl.alerts = [];
-
-			ctrl.model = {};
-			ctrl.model.customer = {};
-			ctrl.model.customer.contacts = [];
-			ctrl.model.startServiceDate = new Date();
-			ctrl.model.createProgress = 0;
-			ctrl.model.page = 1;
+			clearModel();
 
 			ctrl.typeComboOptions = [
 				$filter('translate')('create.customer.pf.type.pl'),
 				$filter('translate')('create.customer.pf.type.ed')
 			];
+			ctrl.accessoryObligations = {};
+			ctrl.accessoryObligations.pl = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
 		}
 
 		// ******************************
@@ -71,11 +68,17 @@
 		// ******************************
 		// Public methods
 		// ******************************
+		function updateType() {
+			ctrl.model.createProgress = 50;
+			clearModel();
+		}
+
 		function createCustomer() {
 			var customer = ctrl.model.customer;
 			customer.status = 'active';
-			customer.type = type ? type : ctrl.model.type;
+			customer.type = type ? type : ctrl.selected.type;
 			customer.startServiceDate = ctrl.model.startServiceDate.toISOString();
+			populateAccessoryObligations(customer);
 
 			CustomerService.create(customer).then(function() {
 				$location.path('/cadastro/sucesso');
@@ -93,6 +96,25 @@
 		// ******************************
 		// Private methods
 		// ******************************
+		function clearModel() {
+			ctrl.model = {};
+			ctrl.model.customer = {};
+			ctrl.model.customer.contacts = [];
+			ctrl.model.accessoryObligations = [];
+			ctrl.model.startServiceDate = new Date();
+			ctrl.model.createProgress = 0;
+			ctrl.model.page = 1;
+		}
+
+		function populateAccessoryObligations(customer) {
+			customer.accessoryObligations = ctrl.model.accessoryObligations.filter(function(ao) {
+				return ao.name && ao.name !== 'unchecked';
+			});
+			customer.accessoryObligations.forEach(function(ao) {
+				var now = new Date();
+				ao.activationDate = now.toISOString();
+			});
+		}
 
 	}
 })();
