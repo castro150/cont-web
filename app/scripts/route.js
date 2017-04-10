@@ -111,6 +111,15 @@
 						return 'create.customer.pf.type.sn';
 					}
 				}
+			}).state('cadastro-sucesso', {
+				url: '/cadastro/sucesso',
+				templateUrl: 'views/customer/create/success.html',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}]
 			});
 		}]);
 })();

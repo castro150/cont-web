@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:CreateCustomerCtrl
 	 * @description # CreateCustomerCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('CreateCustomerCtrl', ['$filter', 'type', CreateCustomerCtrl]);
+	angular.module('simpleDocfyWebApp').controller('CreateCustomerCtrl', ['$filter', '$location', '$anchorScroll', 'type', 'CustomerService', CreateCustomerCtrl]);
 
-	function CreateCustomerCtrl($filter, type) {
+	function CreateCustomerCtrl($filter, $location, $anchorScroll, type, CustomerService) {
 
 		var ctrl = this;
 
@@ -25,9 +25,12 @@
 		init();
 
 		function init() {
+			ctrl.alerts = [];
+
 			ctrl.model = {};
 			ctrl.model.customer = {};
 			ctrl.model.customer.contacts = [];
+			ctrl.model.startServiceDate = new Date();
 			ctrl.model.createProgress = 0;
 			ctrl.model.page = 1;
 
@@ -72,8 +75,19 @@
 			var customer = ctrl.model.customer;
 			customer.status = 'active';
 			customer.type = type ? type : ctrl.model.type;
+			customer.startServiceDate = ctrl.model.startServiceDate.toISOString();
 
-			console.log(customer);
+			CustomerService.create(customer).then(function() {
+				$location.path('/cadastro/sucesso');
+			}, function(response) {
+				if (response.status === 400) {
+					dangerAlert($filter('translate')(response.data.name));
+					$location.hash('alerts');
+					$anchorScroll();
+				} else {
+					dangerAlert($filter('translate')('errors.unexpected'));
+				}
+			});
 		}
 
 		// ******************************

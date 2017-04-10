@@ -43,7 +43,8 @@ module.exports = function (grunt) {
         },
         constants: {
           ENV: {
-            sdServer: 'http://localhost:3000'
+            sdServer: 'http://localhost:3000',
+            customerService: 'http://localhost:3000'
           }
         }
       },
@@ -53,7 +54,8 @@ module.exports = function (grunt) {
         },
         constants: {
           ENV: {
-            sdServer: 'http://localhost:3000'
+            sdServer: 'http://localhost:3000',
+            customerService: 'http://localhost:3000'
           }
         }
       }
