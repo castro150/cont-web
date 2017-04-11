@@ -37,7 +37,7 @@
 			];
 			ctrl.accessoryObligations = {};
 			ctrl.accessoryObligations.pl = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
-			ctrl.accessoryObligations.sn = ['teste1', 'teste2', 'teste3', 'teste4']; // TODO
+			ctrl.accessoryObligations.sn = ['DES', 'SINTEGRA', 'DESTDA', 'DEFIS', 'DIRF', 'DAPISN', 'VAFSN', 'DASN', 'RAIS'];
 		}
 
 		// ******************************

@@ -13,6 +13,6 @@
     "create.customer.pf.type.pl": "Proficional Liberal",
     "create.customer.pf.type.ed": "Empregador Dom\u00E9stico",
     "create.customer.pf.type.sn": "Simples Nacional",
-    "create.customer.success": "Cleinte cadastrado com sucesso!",
+    "create.customer.success": "Cliente cadastrado com sucesso!",
     "customer.create.active.number.exists": "Já existe um cliente ativo com este número."
 }
