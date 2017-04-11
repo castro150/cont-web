@@ -1,0 +1,219 @@
+<div id="create-customer">
+  <h3>Simples Nacional</h3>
+
+  <div class="row">
+    <div id="alerts" class="col-md-offset-1 col-md-10">
+      <ng-include src="'views/commons/alert.html'"></ng-include>
+    </div>
+  </div>
+
+  <form ng-submit="ctrl.createCustomer()" name="projectForm">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Informações Principais</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-2">
+            <md-input-container class="md-block">
+              <label>Número</label>
+              <input required type="number" name="customerNumber" ng-model="ctrl.model.customer.number" />
+              <div ng-messages="projectForm.customerNumber.$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Início dos Serviços</label>
+              <md-datepicker ng-model="ctrl.model.startServiceDate" md-current-view="year"
+                  md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Início das Atividades</label>
+              <md-datepicker ng-model="ctrl.model.startActivityDate" md-current-view="year"
+                  md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Nome Fantasia</label>
+              <input required name="customerName" ng-model="ctrl.model.customer.name" />
+              <div ng-messages="projectForm.customerName.$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="col-md-4">
+            <md-input-container class="md-block">
+              <label>CNPJ</label>
+              <input required name="cnpj" ng-model="ctrl.model.customer.cnpj" ui-mask="99.999.999/9999-99" />
+              <div ng-messages="projectForm.cnpj.$error" role="alert">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <md-input-container class="md-block">
+              <label>Razão Social</label>
+              <input required name="companyName" ng-model="ctrl.model.customer.companyName" />
+              <div ng-messages="projectForm.companyName.$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Insc. Estadual</label>
+              <input name="stateRegist" ng-model="ctrl.model.customer.stateRegist" />
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Insc. Municipal</label>
+              <input name="municipalRegist" ng-model="ctrl.model.customer.municipalRegist" />
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Capital Social</label>
+              <input name="shareCapital" ng-model="ctrl.model.customer.shareCapital" />
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <ng-include src="'views/commons/addressFields.html'"></ng-include>
+
+    <ng-include src="'views/commons/contactsFields.html'"></ng-include>
+
+    <ng-include src="'views/commons/partnersFields.html'"></ng-include>
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Outros</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row no-m">
+          <div class="col-md-6 no-p">
+            <div class="row">
+              <div class="col-md-6">
+                <md-input-container class="md-block">
+                  <label>CAE</label>
+                  <input name="cae" ng-model="ctrl.model.customer.cae" />
+                </md-input-container>
+              </div>
+              <div class="col-md-6">
+                <md-input-container class="md-block">
+                  <label>NIRC</label>
+                  <input name="nirc" ng-model="ctrl.model.customer.nirc" />
+                </md-input-container>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <md-input-container class="md-block">
+                  <label>Código GPS</label>
+                  <input name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
+                </md-input-container>
+              </div>
+              <div class="col-md-6">
+                <md-input-container class="md-block">
+                  <label>Gerência</label>
+                  <input name="management" ng-model="ctrl.model.customer.management" />
+                </md-input-container>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Observações</label>
+              <textarea ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <md-input-container class="md-block">
+              <label>CNAE</label>
+              <input name="cnae" ng-model="ctrl.model.customer.cnae" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <md-input-container class="md-block">
+              <label>CNAE Secundário</label>
+              <input name="cnae2" ng-model="ctrl.model.customer.cnae2" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <md-input-container class="md-block">
+              <label>Cartórios</label>
+              <input name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Sindicato Patronal</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Nome</label>
+              <input name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Código Sindical</label>
+              <input name="syndicateCode" ng-model="ctrl.model.customer.syndicateCode" />
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Obrigações Acessórias</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations.sn">
+            <md-input-container class="md-block">
+              <md-checkbox name="teste" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
+                {{ao}}
+              </md-checkbox>
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+  </form>
+</div>

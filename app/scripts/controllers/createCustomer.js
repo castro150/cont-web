@@ -18,6 +18,8 @@
 		ctrl.closeAlert = closeAlert;
 
 		ctrl.updateType = updateType;
+		ctrl.updateContacts = updateContacts;
+		ctrl.updatePartners = updatePartners;
 		ctrl.createCustomer = createCustomer;
 
 		// ******************************
@@ -35,6 +37,7 @@
 			];
 			ctrl.accessoryObligations = {};
 			ctrl.accessoryObligations.pl = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
+			ctrl.accessoryObligations.sn = ['teste1', 'teste2', 'teste3', 'teste4']; // TODO
 		}
 
 		// ******************************
@@ -69,8 +72,16 @@
 		// Public methods
 		// ******************************
 		function updateType() {
-			ctrl.model.createProgress = 50;
 			clearModel();
+			ctrl.model.createProgress = 50;
+		}
+
+		function updateContacts() {
+			ctrl.model.contacts = Array.from(Array(parseInt(ctrl.model.contactQuantity)).keys());
+		}
+
+		function updatePartners() {
+			ctrl.model.partners = Array.from(Array(parseInt(ctrl.model.partnerQuantity)).keys());
 		}
 
 		function createCustomer() {
@@ -78,6 +89,9 @@
 			customer.status = 'active';
 			customer.type = type ? type : ctrl.selected.type;
 			customer.startServiceDate = ctrl.model.startServiceDate.toISOString();
+			if (type) {
+				customer.startActivityDate = ctrl.model.startActivityDate.toISOString();
+			}
 			populateAccessoryObligations(customer);
 
 			CustomerService.create(customer).then(function() {
@@ -100,9 +114,13 @@
 			ctrl.model = {};
 			ctrl.model.customer = {};
 			ctrl.model.customer.contacts = [];
+			ctrl.model.customer.partners = [];
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();
+			ctrl.model.startActivityDate = new Date();
 			ctrl.model.createProgress = 0;
+			ctrl.model.contacts = [];
+			ctrl.model.partners = [];
 			ctrl.model.page = 1;
 		}
 
