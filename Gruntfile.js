@@ -26,6 +26,7 @@ module.exports = function (grunt) {
   };
 
   grunt.loadNpmTasks('grunt-ng-constant');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -463,6 +464,33 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    protractor: {
+      options: {
+        // Location of your protractor config file
+        configFile: 'test/e2e/conf.js',
+
+        // Do you want the output to use fun colors?
+        noColor: false,
+
+        // Set to true if you would like to use the Protractor command line debugging tool
+        // debug: true,
+
+        // Additional arguments that are passed to the webdriver command
+        args: { }
+      },
+      e2e: {
+        options: {
+          // Stops Grunt process if a test fails
+          keepAlive: false
+        }
+      },
+      continuous: {
+        options: {
+          keepAlive: true
+        }
+      }
     }
   });
 
@@ -520,5 +548,9 @@ module.exports = function (grunt) {
     'newer:jscs',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('e2e-test', [
+    'protractor:e2e'
   ]);
 };
