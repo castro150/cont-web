@@ -18,15 +18,15 @@
       <md-input-container class="md-block" flex-gt-sm>
         <label>Tipo</label>
         <md-select ng-model="ctrl.selected.type" ng-change="ctrl.updateType()">
-          <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option}}">
-            {{option}}
+          <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option.value}}">
+            {{option.name}}
           </md-option>
         </md-select>
       </md-input-container>
     </div>
   </div>
 
-  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[0]">
+  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[0].value">
     <div class="col-md-12">
       <div ng-if="ctrl.model.page === 1">
         <ng-include src="'views/customer/create/createPfPl.html'"></ng-include>
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[1]">
+  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[1].value">
     <div class="col-md-12">
       <div ng-if="ctrl.model.page === 1">
         <ng-include src="'views/customer/create/createPfEd.html'"></ng-include>

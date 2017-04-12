@@ -108,7 +108,23 @@
 				}],
 				resolve: {
 					type: function() {
-						return 'create.customer.pf.type.sn';
+						return 'customer.type.pj.sn';
+					}
+				}
+			}).state('cadastro-lp', {
+				url: '/cadastro/lp',
+				templateUrl: 'views/customer/create/createLp.html',
+				controller: 'CreateCustomerCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}],
+				resolve: {
+					type: function() {
+						return 'customer.type.pj.lp';
 					}
 				}
 			}).state('cadastro-sucesso', {

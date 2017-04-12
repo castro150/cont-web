@@ -10,9 +10,10 @@
     "errors.login.invalid.user": "Usu\u00E1rio/Senha inv\u00E1lidos",
     "errors.unauthorized.expired": "Sess\u00E3o expirada! Redirecionando para Login.",
     "errors.unauthorized.others": "Acesso negado! Redirecionando para Login.",
-    "create.customer.pf.type.pl": "Proficional Liberal",
-    "create.customer.pf.type.ed": "Empregador Dom\u00E9stico",
-    "create.customer.pf.type.sn": "Simples Nacional",
+    "customer.type.pf.pl": "Proficional Liberal",
+    "customer.type.pf.ed": "Empregador Dom\u00E9stico",
+    "customer.type.pj.sn": "Simples Nacional",
+    "customer.type.pj.lp": "Lucro Presumido",
     "create.customer.success": "Cliente cadastrado com sucesso!",
     "customer.create.active.number.exists": "Já existe um cliente ativo com este número."
 }

@@ -31,9 +31,14 @@
 			ctrl.alerts = [];
 			clearModel();
 
-			ctrl.typeComboOptions = [
-				$filter('translate')('create.customer.pf.type.pl'),
-				$filter('translate')('create.customer.pf.type.ed')
+			ctrl.typeComboOptions = [{
+					name: $filter('translate')('customer.type.pf.pl'),
+					value: 'customer.type.pf.pl'
+				},
+				{
+					name: $filter('translate')('customer.type.pf.ed'),
+					value: 'customer.type.pf.ed'
+				}
 			];
 			ctrl.accessoryObligations = {};
 			ctrl.accessoryObligations.pl = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
