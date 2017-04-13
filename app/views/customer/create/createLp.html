@@ -25,6 +25,12 @@
               </div>
             </md-input-container>
           </div>
+          <div class="col-md-2">
+            <md-input-container class="md-block">
+              <label>N° Alterdata</label>
+              <input type="number" name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber" />
+            </md-input-container>
+          </div>
           <div class="col-md-4">
             <md-input-container class="md-block">
               <label>Início dos Serviços</label>
@@ -44,8 +50,8 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Nome Fantasia</label>
-              <input required name="customerName" ng-model="ctrl.model.customer.name" />
-              <div ng-messages="projectForm.customerName.$error">
+              <input required name="companyName" ng-model="ctrl.model.customer.companyName" />
+              <div ng-messages="projectForm.companyName.$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
             </md-input-container>
@@ -64,8 +70,8 @@
           <div class="col-md-8">
             <md-input-container class="md-block">
               <label>Razão Social</label>
-              <input required name="companyName" ng-model="ctrl.model.customer.companyName" />
-              <div ng-messages="projectForm.companyName.$error">
+              <input required name="customerName" ng-model="ctrl.model.customer.name" />
+              <div ng-messages="projectForm.customerName.$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
             </md-input-container>
