@@ -136,6 +136,17 @@
 						$location.path('/login');
 					}
 				}]
+			}).state('customer', {
+				url: '/clientes',
+				templateUrl: 'views/customer/viewCustomers.html',
+				controller: 'ViewCustomersCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}]
 			});
 		}]);
 })();

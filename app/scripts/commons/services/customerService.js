@@ -10,8 +10,13 @@
 			return $http.post(customerUrl, customer);
 		}
 
+		function findAllActive() {
+			return $http.get(customerUrl + '/active');
+		}
+
 		return {
-			create: create
+			create: create,
+			findAllActive: findAllActive
 		};
 	}
 })();
