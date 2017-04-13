@@ -14,6 +14,7 @@
     "customer.type.pf.ed": "Empregador Dom\u00E9stico",
     "customer.type.pj.sn": "Simples Nacional",
     "customer.type.pj.lp": "Lucro Presumido",
+    "customer.veiw.customers": "Clientes",
     "create.customer.success": "Cliente cadastrado com sucesso!",
     "customer.create.active.number.exists": "Já existe um cliente ativo com este número."
 }

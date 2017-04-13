@@ -23,7 +23,8 @@
     "interact": "^1.2.6",
     "angular-material": "^1.0.9",
     "angular-ui-mask": "^1.8.6",
-    "angular-ui-router": "^0.2.15"
+    "angular-ui-router": "^0.2.15",
+    "md-data-table": "^2.2.0"
   },
   "resolutions": {
     "angular": "1.5.11"
