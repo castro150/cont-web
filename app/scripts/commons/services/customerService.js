@@ -14,9 +14,14 @@
 			return $http.get(customerUrl + '/active');
 		}
 
+		function findById(id) {
+			return $http.get(customerUrl + '/' + id);
+		}
+
 		return {
 			create: create,
-			findAllActive: findAllActive
+			findAllActive: findAllActive,
+			findById: findById
 		};
 	}
 })();

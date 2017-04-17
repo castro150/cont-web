@@ -16,6 +16,7 @@
     "customer.type.pj.sn": "Simples Nacional",
     "customer.type.pj.lp": "Lucro Presumido",
     "customer.veiw.customers": "Clientes",
+    "customer.details": "Detalhes de Cliente",
     "create.customer.success": "Cliente cadastrado com sucesso!",
     "customer.create.active.number.exists": "J\u00E1 existe um cliente ativo com este n\u00FAmero."
 }
