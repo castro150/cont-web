@@ -1,9 +1,30 @@
 <div id="view-customers">
-  <h3>{{ :: "customer.veiw.customers" | translate}}</h3>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <ng-include src="'views/commons/alert.html'"></ng-include>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3>{{ :: "customer.veiw.customers" | translate}}</h3>
+    </div>
+    <div class="col-md-6 text-right">
+      <md-input-container md-no-float class="md-block">
+        <md-icon md-svg-src="images/svg/search.svg"></md-icon>
+        <input ng-model="ctrl.model.searchCustomer" type="text" placeholder="Buscar cliente">
+      </md-input-container>
+    </div>
+  </div>
 
   <mdt-table
       paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,50]}"
       table-card="{isEnabled: true, title: 'Clientes Ativos'}"
+      mdt-row="{
+        'data': ctrl.model.customers,
+        'table-row-id-key': '_id',
+        'column-keys': ['number', 'alterNumber', 'name', 'cpfCnpj', 'translatedType']
+      }"
       mdt-translations="{rowsPerPage: 'Linhas por página'}">
 
       <mdt-header-row>
@@ -28,13 +49,9 @@
           </mdt-column>
       </mdt-header-row>
 
-      <mdt-row ng-repeat="customer in ctrl.model.customers">
-          <mdt-cell>{{customer.number}}</mdt-cell>
-          <mdt-cell>{{customer.alterNumber}}</mdt-cell>
-          <mdt-cell>{{customer.name}}</mdt-cell>
-          <mdt-cell>{{customer.cpf | cpf}}{{customer.cnpj | cnpj}}</mdt-cell>
-          <mdt-cell>{{ctrl.model.translatedTypes[customer.type]}}</mdt-cell>
-      </mdt-row>
+      <mdt-custom-cell column-key="name">
+        <a ui-sref="customer({ id: '{{rowId}}' })">{{value}}</a>
+      </mdt-custom-cell>
 
   </mdt-table>
 </div>

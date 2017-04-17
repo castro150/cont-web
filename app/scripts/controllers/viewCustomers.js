@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:ViewCustomersCtrl
 	 * @description # ViewCustomersCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('ViewCustomersCtrl', ['$filter', 'CustomerService', ViewCustomersCtrl]);
+	angular.module('simpleDocfyWebApp').controller('ViewCustomersCtrl', ['$filter', '$scope', 'CustomerService', ViewCustomersCtrl]);
 
-	function ViewCustomersCtrl($filter, CustomerService) {
+	function ViewCustomersCtrl($filter, $scope, CustomerService) {
 
 		var ctrl = this;
 
@@ -28,6 +28,9 @@
 		init();
 
 		function init() {
+			ctrl.alerts = [];
+			ctrl.customers = [];
+
 			ctrl.model = {};
 			ctrl.model.translatedTypes = [];
 			ctrl.model.translatedTypes[PF_PL_KEY] = $filter('translate')('customer.type.pf.pl');
@@ -36,6 +39,7 @@
 			ctrl.model.translatedTypes[PJ_LP_KEY] = $filter('translate')('customer.type.pj.lp');
 
 			findAllActiveCustomers();
+			watchingToFilterCustomers();
 		}
 
 		// ******************************
@@ -76,9 +80,30 @@
 		// ******************************
 		function findAllActiveCustomers() {
 			CustomerService.findAllActive().then(function(response) {
-				ctrl.model.customers = response.data;
-			}, function() {
+				ctrl.customers = response.data;
+				ctrl.customers.forEach(function(customer) {
+					customer.cpfCnpj = customer.cpf ? $filter('cpf')(customer.cpf) : $filter('cnpj')(customer.cnpj);
+					customer.translatedType = ctrl.model.translatedTypes[customer.type];
+				});
+				ctrl.model.customers = ctrl.customers;
+			}, function(response) {
+				if (response.status === -1) {
+					dangerAlert($filter('translate')('errors.unavailable.service'));
+				} else {
+					dangerAlert($filter('translate')('errors.unexpected'));
+				}
+			});
+		}
 
+		function watchingToFilterCustomers() {
+			$scope.$watch('ctrl.model.searchCustomer', function(value) {
+				if (value) {
+					ctrl.model.customers = $filter('filter')(ctrl.customers, function(customer) {
+						return customer.name.toLowerCase().match(value.toLowerCase()) || customer.number.toString().match(value);
+					});
+				} else {
+					ctrl.model.customers = ctrl.customers;
+				}
 			});
 		}
 

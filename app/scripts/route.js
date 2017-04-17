@@ -136,10 +136,21 @@
 						$location.path('/login');
 					}
 				}]
-			}).state('customer', {
+			}).state('customers', {
 				url: '/clientes',
 				templateUrl: 'views/customer/viewCustomers.html',
 				controller: 'ViewCustomersCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}]
+			}).state('customer', {
+				url: '/clientes/:id',
+				templateUrl: 'views/customer/viewCustomer.html',
+				controller: 'ViewCustomerCtrl',
 				controllerAs: 'ctrl',
 				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
 					$rootScope.isLoginState = false;
