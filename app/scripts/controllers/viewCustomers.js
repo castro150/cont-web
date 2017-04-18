@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:ViewCustomersCtrl
 	 * @description # ViewCustomersCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('ViewCustomersCtrl', ['$filter', '$scope', 'CustomerService', ViewCustomersCtrl]);
+	angular.module('simpleDocfyWebApp').controller('ViewCustomersCtrl', ['$filter', '$scope', '$location', '$anchorScroll', 'CustomerService', ViewCustomersCtrl]);
 
-	function ViewCustomersCtrl($filter, $scope, CustomerService) {
+	function ViewCustomersCtrl($filter, $scope, $location, $anchorScroll, CustomerService) {
 
 		var ctrl = this;
 
@@ -92,6 +92,8 @@
 				} else {
 					dangerAlert($filter('translate')('errors.unexpected'));
 				}
+				$location.hash('alerts');
+				$anchorScroll();
 			});
 		}
 

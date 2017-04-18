@@ -138,7 +138,7 @@
 				}]
 			}).state('customers', {
 				url: '/clientes',
-				templateUrl: 'views/customer/viewCustomers.html',
+				templateUrl: 'views/customer/view/viewCustomers.html',
 				controller: 'ViewCustomersCtrl',
 				controllerAs: 'ctrl',
 				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
@@ -149,7 +149,7 @@
 				}]
 			}).state('customer', {
 				url: '/clientes/:id',
-				templateUrl: 'views/customer/viewCustomer.html',
+				templateUrl: 'views/customer/view/viewCustomer.html',
 				controller: 'ViewCustomerCtrl',
 				controllerAs: 'ctrl',
 				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {

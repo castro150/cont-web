@@ -1,0 +1,58 @@
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Endereço</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <div class="row">
+      <div class="col-md-8">
+        <md-input-container class="md-block">
+          <label>Endereço</label>
+          <input ng-disabled="!ctrl.model.isEditMode" required name="customerAddress" ng-model="ctrl.model.customer.address" />
+          <div ng-messages="projectForm.customerAddress.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Bairro</label>
+          <input ng-disabled="!ctrl.model.isEditMode" required name="customerDistrict" ng-model="ctrl.model.customer.district" />
+          <div ng-messages="projectForm.customerDistrict.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <md-input-container class="md-block">
+          <label>Cidade</label>
+          <input ng-disabled="!ctrl.model.isEditMode" required name="customerCity" ng-model="ctrl.model.customer.city" />
+          <div ng-messages="projectForm.customerCity.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div class="col-md-4">
+        <md-input-container class="md-block">
+          <label>Estado</label>
+          <input ng-disabled="!ctrl.model.isEditMode" required name="customerState" ng-model="ctrl.model.customer.state" />
+          <div ng-messages="projectForm.customerState.$error">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div class="col-md-3">
+        <md-input-container class="md-block">
+          <label>CEP</label>
+          <input ng-disabled="!ctrl.model.isEditMode" required name="cep" ng-model="ctrl.model.customer.cep" ui-mask="99999-999" />
+          <div ng-messages="projectForm.cep.$error" role="alert">
+            <div ng-message="required">Campo obrigatório</div>
+          </div>
+        </md-input-container>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

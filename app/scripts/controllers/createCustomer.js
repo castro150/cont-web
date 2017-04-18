@@ -105,11 +105,11 @@
 			}, function(response) {
 				if (response.status === 400) {
 					dangerAlert($filter('translate')(response.data.name));
-					$location.hash('alerts');
-					$anchorScroll();
 				} else {
 					dangerAlert($filter('translate')('errors.unexpected'));
 				}
+				$location.hash('alerts');
+				$anchorScroll();
 			});
 		}
 

@@ -1,0 +1,64 @@
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Contatos</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <div class="row">
+      <div class="col-md-4">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Quantidade de Contatos</label>
+          <md-select ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.contactQuantity" ng-change="ctrl.updateContacts()">
+            <md-option ng-repeat="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" value="{{number}}">
+              {{number}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </div>
+    <div ng-repeat="contact in ctrl.model.contacts">
+      <div class="row">
+        <div class="col-md-6">
+          <md-input-container class="md-block" ng-if="$index === 0">
+            <label>Nome do Contato</label>
+            <input ng-disabled="!ctrl.model.isEditMode" required name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+            <div ng-messages="projectForm['contactName' + $index].$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" ng-if="$index !== 0">
+            <label>Nome do Contato</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+          </md-input-container>
+        </div>
+        <div class="col-md-6">
+          <md-input-container class="md-block">
+            <label>E-mail</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="contactEmail{{$index}}" ng-model="ctrl.model.customer.contacts[$index].email" />
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Telefone</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="contactTel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].tel" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Celular</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4 text-right" ng-if="$index !== 0 && ctrl.model.isEditMode">
+          <md-button class="md-warn " ng-click="ctrl.removeContactByIndex($index)">
+            <i class="glyphicon glyphicon-trash p-r-5" />Remover Contato
+          </md-button>
+        </div>
+      </div>
+      <md-divider ng-if="!$last" style="border-top-width: 3px; border-top-style: dotted;"></md-divider>
+    </div>
+  </md-card-content>
+</md-card>

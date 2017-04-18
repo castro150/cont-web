@@ -18,5 +18,9 @@
     "customer.veiw.customers": "Clientes",
     "customer.details": "Detalhes de Cliente",
     "create.customer.success": "Cliente cadastrado com sucesso!",
-    "customer.create.active.number.exists": "J\u00E1 existe um cliente ativo com este n\u00FAmero."
+    "customer.create.active.number.exists": "J\u00E1 existe um cliente ativo com este n\u00FAmero.",
+    "customer.view.status.active": "Ativo",
+    "customer.view.status.inactive": "Inativo",
+    "customer.view.status.paralyzed": "Paralisado",
+    "customer.view.status.closing": "Em Processo de Baixa"
 }
