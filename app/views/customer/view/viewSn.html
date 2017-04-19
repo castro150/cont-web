@@ -240,12 +240,19 @@
   <md-card>
     <md-card-content>
       <div class="row">
-        <div class="col-md-offset-10 col-md-2">
-          <md-button ng-if="ctrl.model.isEditMode" type="submit" class="md-raised md-primary">
-            <i class="glyphicon glyphicon-floppy-disk p-r-5" />Salvar
-          </md-button>
-          <md-button ng-if="!ctrl.model.isEditMode" ng-click="ctrl.edit()" class="md-raised md-primary">
+        <div class="col-md-offset-10 col-md-2" ng-if="!ctrl.model.isEditMode">
+          <md-button ng-click="ctrl.edit()" class="md-raised md-primary">
             <i class="glyphicon glyphicon-pencil p-r-5" />Editar
+          </md-button>
+        </div>
+        <div class="col-md-offset-8 col-md-2" ng-if="ctrl.model.isEditMode">
+          <md-button ng-click="ctrl.cancel()" class="md-raised md-warn">
+            <i class="glyphicon glyphicon-remove p-r-5" />Cancelar
+          </md-button>
+        </div>
+        <div class="col-md-2" ng-if="ctrl.model.isEditMode">
+          <md-button type="submit" class="md-raised md-primary">
+            <i class="glyphicon glyphicon-floppy-disk p-r-5" />Salvar
           </md-button>
         </div>
       </div>

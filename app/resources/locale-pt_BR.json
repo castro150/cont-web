@@ -22,5 +22,6 @@
     "customer.view.status.active": "Ativo",
     "customer.view.status.inactive": "Inativo",
     "customer.view.status.paralyzed": "Paralisado",
-    "customer.view.status.closing": "Em Processo de Baixa"
+    "customer.view.status.closing": "Em Processo de Baixa",
+    "customer.view.update.success": "Usu\u00E1rio atualizado com sucesso!"
 }

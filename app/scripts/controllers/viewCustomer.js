@@ -29,6 +29,7 @@
 		ctrl.removeContactByIndex = removeContactByIndex;
 		ctrl.removePartnerByIndex = removePartnerByIndex;
 		ctrl.updateCustomer = updateCustomer;
+		ctrl.cancel = cancel;
 
 		// ******************************
 		// Init method
@@ -121,8 +122,24 @@
 			}
 			populateAccessoryObligations(ctrl.model.customer);
 
-			// TODO fazer isso após o sucesso da requisição
-			ctrl.model.isEditMode = false;
+			CustomerService.update(ctrl.model.customer._id, ctrl.model.customer).then(function() {
+				ctrl.model.isEditMode = false;
+				successAlert($filter('translate')('customer.view.update.success'));
+				$location.hash('alerts');
+				$anchorScroll();
+			}, function(response) {
+				if (response.status === -1) {
+					dangerAlert($filter('translate')('errors.unavailable.service'));
+				} else {
+					dangerAlert($filter('translate')('errors.unexpected'));
+				}
+				$location.hash('alerts');
+				$anchorScroll();
+			});
+		}
+
+		function cancel() {
+			init();
 		}
 
 		// ******************************

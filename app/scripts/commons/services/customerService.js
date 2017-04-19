@@ -18,10 +18,15 @@
 			return $http.get(customerUrl + '/' + id);
 		}
 
+		function update(id, customer) {
+			return $http.put(customerUrl + '/' + id, customer);
+		}
+
 		return {
 			create: create,
 			findAllActive: findAllActive,
-			findById: findById
+			findById: findById,
+			update: update
 		};
 	}
 })();
