@@ -216,11 +216,48 @@
         </div>
       </md-card-content>
     </md-card>
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Informações Tributárias</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Tributação Federal: Lucro Presumido</label>
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>IRPJ</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="irpj" ng-model="ctrl.model.customer.irpj" />
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>CSSL</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="cssl" ng-model="ctrl.model.customer.cssl" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Tributação Estadual</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="stateTax" ng-model="ctrl.model.customer.stateTax" />
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
   </md-tab>
 
   <md-tab label="Obrigações Acessórias">
     <div class="row p-15">
-      <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations['customer.type.pj.sn']">
+      <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations['customer.type.pj.lp']">
         <md-input-container class="md-block">
           <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="teste" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
             {{ao}}
@@ -229,4 +266,5 @@
       </div>
     </div>
   </md-tab>
+
 </md-tabs>
