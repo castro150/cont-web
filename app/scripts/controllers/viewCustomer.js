@@ -24,6 +24,7 @@
 		ctrl.edit = edit;
 		ctrl.isSn = isSn;
 		ctrl.isLp = isLp;
+		ctrl.isPl = isPl;
 		ctrl.updateContacts = updateContacts;
 		ctrl.updatePartners = updatePartners;
 		ctrl.removeContactByIndex = removeContactByIndex;
@@ -93,6 +94,10 @@
 
 		function isLp() {
 			return ctrl.model.customer.type === PJ_LP_KEY;
+		}
+
+		function isPl() {
+			return ctrl.model.customer.type === PF_PL_KEY;
 		}
 
 		function updateContacts() {
