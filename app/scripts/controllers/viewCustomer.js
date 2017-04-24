@@ -27,6 +27,8 @@
 		ctrl.isLp = isLp;
 		ctrl.isPl = isPl;
 		ctrl.isEd = isEd;
+		ctrl.addCnae2 = addCnae2;
+		ctrl.removeCnae2 = removeCnae2;
 		ctrl.updateContacts = updateContacts;
 		ctrl.updatePartners = updatePartners;
 		ctrl.removeContactByIndex = removeContactByIndex;
@@ -104,6 +106,14 @@
 
 		function isEd() {
 			return ctrl.model.customer.type === PF_ED_KEY;
+		}
+
+		function addCnae2() {
+			ctrl.model.customer.cnae2.push('');
+		}
+
+		function removeCnae2(index) {
+			ctrl.model.customer.cnae2.splice(index, 1);
 		}
 
 		function updateContacts() {
@@ -201,6 +211,9 @@
 			}
 			ctrl.model.contactQuantity = ctrl.model.customer.contacts.length;
 			ctrl.model.partnerQuantity = ctrl.model.customer.partners.length;
+			if (!ctrl.model.customer.cnae2 || ctrl.model.customer.cnae2.length === 0) {
+				ctrl.model.customer.cnae2.push('');
+			}
 			updateContacts();
 			updatePartners();
 			updateAccessoryObligations();

@@ -176,11 +176,23 @@
         </md-input-container>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row" ng-repeat="cnae2 in ctrl.model.customer.cnae2 track by $index">
+      <div ng-if="$index === 0" class="col-md-1">
+        <md-button ng-disabled="!ctrl.model.isEditMode" class="md-fab md-primary" ng-click="ctrl.addCnae2()">
+          <i class="glyphicon glyphicon-plus" />
+          <md-tooltip>Adicionar novo CNAE Secundário</md-tooltip>
+        </md-button>
+      </div>
+      <div ng-if="$index !== 0" class="col-md-1">
+        <md-button ng-disabled="!ctrl.model.isEditMode" class="md-fab md-warn" ng-click="ctrl.removeCnae2($index)">
+          <i class="glyphicon glyphicon-minus" />
+          <md-tooltip>Remover CNAE Secundário</md-tooltip>
+        </md-button>
+      </div>
+      <div class="col-md-11">
         <md-input-container class="md-block">
           <label>CNAE Secundário</label>
-          <input ng-disabled="!ctrl.model.isEditMode" name="cnae2" ng-model="ctrl.model.customer.cnae2" />
+          <input ng-disabled="!ctrl.model.isEditMode" name="cnae2" ng-model="ctrl.model.customer.cnae2[$index]" />
         </md-input-container>
       </div>
     </div>
