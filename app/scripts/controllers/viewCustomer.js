@@ -13,6 +13,7 @@
 		var ctrl = this;
 
 		var PF_PL_KEY = 'customer.type.pf.pl';
+		var PF_ED_KEY = 'customer.type.pf.ed';
 		var PJ_SN_KEY = 'customer.type.pj.sn';
 		var PJ_LP_KEY = 'customer.type.pj.lp';
 
@@ -25,6 +26,7 @@
 		ctrl.isSn = isSn;
 		ctrl.isLp = isLp;
 		ctrl.isPl = isPl;
+		ctrl.isEd = isEd;
 		ctrl.updateContacts = updateContacts;
 		ctrl.updatePartners = updatePartners;
 		ctrl.removeContactByIndex = removeContactByIndex;
@@ -98,6 +100,10 @@
 
 		function isPl() {
 			return ctrl.model.customer.type === PF_PL_KEY;
+		}
+
+		function isEd() {
+			return ctrl.model.customer.type === PF_ED_KEY;
 		}
 
 		function updateContacts() {

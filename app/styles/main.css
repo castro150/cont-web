@@ -106,6 +106,10 @@ md-toolbar h3 {
   padding-top: 5px;
 }
 
+.main-backgroud {
+	background-color: #eee;
+}
+
 .sidenav-button {
   width: 100%;
 }
