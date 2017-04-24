@@ -25,7 +25,7 @@
 				}
 			};
 		})
-		.directive('slideToggle', ['$document', function($document) {
+		.directive('slideToggle', function($document) {
 			return {
 				restrict: 'A',
 				link: function(scope, element, attrs) {
@@ -47,17 +47,8 @@
 						}
 						attrs.expanded = !attrs.expanded;
 					});
-
-					$document.bind('click', function(event) {
-						var clickedElement = event.target;
-						var directiveElement = element[0];
-						if (clickedElement !== directiveElement) {
-							target.style.height = '0px';
-							attrs.expanded = false;
-						}
-					});
 				}
 			}
-		}]);
+		});
 
 })();
