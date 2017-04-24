@@ -18,6 +18,8 @@
 		ctrl.closeAlert = closeAlert;
 
 		ctrl.updateType = updateType;
+		ctrl.addCnae2 = addCnae2;
+		ctrl.removeCnae2 = removeCnae2;
 		ctrl.updateContacts = updateContacts;
 		ctrl.updatePartners = updatePartners;
 		ctrl.createCustomer = createCustomer;
@@ -82,6 +84,14 @@
 			ctrl.model.createProgress = 50;
 		}
 
+		function addCnae2() {
+			ctrl.model.customer.cnae2.push('');
+		}
+
+		function removeCnae2(index) {
+			ctrl.model.customer.cnae2.splice(index, 1);
+		}
+
 		function updateContacts() {
 			ctrl.model.contacts = Array.from(Array(parseInt(ctrl.model.contactQuantity)).keys());
 		}
@@ -121,6 +131,7 @@
 			ctrl.model.customer = {};
 			ctrl.model.customer.contacts = [];
 			ctrl.model.customer.partners = [];
+			ctrl.model.customer.cnae2 = [''];
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();
 			ctrl.model.startActivityDate = new Date();
