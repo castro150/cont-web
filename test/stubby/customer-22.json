@@ -1,0 +1,109 @@
+{ 
+    "_id" : "58ef6c7b14a28816e63a590f", 
+    "number" : 22, 
+    "name" : "SOLUÇÕES ROCHEDO INTERMEDIAÇÃO DE NEGOCIOS LTDA- EPP", 
+    "cnpj" : "23113753000109", 
+    "companyName" : "Rochedo", 
+    "municipalRegist" : "0.731.754/001-4", 
+    "stateRegist" : "Isento", 
+    "shareCapital" : "R$ 10.000,00", 
+    "address" : "Av. Abilio Machado,nº. 1.345 loja 4", 
+    "district" : "Gloria", 
+    "city" : "Belo Horizonte", 
+    "state" : "MG", 
+    "cep" : "30830233", 
+    "cnae" : "74.90-1-04 Atividade de intermediação e agenciamento de serviços e negocios em geral,exeto imobiliario", 
+    "cnae2" : [
+        "66.19-3-02  correspondentes de instituições financeiras"
+    ], 
+    "nirc" : "JUCEMG nº 31210469914 em21/08/2015", 
+    "gpsCode" : "2003", 
+    "management" : "ALYSSON e ANDERSON  assinam em conjunto ou  isoladamente", 
+    "registryOffice" : "Allyson e Anderson = Jaguarão", 
+    "status" : "active", 
+    "type" : "customer.type.pj.sn", 
+    "startServiceDate" : "2015-08-21T12:09:19.661+0000", 
+    "startActivityDate" : "2015-08-21T12:09:19.661+0000", 
+    "accessoryObligations" : [
+        {
+            "_id" : "58fe1b2d864c8b2ac0c22092", 
+            "name" : "DES", 
+            "activationDate" : "2017-04-24T15:35:09.143+0000"
+        }, 
+        {
+            "_id" : "58fe1b2d864c8b2ac0c22091", 
+            "name" : "DAPISN", 
+            "activationDate" : "2017-04-24T15:35:09.143+0000"
+        }, 
+        {
+            "_id" : "58fe1b2d864c8b2ac0c22090", 
+            "name" : "VAFSN", 
+            "activationDate" : "2017-04-24T15:35:09.143+0000"
+        }, 
+        {
+            "_id" : "58fe1b2d864c8b2ac0c2208f", 
+            "name" : "DASN", 
+            "activationDate" : "2017-04-24T15:35:09.143+0000"
+        }, 
+        {
+            "_id" : "58fe1b2d864c8b2ac0c2208e", 
+            "name" : "RAIS", 
+            "activationDate" : "2017-04-24T15:35:09.143+0000"
+        }
+    ], 
+    "partners" : [
+        {
+            "name" : "ALYSSON LELIS TAVARES", 
+            "identity" : "MG-11.356.142", 
+            "cpf" : "01254950648", 
+            "participation" : "99,00%", 
+            "_id" : "58ef6c7b14a28816e63a5916"
+        }, 
+        {
+            "name" : "ANDERSON LELIS TAVARES", 
+            "identity" : "MG -11.356.153", 
+            "cpf" : "06123411608", 
+            "participation" : "1,00%", 
+            "_id" : "58ef6c7b14a28816e63a5915"
+        }
+    ], 
+    "contacts" : [
+        {
+            "name" : "Allyson", 
+            "email" : "alyssonlt@gmail.com", 
+            "tel" : "25340005", 
+            "_id" : "58ef6c7b14a28816e63a591c"
+        }, 
+        {
+            "name" : "Tavares", 
+            "tel" : "", 
+            "cel" : "98509-5000", 
+            "_id" : "58ef6c7b14a28816e63a591b"
+        }, 
+        {
+            "name" : "Anderson (DP)", 
+            "email" : "barao@tavaresveiculos.com", 
+            "cel" : "98704-5282", 
+            "_id" : "58ef6c7b14a28816e63a591a"
+        }, 
+        {
+            "name" : "Rafaela (Gerente ADM)", 
+            "cel" : "98872-4085", 
+            "email" : "adm01@grupotvr.com.br", 
+            "_id" : "58ef6c7b14a28816e63a5919"
+        }, 
+        {
+            "name" : "Fabio (Gerente ADM)", 
+            "cel" : "99351-7152", 
+            "email" : "adm02@grupotvr.com.br", 
+            "_id" : "58ef6c7b14a28816e63a5918"
+        }, 
+        {
+            "name" : "Grabriele (Fiscal)", 
+            "email" : "financeiro@solucoesrochedo.com", 
+            "_id" : "58ef6c7b14a28816e63a5917"
+        }
+    ], 
+    "__v" : 0, 
+    "cae" : ""
+}

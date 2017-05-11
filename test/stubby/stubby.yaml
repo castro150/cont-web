@@ -59,3 +59,54 @@
             content-type: application/json
         file: fill-fields.json
         
+
+##### CREATE CUSTOMER #####
+-   request:
+        url: /customer
+        method: POST
+        post: number":.32
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-32.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.3
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-3.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.22
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-22.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.503
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-503.json
+
+-   request:
+        url: /customer
+        method: POST
+    response:
+        status: 400
+        headers:
+            content-type: application/json
+        file: msg-number-used.json
+        
