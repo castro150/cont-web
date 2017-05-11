@@ -1,0 +1,61 @@
+##### LOGIN #####
+-   request:
+        url: /login
+        method: POST
+        post: \{\s*"username":."admin".+\s*"password":."admin"\s\}
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: token.json
+        
+-   request:
+        url: /login
+        method: POST
+        post: \{\s*"username":."admin".+\s*"password":."pwd"\s\}
+    response:
+        status: 401
+        headers:
+            content-type: application/json
+        file: msg-incorrect-pwd.json
+        
+-   request:
+        url: /login
+        method: POST
+    response:
+        status: 401
+        headers:
+            content-type: application/json
+        file: msg-incorrect-user.json
+        
+
+##### REGISTER #####
+-   request:
+        url: /register
+        method: POST
+        post: \{\s*"username":."user".+\s*"password":."pwd"\s\}
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: token.json
+        
+-   request:
+        url: /register
+        method: POST
+        post: \{\s*"username":."admin".+\s*"password":."admin"\s\}
+    response:
+        status: 500
+        headers:
+            content-type: application/json
+        file: user-exists.json
+        
+-   request:
+        url: /register
+        method: POST
+    response:
+        status: 400
+        headers:
+            content-type: application/json
+        file: fill-fields.json
+        
