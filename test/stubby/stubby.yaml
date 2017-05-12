@@ -45,6 +45,16 @@
 ##### REGISTER #####
 -   request:
         url: /register
+        method: OPTIONS
+    response:
+        status: 200
+        headers:
+            content-type: text/html; charset=utf-8
+            allow: POST
+        body: 'POST'
+
+-   request:
+        url: /register
         method: POST
         post: username":.*"user".+"password":.*"pwd
     response:
@@ -74,6 +84,16 @@
         
 
 ##### CREATE CUSTOMER #####
+-   request:
+        url: /customer
+        method: OPTIONS
+    response:
+        status: 200
+        headers:
+            content-type: text/html; charset=utf-8
+            allow: POST, GET, PUT
+        body: 'POST, GET, PUT'
+
 -   request:
         url: /customer
         method: POST
