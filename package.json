@@ -47,6 +47,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "selenium": "webdriver-manager start",
+    "stubby": "stubby -d test/stubby/stubby.yaml -s 3000 -w",
+    "e2e-up": "npm run selenium & npm run stubby"
   }
 }

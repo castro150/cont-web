@@ -551,6 +551,12 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('e2e-test', [
+    'clean:server',
+    'ngconstant:development',
+    'wiredep',
+    'concurrent:server',
+    'postcss:server',
+    'connect:test',
     'protractor:e2e'
   ]);
 };

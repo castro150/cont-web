@@ -17,7 +17,7 @@
               <md-card-content>
                 <md-input-container class="md-block">
                   <label>Usuário</label>
-                  <input required md-no-asterisk name="user" ng-model="ctrl.model.user.username">
+                  <input id="user" required md-no-asterisk name="user" ng-model="ctrl.model.user.username">
                   <div ng-messages="projectForm.user.$error">
                     <div ng-message="required">Campo obrigatório</div>
                   </div>
@@ -25,18 +25,18 @@
 
                 <md-input-container class="md-block">
                   <label>Senha</label>
-                  <input type="password" required md-no-asterisk name="password" ng-model="ctrl.model.user.password">
+                  <input id="password" type="password" required md-no-asterisk name="password" ng-model="ctrl.model.user.password">
                   <div ng-messages="projectForm.password.$error">
                     <div ng-message="required">Campo obrigatório</div>
                   </div>
                 </md-input-container>
 
                 <div>
-                  <md-button type="submit" class="md-raised md-primary"
+                  <md-button id="enter" type="submit" class="md-raised md-primary"
                       ng-disabled="!ctrl.isRequiredFieldsFilled()">
                     Entrar
                   </md-button>
-                  <md-button ng-click="ctrl.clearFields()" class="md-raised md-button">
+                  <md-button id="clean" ng-click="ctrl.clearFields()" class="md-raised md-button">
                     Limpar
                   </md-button>
                 </div>
