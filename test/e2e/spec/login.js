@@ -9,6 +9,7 @@ describe('Login page test', function() {
 	var pwdInput = element(by.id('password'));
 	var enterButton = element(by.id('enter'));
 	var cleanButton = element(by.id('clean'));
+	var alerts = element.all(by.id('danger-alert'));
 
 	beforeEach(function() {
 		browser.get('http://localhost:9001/#/');
@@ -28,5 +29,31 @@ describe('Login page test', function() {
 		cleanButton.click();
 		expect(userInput.getText()).toEqual('');
 		expect(pwdInput.getText()).toEqual('');
+	});
+
+	it('Wrong user should notify', function() {
+		userInput.sendKeys('user');
+		pwdInput.sendKeys('admin');
+		enterButton.click();
+
+		expect(alerts.count()).toEqual(1);
+		expect(alerts.first().getText()).toContain('Usuário/Senha inválidos');
+	});
+
+	it('Wrong password should notify', function() {
+		userInput.sendKeys('admin');
+		pwdInput.sendKeys('pwd');
+		enterButton.click();
+
+		expect(alerts.count()).toEqual(1);
+		expect(alerts.first().getText()).toContain('Usuário/Senha inválidos');
+	});
+
+	it('Correct credentials should login', function() {
+		userInput.sendKeys('admin');
+		pwdInput.sendKeys('admin');
+		enterButton.click();
+
+		expect(alerts.count()).toEqual(0);
 	});
 });
