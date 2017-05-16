@@ -11,7 +11,7 @@
     "errors.unauthorized.expired": "Sess\u00E3o expirada! Redirecionando para Login.",
     "errors.unauthorized.others": "Acesso negado! Redirecionando para Login.",
     "errors.unavailable.service": "Servi\u00E7o indispon\u00EDvel.",
-    "customer.type.pf.pl": "Proficional Liberal",
+    "customer.type.pf.pl": "Profissional Liberal",
     "customer.type.pf.ed": "Empregador Dom\u00E9stico",
     "customer.type.pj.sn": "Simples Nacional",
     "customer.type.pj.lp": "Lucro Presumido",

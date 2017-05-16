@@ -17,7 +17,7 @@
     <div class="col-md-offset-4 col-md-4">
       <md-input-container class="md-block" flex-gt-sm>
         <label>Tipo</label>
-        <md-select ng-model="ctrl.selected.type" ng-change="ctrl.updateType()">
+        <md-select id="type-combo" ng-model="ctrl.selected.type" ng-change="ctrl.updateType()">
           <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option.value}}">
             {{option.name}}
           </md-option>

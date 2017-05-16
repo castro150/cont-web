@@ -46,7 +46,7 @@
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Início dos Serviços</label>
-            <md-datepicker ng-model="ctrl.model.startServiceDate" md-current-view="year"
+            <md-datepicker name="startServiceDate" ng-model="ctrl.model.startServiceDate" md-current-view="year"
                 md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
           </md-input-container>
         </div>
@@ -99,7 +99,7 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>Observações</label>
-            <textarea ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+            <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>
@@ -110,7 +110,7 @@
     <md-card-content>
       <div class="row">
         <div class="col-md-offset-10 col-md-2">
-          <md-button type="submit" class="md-raised md-primary">
+          <md-button id="create-btn" type="submit" class="md-raised md-primary">
             Cadastrar
           </md-button>
         </div>

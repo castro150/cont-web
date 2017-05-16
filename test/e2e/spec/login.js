@@ -1,9 +1,3 @@
-/*LOGIN
-botão de limpar,
-Usuário errado,
-senha errada,
-sucesso*/
-
 describe('Login page test', function() {
 	var userInput = element(by.id('user'));
 	var pwdInput = element(by.id('password'));
