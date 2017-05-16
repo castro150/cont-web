@@ -1,4 +1,4 @@
-describe('Create customer ED test', function() {
+describe('Create customer PL test', function() {
 	var createBtn = element(by.id('create-btn'));
 	var successMsg = element(by.id('success-msg'));
 
@@ -6,6 +6,7 @@ describe('Create customer ED test', function() {
 	var customerName = element(by.name('customerName'));
 	var cpf = element(by.name('cpf'));
 	var customerAlterNumber = element(by.name('customerAlterNumber'));
+	var customerSpecialty = element(by.name('customerSpecialty'));
 	var startServiceDate = element(by.name('startServiceDate'));
 	var customerAddress = element(by.name('customerAddress'));
 	var customerDistrict = element(by.name('customerDistrict'));
@@ -23,14 +24,16 @@ describe('Create customer ED test', function() {
 	var contactCel1 = element(by.name('contactCel1'));
 	var cei = element(by.name('cei'));
 	var gpsCode = element(by.name('gpsCode'));
-	var accessCode = element(by.name('accessCode'));
-	var accessPassword = element(by.name('accessPassword'));
+	var municipalRegist = element(by.name('municipalRegist'));
+	var crmCro = element(by.name('crmCro'));
 	var obs = element(by.name('obs'));
+	var registryOffice = element(by.name('registryOffice'));
+	var ao = element(by.name('ao2'));
 
 	beforeEach(function() {
 		browser.get('http://localhost:9001/#/cadastro/pf');
 		element(by.id('type-combo')).click();
-		$('[value="customer.type.pf.ed"]').click();
+		$('[value="customer.type.pf.pl"]').click();
 	});
 
 	it('Try to create without all needed fields should return error', function() {
@@ -42,6 +45,7 @@ describe('Create customer ED test', function() {
 		customerNumber.sendKeys('503');
 		customerName.sendKeys('ADRIANA CARVALHO FERREIRA');
 		cpf.sendKeys('86798584677');
+		customerSpecialty.sendKeys('Vendedor');
 		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
@@ -60,6 +64,7 @@ describe('Create customer ED test', function() {
 		customerNumber.sendKeys('503');
 		customerName.sendKeys('ADRIANA CARVALHO FERREIRA');
 		cpf.sendKeys('86798584677');
+		customerSpecialty.sendKeys('Vendedor');
 		customerAlterNumber.sendKeys('972');
 		startServiceDate.sendKeys('01/01/2015');
 		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
@@ -79,9 +84,11 @@ describe('Create customer ED test', function() {
 		contactCel1.sendKeys('999999999');
 		cei.sendKeys('123456');
 		gpsCode.sendKeys('2108');
-		accessCode.sendKeys('1111');
-		accessPassword.sendKeys('passcode');
+		municipalRegist.sendKeys('111111111');
+		crmCro.sendKeys('123987456');
 		obs.sendKeys('Just an observation');
+		registryOffice.sendKeys('JAGUARÃO');
+		ao.click();
 
 		createBtn.click();
 		expect(successMsg.isPresent()).toBe(true);
