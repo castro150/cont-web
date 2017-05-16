@@ -97,7 +97,7 @@
 -   request:
         url: /customer
         method: POST
-        post: number":.32
+        post: number":.*32
     response:
         status: 201
         headers:
@@ -107,7 +107,7 @@
 -   request:
         url: /customer
         method: POST
-        post: number":.3
+        post: number":.*3
     response:
         status: 201
         headers:
@@ -117,7 +117,7 @@
 -   request:
         url: /customer
         method: POST
-        post: number":.22
+        post: number":.*22
     response:
         status: 201
         headers:
@@ -127,7 +127,7 @@
 -   request:
         url: /customer
         method: POST
-        post: number":.503
+        post: number":.*503
     response:
         status: 201
         headers:
