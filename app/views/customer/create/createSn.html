@@ -34,14 +34,14 @@
           <div class="col-md-4">
             <md-input-container class="md-block">
               <label>Início dos Serviços</label>
-              <md-datepicker ng-model="ctrl.model.startServiceDate" md-current-view="year"
+              <md-datepicker name="startServiceDate" ng-model="ctrl.model.startServiceDate" md-current-view="year"
                   md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
             </md-input-container>
           </div>
           <div class="col-md-4">
             <md-input-container class="md-block">
               <label>Início das Atividades</label>
-              <md-datepicker ng-model="ctrl.model.startActivityDate" md-current-view="year"
+              <md-datepicker name="startActivityDate" ng-model="ctrl.model.startActivityDate" md-current-view="year"
                   md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
             </md-input-container>
           </div>
@@ -147,7 +147,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Observações</label>
-              <textarea ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+              <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
             </md-input-container>
           </div>
         </div>
@@ -161,13 +161,13 @@
         </div>
         <div class="row" ng-repeat="cnae2 in ctrl.model.customer.cnae2 track by $index">
           <div ng-if="$index === 0" class="col-md-1">
-            <md-button class="md-fab md-primary" ng-click="ctrl.addCnae2()">
+            <md-button name="add-cnae" class="md-fab md-primary" ng-click="ctrl.addCnae2()">
               <i class="glyphicon glyphicon-plus" />
               <md-tooltip>Adicionar novo CNAE Secundário</md-tooltip>
             </md-button>
           </div>
           <div ng-if="$index !== 0" class="col-md-1">
-            <md-button class="md-fab md-warn" ng-click="ctrl.removeCnae2($index)">
+            <md-button name="remove-cnae" class="md-fab md-warn" ng-click="ctrl.removeCnae2($index)">
               <i class="glyphicon glyphicon-minus" />
               <md-tooltip>Remover CNAE Secundário</md-tooltip>
             </md-button>
@@ -224,7 +224,7 @@
         <div class="row">
           <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations.sn">
             <md-input-container class="md-block">
-              <md-checkbox name="teste" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
+              <md-checkbox name="ao{{$index}}" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
                 {{ao}}
               </md-checkbox>
             </md-input-container>
@@ -237,7 +237,7 @@
       <md-card-content>
         <div class="row">
           <div class="col-md-offset-10 col-md-2">
-            <md-button type="submit" class="md-raised md-primary">
+            <md-button id="create-btn" type="submit" class="md-raised md-primary">
               Cadastrar
             </md-button>
           </div>
