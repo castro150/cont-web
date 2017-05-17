@@ -212,6 +212,7 @@
 			ctrl.model.contactQuantity = ctrl.model.customer.contacts.length;
 			ctrl.model.partnerQuantity = ctrl.model.customer.partners.length;
 			if (!ctrl.model.customer.cnae2 || ctrl.model.customer.cnae2.length === 0) {
+				ctrl.model.customer.cnae2 = [];
 				ctrl.model.customer.cnae2.push('');
 			}
 			updateContacts();

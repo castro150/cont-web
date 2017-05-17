@@ -144,7 +144,7 @@
     <div class="row p-15">
       <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations['customer.type.pf.pl']">
         <md-input-container class="md-block">
-          <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="teste" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
+          <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="ao{{$index}}" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
             {{ao}}
           </md-checkbox>
         </md-input-container>
