@@ -155,32 +155,27 @@ describe('Create customer LP test', function() {
 		expect(successAlerts.count()).toBe(1);
 	});
 
-	// TODO
-	// it('Edit ED customer should be possible and all informations ok', function() {
-	//  browser.sleep(1000000);
-	// 	$('[href="#/clientes/58ef6a6c14a28816e63a590b"]').click();
-	// 	expect(tabs.count()).toBe(10);
-	// 	expect(customerName.isEnabled()).toBe(false);
-	// 	expect(customerAddress.isEnabled()).toBe(false);
-	// 	expect(contactName0.isEnabled()).toBe(false);
-	// 	expect(cei.isEnabled()).toBe(false);
-	//
-	// 	editBtn.click();
-	// 	customerName.sendKeys('2');
-	//
-	// 	tabs.get(1).click();
-	// 	customerAddress.sendKeys('a');
-	//
-	// 	tabs.get(2).click();
-	// 	contactName0.sendKeys('a');
-	//
-	// 	tabs.get(3).click();
-	// 	cei.sendKeys('7');
-	//
-	// 	tabs.get(4).click();
-	// 	ao.click();
-	//
-	// 	saveBtn.click();
-	// 	expect(successAlerts.count()).toBe(1);
-	// });
+	it('Edit ED customer should be possible and all informations ok', function() {
+		$('[href="#/clientes/58ef699214a28816e63a5909"]').click();
+		expect(tabs.count()).toBe(8);
+		expect(customerName.isEnabled()).toBe(false);
+		expect(customerAddress.isEnabled()).toBe(false);
+		expect(contactName0.isEnabled()).toBe(false);
+		expect(cei.isEnabled()).toBe(false);
+
+		editBtn.click();
+		customerName.sendKeys('2');
+
+		tabs.get(1).click();
+		customerAddress.sendKeys('a');
+
+		tabs.get(2).click();
+		contactName0.sendKeys('a');
+
+		tabs.get(3).click();
+		cei.sendKeys('7');
+
+		saveBtn.click();
+		expect(successAlerts.count()).toBe(1);
+	});
 });
