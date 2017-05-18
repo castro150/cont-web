@@ -15,6 +15,7 @@
     "customer.type.pf.ed": "Empregador Dom\u00E9stico",
     "customer.type.pj.sn": "Simples Nacional",
     "customer.type.pj.lp": "Lucro Presumido",
+    "customer.type.cond": "Condom\u00EDnio",
     "customer.veiw.customers": "Clientes",
     "customer.details": "Detalhes de Cliente",
     "create.customer.success": "Cliente cadastrado com sucesso!",

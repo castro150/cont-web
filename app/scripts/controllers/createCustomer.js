@@ -20,6 +20,8 @@
 		ctrl.updateType = updateType;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
+		ctrl.addSyndic = addSyndic;
+		ctrl.removeSyndic = removeSyndic;
 		ctrl.updateContacts = updateContacts;
 		ctrl.updatePartners = updatePartners;
 		ctrl.createCustomer = createCustomer;
@@ -46,6 +48,7 @@
 			ctrl.accessoryObligations.pl = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
 			ctrl.accessoryObligations.sn = ['DES', 'SINTEGRA', 'DESTDA', 'DEFIS', 'DIRF', 'DAPISN', 'VAFSN', 'DASN', 'RAIS'];
 			ctrl.accessoryObligations.lp = ['DAPI', 'SINTEGRA', 'VAF/DAMEF', 'DES', 'DIRF', 'DIPJ', 'DCTF', 'Sped Contribuições', 'Sped Fiscal', 'RAIS', 'ECF', 'ECD', 'DIMOB', 'DIMED'];
+			ctrl.accessoryObligations.cond = ['DES', 'RAIS'];
 		}
 
 		// ******************************
@@ -92,6 +95,14 @@
 			ctrl.model.customer.cnae2.splice(index, 1);
 		}
 
+		function addSyndic() {
+			ctrl.model.customer.syndics.push({});
+		}
+
+		function removeSyndic(index) {
+			ctrl.model.customer.syndics.splice(index, 1);
+		}
+
 		function updateContacts() {
 			ctrl.model.contacts = Array.from(Array(parseInt(ctrl.model.contactQuantity)).keys());
 		}
@@ -131,6 +142,7 @@
 			ctrl.model.customer = {};
 			ctrl.model.customer.contacts = [];
 			ctrl.model.customer.partners = [];
+			ctrl.model.customer.syndics = [{}];
 			ctrl.model.customer.cnae2 = [''];
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();

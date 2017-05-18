@@ -127,6 +127,22 @@
 						return 'customer.type.pj.lp';
 					}
 				}
+			}).state('cadastro-cond', {
+				url: '/cadastro/cond',
+				templateUrl: 'views/customer/create/createCond.html',
+				controller: 'CreateCustomerCtrl',
+				controllerAs: 'ctrl',
+				onEnter: ['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+					$rootScope.isLoginState = false;
+					if (!AuthService.isLoggedIn()) {
+						$location.path('/login');
+					}
+				}],
+				resolve: {
+					type: function() {
+						return 'customer.type.cond';
+					}
+				}
 			}).state('cadastro-sucesso', {
 				url: '/cadastro/sucesso',
 				templateUrl: 'views/customer/create/success.html',
