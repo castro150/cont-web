@@ -16,6 +16,7 @@
 		var PF_ED_KEY = 'customer.type.pf.ed';
 		var PJ_SN_KEY = 'customer.type.pj.sn';
 		var PJ_LP_KEY = 'customer.type.pj.lp';
+		var COND_KEY = 'customer.type.cond';
 
 		ctrl.dangerAlert = dangerAlert;
 		ctrl.warningAlert = warningAlert;
@@ -27,6 +28,7 @@
 		ctrl.isLp = isLp;
 		ctrl.isPl = isPl;
 		ctrl.isEd = isEd;
+		ctrl.isCond = isCond;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
 		ctrl.updateContacts = updateContacts;
@@ -108,6 +110,10 @@
 			return ctrl.model.customer.type === PF_ED_KEY;
 		}
 
+		function isCond() {
+			return ctrl.model.customer.type === COND_KEY;
+		}
+
 		function addCnae2() {
 			ctrl.model.customer.cnae2.push('');
 		}
@@ -185,6 +191,7 @@
 			ctrl.accessoryObligations[PF_PL_KEY] = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
 			ctrl.accessoryObligations[PJ_SN_KEY] = ['DES', 'SINTEGRA', 'DESTDA', 'DEFIS', 'DIRF', 'DAPISN', 'VAFSN', 'DASN', 'RAIS'];
 			ctrl.accessoryObligations[PJ_LP_KEY] = ['DAPI', 'SINTEGRA', 'VAF/DAMEF', 'DES', 'DIRF', 'DIPJ', 'DCTF', 'Sped Contribuições', 'Sped Fiscal', 'RAIS', 'ECF', 'ECD', 'DIMOB', 'DIMED'];
+			ctrl.accessoryObligations[COND_KEY] = ['DES', 'RAIS'];
 		}
 
 		function findCustomer() {
@@ -229,6 +236,10 @@
 					{
 						name: $filter('translate')('customer.type.pj.sn'),
 						value: 'customer.type.pj.sn'
+					},
+					{
+						name: $filter('translate')('customer.type.cond'),
+						value: 'customer.type.cond'
 					}
 				];
 			} else {
@@ -245,7 +256,7 @@
 		}
 
 		function customerIsPj() {
-			return isSn() || isLp();
+			return isSn() || isLp() || isCond();
 		}
 
 		function updateAccessoryObligations() {

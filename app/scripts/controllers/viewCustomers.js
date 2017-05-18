@@ -16,6 +16,7 @@
 		var PF_ED_KEY = 'customer.type.pf.ed';
 		var PJ_SN_KEY = 'customer.type.pj.sn';
 		var PJ_LP_KEY = 'customer.type.pj.lp';
+		var COND_KEY = 'customer.type.cond';
 
 		ctrl.dangerAlert = dangerAlert;
 		ctrl.warningAlert = warningAlert;
@@ -37,6 +38,7 @@
 			ctrl.model.translatedTypes[PF_ED_KEY] = $filter('translate')('customer.type.pf.ed');
 			ctrl.model.translatedTypes[PJ_SN_KEY] = $filter('translate')('customer.type.pj.sn');
 			ctrl.model.translatedTypes[PJ_LP_KEY] = $filter('translate')('customer.type.pj.lp');
+			ctrl.model.translatedTypes[COND_KEY] = $filter('translate')('customer.type.cond');
 
 			findAllActiveCustomers();
 			watchingToFilterCustomers();
