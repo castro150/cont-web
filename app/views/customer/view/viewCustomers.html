@@ -1,0 +1,57 @@
+<div id="view-customers">
+  <div class="row">
+    <div id="alerts" class="col-md-offset-2 col-md-8">
+      <ng-include src="'views/commons/alert.html'"></ng-include>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3>{{ :: "customer.veiw.customers" | translate}}</h3>
+    </div>
+    <div class="col-md-6 text-right">
+      <md-input-container md-no-float class="md-block">
+        <md-icon md-svg-src="images/svg/search.svg"></md-icon>
+        <input name="searchCustomer" ng-model="ctrl.model.searchCustomer" type="text" placeholder="Buscar cliente (nome ou número)">
+      </md-input-container>
+    </div>
+  </div>
+
+  <mdt-table
+      paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,50]}"
+      table-card="{isEnabled: true, title: 'Clientes Ativos'}"
+      mdt-row="{
+        'data': ctrl.model.customers,
+        'table-row-id-key': '_id',
+        'column-keys': ['number', 'alterNumber', 'name', 'cpfCnpj', 'translatedType']
+      }"
+      mdt-translations="{rowsPerPage: 'Linhas por página'}">
+
+      <mdt-header-row>
+          <mdt-column align-rule="left" column-definition="Número do cliente">
+              Número
+          </mdt-column>
+
+          <mdt-column align-rule="left" column-definition="Número do cliente no Alterdata">
+              Número Alterdata
+          </mdt-column>
+
+          <mdt-column align-rule="left" column-definition="Nome do cliente">
+              Nome
+          </mdt-column>
+
+          <mdt-column align-rule="left" column-definition="CPF ou CNPJ">
+              CPF/CNPJ
+          </mdt-column>
+
+          <mdt-column align-rule="left" column-definition="Tipo do cliente">
+              Tipo
+          </mdt-column>
+      </mdt-header-row>
+
+      <mdt-custom-cell column-key="name">
+        <a ui-sref="customer({ id: '{{rowId}}' })">{{value}}</a>
+      </mdt-custom-cell>
+
+  </mdt-table>
+</div>

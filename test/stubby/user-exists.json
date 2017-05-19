@@ -1,0 +1,4 @@
+{
+  "name": "security.register.user.already.exists",
+  "message": "insertDocument :: caused by :: 11000 E11000 duplicate key error index: sd-server.users.$username_1  dup key: { : \"admin\" }"
+}

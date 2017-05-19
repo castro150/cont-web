@@ -1,19 +1,39 @@
 {
-  "name": "cont-web",
+  "name": "simple-docfy-web",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "^1.4.0",
-    "bootstrap": "^3.2.0",
-    "angular-cookies": "^1.4.0",
-    "angular-resource": "^1.4.0",
-    "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0"
+    "angular": "1.5.11",
+    "moment": "^2.10.6",
+    "bootstrap": "^3.3.4",
+    "angular-cookies": "1.5.11",
+    "angular-resource": "1.5.11",
+    "angular-route": "1.5.11",
+    "angular-sanitize": "1.5.11",
+    "angular-animate": "1.5.11",
+    "angular-aria": "1.5.11",
+    "angular-messages": "1.5.11",
+    "angular-translate": "^2.0.0",
+    "angular-translate-loader-static-files": "^2.0.0",
+    "angular-translate-storage-local": "^2.0.0",
+    "angular-translate-handler-log": "^2.0.0",
+    "angular-dynamic-locale": "^0.1",
+    "angular-bootstrap": "^1.3.3",
+    "angular-bootstrap-calendar": "~0.19.1",
+    "angular-i18n": "^1.4.0",
+    "interact": "^1.2.6",
+    "angular-material": "^1.0.9",
+    "angular-ui-mask": "^1.8.6",
+    "angular-ui-router": "^0.2.15",
+    "md-data-table": "^2.2.0"
+  },
+  "resolutions": {
+    "angular": "1.5.11"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "contWebApp",
+  "moduleName": "simpleDocfyWebApp",
   "overrides": {
     "bootstrap": {
       "main": [

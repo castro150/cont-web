@@ -1,0 +1,141 @@
+<div id="payments">
+  <div class="row p-t-15 p-r-15">
+    <div class="alert alert-danger" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'danger'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+    <div class="alert alert-warning" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'warning'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+    <div class="alert alert-success" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'success'}">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+      <h3>Guias</h3>
+    </div>
+
+    <!--
+      CONSULTAR DOCUMENTAÇÃO EM:
+      https://material.angularjs.org/latest/demo/autocomplete
+    -->
+    <div class="col-md-offset-3 col-md-8 m-t-10">
+      <md-autocomplete
+          md-no-cache="true"
+          md-selected-item="ctrl.model.selectedCompany"
+          md-search-text="ctrl.searchText"
+          md-items="item in ctrl.querySearch(ctrl.searchText)"
+          md-selected-item-change="ctrl.changeComany(item)"
+          md-item-text="item.display"
+          md-min-length="0"
+          placeholder="Selecione uma empresa...">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          Nenhuma empresa com o nome "{{ctrl.searchText}}" foi encontrada.
+          <a ng-click="ctrl.createCompany(ctrl.searchText)">Cadastre uma.</a>
+        </md-not-found>
+      </md-autocomplete>
+    </div>
+  </div>
+
+  <!-- TODO permições de acesso de contabilidade -->
+  <div class="row m-5 p-t-10">
+    <div class="col-md-4">
+      <span class="input-label">Status dos Pagamentos</span>
+      <md-input-container class="md-block no-m-t" flex-gt-sm>
+        <md-select aria-label="md-select" ng-model="ctrl.model.selectedStatusName"
+            ng-change="ctrl.updateSelectedStatus(ctrl.model.selectedStatusName)">
+          <md-option ng-repeat="status in ctrl.status" value="{{status.display}}">
+            {{status.display}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+
+    <div class="col-md-3">
+      <span class="input-label">Data de Vencimento Inicial</span>
+      <md-input-container class="md-block no-m-t" flex-gt-sm>
+        <input aria-label="input" ng-model="ctrl.model.initialDate" ui-mask="99/99/9999">
+      </md-input-container>
+    </div>
+
+    <div class="col-md-3">
+      <span class="input-label">Data de Vencimento Final</span>
+      <md-input-container class="md-block no-m-t" flex-gt-sm>
+        <input aria-label="input" ng-model="ctrl.model.finalDate" ui-mask="99/99/9999">
+      </md-input-container>
+    </div>
+
+    <div class="col-md-2">
+      <md-button class="md-raised md-primary" ng-click="ctrl.filterPayments()">
+        <i class="glyphicon glyphicon-filter p-r-5" />Filtrar
+      </md-button>
+    </div>
+
+    <div class="col-md-3">
+      <md-button class="md-raised md-primary" ng-click="ctrl.registerPayment()">
+        <i class="glyphicon glyphicon-plus p-r-5" />Adicioanar Guia
+      </md-button>
+    </div>
+  </div>
+
+  <div class="row p-t-15">
+    <div class="col-md-4" ng-repeat="payment in ctrl.model.payments">
+      <md-card>
+        <div ng-if="ctrl.isPaid(payment)" class="p-10 payment-card-alert payment-card-alert-paid">
+          <i class="glyphicon glyphicon-ok payment-card-icon" />
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
+        </div>
+        <div ng-if="ctrl.isOverdue(payment)" class="p-10 payment-card-alert payment-card-alert-overdue">
+          <i class="glyphicon glyphicon-exclamation-sign payment-card-icon" />
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
+        </div>
+        <div ng-if="ctrl.isNearbyDueDate(payment)" class="p-10 payment-card-alert payment-card-alert-nearby">
+          <i class="glyphicon glyphicon-alert payment-card-icon" />
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
+        </div>
+        <div ng-if="ctrl.isPending(payment)" class="p-10 payment-card-alert payment-card-alert-pending">
+          <i class="glyphicon glyphicon-alert payment-card-icon" />
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
+        </div>
+        <div ng-if="ctrl.isAnalyzing(payment)" class="p-10 payment-card-alert payment-card-alert-analyzing">
+          <i class="glyphicon glyphicon-refresh payment-card-icon" />
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
+        </div>
+        <div ng-if="ctrl.isNotApproved(payment)" class="p-10 payment-card-alert payment-card-alert-napproved">
+          <i class="glyphicon glyphicon-remove payment-card-icon" />
+          <div class="payment-card-alert-title">{{ctrl.getTitleByPaymentStatus(payment)}}</div>
+        </div>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{payment.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <span><b>Vencimento: </b>{{ctrl.formatDate(payment.dueDate)}}</span>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center" class="p-r-5 p-b-5">
+          <md-button class="md-primary md-hue-1" ng-click="ctrl.viewDetail(payment)">
+            <i class="glyphicon glyphicon-search p-r-5" />Ver Detalhes
+          </md-button>
+          <md-button class="md-raised md-primary" ng-click="ctrl.downloadPayments(payment)">
+            <i class="glyphicon glyphicon-download-alt p-r-5" />Baixar
+          </md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+
+</div>

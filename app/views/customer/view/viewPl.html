@@ -1,0 +1,154 @@
+<md-tabs md-dynamic-height md-border-bottom>
+  <md-tab label="Informações Principais">
+    <div class="p-15">
+      <div class="row">
+        <div class="col-md-4">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Tipo</label>
+            <md-select ng-disabled="!ctrl.model.isEditMode" required ng-model="ctrl.model.customer.type">
+              <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option.value}}">
+                {{option.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Estado de Atividade</label>
+            <md-select ng-disabled="!ctrl.model.isEditMode" required ng-model="ctrl.model.customer.status">
+              <md-option ng-repeat="option in ctrl.statusComboOptions" value="{{option.value}}">
+                {{option.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <md-input-container class="md-block">
+            <label>Número</label>
+            <input required ng-disabled="!ctrl.model.isEditMode" type="number" name="customerNumber" ng-model="ctrl.model.customer.number" />
+            <div ng-messages="projectForm.customerNumber.$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="col-md-6">
+          <md-input-container class="md-block">
+            <label>Nome</label>
+            <input required ng-disabled="!ctrl.model.isEditMode" name="customerName" ng-model="ctrl.model.customer.name" />
+            <div ng-messages="projectForm.customerName.$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>CPF</label>
+            <input required ng-disabled="!ctrl.model.isEditMode" name="cpf" ng-model="ctrl.model.customer.cpf" ui-mask="999.999.999-99" />
+            <div ng-messages="projectForm.cpf.$error" role="alert">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <md-input-container class="md-block">
+            <label>N° Alterdata</label>
+            <input ng-disabled="!ctrl.model.isEditMode" type="number" name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber" />
+          </md-input-container>
+        </div>
+        <div class="col-md-6">
+          <md-input-container class="md-block">
+            <label>Especialidade</label>
+            <input required ng-disabled="!ctrl.model.isEditMode" name="customerSpecialty" ng-model="ctrl.model.customer.specialty" />
+            <div ng-messages="projectForm.customerSpecialty.$error" role="alert">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Início dos Serviços</label>
+            <md-datepicker ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.startServiceDate" md-current-view="year"
+                md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
+          </md-input-container>
+        </div>
+      </div>
+    </div>
+  </md-tab>
+
+  <md-tab label="Endereço">
+    <div class="p-15">
+      <ng-include src="'views/customer/commons/editAddressFields.html'"></ng-include>
+    </div>
+  </md-tab>
+
+  <md-tab label="Contatos">
+    <div class="p-15">
+      <ng-include src="'views/customer/commons/editContactsFields.html'"></ng-include>
+    </div>
+  </md-tab>
+
+  <md-tab label="Outros">
+    <div class="row no-m p-15">
+      <div class="col-md-6 no-p">
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>CEI</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="cei" ng-model="ctrl.model.customer.cei" />
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Código GPS</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Insc. Municipal</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="municipalRegist" ng-model="ctrl.model.customer.municipalRegist" />
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>CRM/CRO</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="crmCro" ng-model="ctrl.model.customer.crmCro" />
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <md-input-container class="md-block">
+          <label>Observações</label>
+          <textarea ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <md-input-container class="md-block">
+          <label>Cartórios</label>
+          <input ng-disabled="!ctrl.model.isEditMode" name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+        </md-input-container>
+      </div>
+    </div>
+  </md-tab>
+
+  <md-tab label="Obrigações Acessórias">
+    <div class="row p-15">
+      <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations['customer.type.pf.pl']">
+        <md-input-container class="md-block">
+          <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="ao{{$index}}" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
+            {{ao}}
+          </md-checkbox>
+        </md-input-container>
+      </div>
+    </div>
+  </md-tab>
+</md-tabs>

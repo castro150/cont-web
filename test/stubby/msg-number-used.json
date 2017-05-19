@@ -1,0 +1,4 @@
+{
+  "name": "customer.create.active.number.exists",
+  "message": "Create Customer: number X in use for active customer"
+}

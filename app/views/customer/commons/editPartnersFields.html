@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-4">
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>Quantidade de Sócios</label>
+      <md-select ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.partnerQuantity" ng-change="ctrl.updatePartners()">
+        <md-option ng-repeat="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" value="{{number}}">
+          {{number}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+</div>
+<div ng-repeat="partner in ctrl.model.partners">
+  <div class="row" ng-if="$index === 0">
+    <div class="col-md-8">
+      <md-input-container class="md-block">
+        <label>Nome do Sócio</label>
+        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
+        <div ng-messages="projectForm['partnerName' + $index].$error">
+          <div ng-message="required">Campo obrigatório</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Identidade</label>
+        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
+        <div ng-messages="projectForm['partnerIdentity' + $index].$error">
+          <div ng-message="required">Campo obrigatório</div>
+        </div>
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row" ng-if="$index === 0">
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>CPF</label>
+        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerCpf{{$index}}" ng-model="ctrl.model.customer.partners[$index].cpf" ui-mask="999.999.999-99" />
+        <div ng-messages="projectForm['partnerCpf' + $index].$error">
+          <div ng-message="required">Campo obrigatório</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Participação</label>
+        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
+        <div ng-messages="projectForm['partnerParticipation' + $index].$error">
+          <div ng-message="required">Campo obrigatório</div>
+        </div>
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row" ng-if="$index !== 0">
+    <div class="col-md-8">
+      <md-input-container class="md-block">
+        <label>Nome do Sócio</label>
+        <input ng-disabled="!ctrl.model.isEditMode" name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Identidade</label>
+        <input ng-disabled="!ctrl.model.isEditMode" name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row" ng-if="$index !== 0">
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>CPF</label>
+        <input ng-disabled="!ctrl.model.isEditMode" name="partnerCpf{{$index}}" ng-model="ctrl.model.customer.partners[$index].cpf" ui-mask="999.999.999-99" />
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Participação</label>
+        <input ng-disabled="!ctrl.model.isEditMode" name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
+      </md-input-container>
+    </div>
+    <div class="col-md-4 text-right" ng-if="$index !== 0 && ctrl.model.isEditMode">
+      <md-button class="md-warn " ng-click="ctrl.removePartnerByIndex($index)">
+        <i class="glyphicon glyphicon-trash p-r-5" />Remover Sócio
+      </md-button>
+    </div>
+  </div>
+  <md-divider ng-if="!$last" style="border-top-width: 3px; border-top-style: dotted;"></md-divider>
+</div>

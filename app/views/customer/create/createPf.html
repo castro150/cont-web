@@ -1,0 +1,44 @@
+<div id="create-customer">
+  <div class="row">
+    <div id="alerts" class="col-md-offset-1 col-md-10">
+      <ng-include src="'views/commons/alert.html'"></ng-include>
+    </div>
+  </div>
+
+  <div class="row p-t-15">
+    <div class="col-md-offset-4 col-md-4">
+      <md-slider-container ng-disabled="true">
+        <md-slider ng-model="ctrl.model.createProgress" aria-label="Disabled 1" flex md-discrete ng-readonly="readonly"></md-slider>
+      </md-slider-container>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Tipo</label>
+        <md-select id="type-combo" ng-model="ctrl.selected.type" ng-change="ctrl.updateType()">
+          <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option.value}}">
+            {{option.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </div>
+
+  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[0].value">
+    <div class="col-md-12">
+      <div ng-if="ctrl.model.page === 1">
+        <ng-include src="'views/customer/create/createPfPl.html'"></ng-include>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" ng-if="ctrl.selected.type === ctrl.typeComboOptions[1].value">
+    <div class="col-md-12">
+      <div ng-if="ctrl.model.page === 1">
+        <ng-include src="'views/customer/create/createPfEd.html'"></ng-include>
+      </div>
+    </div>
+  </div>
+</div>

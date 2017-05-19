@@ -1,83 +1,201 @@
 .browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
 }
 
-body {
-  padding: 0;
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.header, .marketing, .footer {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 10px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 40px;
+	padding-bottom: 19px;
 }
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+	padding-top: 19px;
+	color: #777;
+	border-top: 1px solid #e5e5e5;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.container-narrow>hr {
+	margin: 30px 0;
 }
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
 }
+
 .jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+	font-size: 21px;
+	padding: 14px 24px;
 }
 
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
+	margin: 40px 0;
 }
-.marketing p + h4 {
-  margin-top: 28px;
+
+.marketing p+h4 {
+	margin-top: 28px;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+	Remove the padding we set earlier
+	.header, .marketing, .footer {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	Space out the masthead
+	.header {
+		margin-bottom: 30px;
+	}
+	Remove the bottom border on the jumbotron for visual effect
+	.jumbotron {
+		border-bottom: 0;
+	}
+}
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.validation-messages {
+	color: rgb(221,44,0);
+	font-size: 11px;
+}
+
+.row-centered {
+	text-align: center;
+}
+
+.col-centered {
+	display: inline-block;
+	float: none;
+	/* reset the text-align */
+	text-align: left;
+}
+
+md-toolbar h3 {
+  margin: auto;
+  font-weight: bold;
+}
+
+#content {
+  padding-left: 40px;
+  padding-top: 5px;
+}
+
+.main-backgroud {
+	background-color: #eee;
+}
+
+.sidenav-button {
+  width: 100%;
+}
+
+.sidenav-icon {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  zoom: 0.70;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.70);
+  -moz-transform: scale(0.70);
+}
+
+.unauthorized-alert-icon {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+.input-label {
+	color: rgba(0,0,0,0.54);
+	font-family: 'Roboto', sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.app-sub-menu {
+	background-color: #f7f7f7;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 3px -2px;
+}
+
+.app-menu-button {
+	text-align: left;
+	padding-left: 30px;
+}
+
+.payment-card-icon {
+	font-size: 40px;
+}
+
+.payment-card-alert-title {
+	font-weight: bold;
+	font-size: 19px;
+}
+
+.payment-card-alert {
+	min-height: 55px;
+	color: #FFF;
+	text-align: center;
+}
+
+.payment-card-alert-paid {
+	background: #66BB6A;
+}
+
+.payment-card-alert-overdue {
+	background: #EF5350;
+}
+
+.payment-card-alert-nearby {
+	background: #FF9800;
+}
+
+.payment-card-alert-pending {
+	background: #FDD835;
+}
+
+.payment-card-alert-analyzing {
+	background: #FDD835;
+}
+
+.payment-card-alert-napproved {
+	background: #EF5350;
+}
+
+.payment-detail-show-field {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	padding: 2px;
 }

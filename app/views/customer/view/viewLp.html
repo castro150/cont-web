@@ -1,0 +1,282 @@
+<md-tabs md-dynamic-height md-border-bottom>
+  <md-tab label="Informações Principais">
+    <div class="p-15">
+      <div class="row">
+        <div class="col-md-4">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Tipo</label>
+            <md-select ng-disabled="!ctrl.model.isEditMode" required ng-model="ctrl.model.customer.type">
+              <md-option ng-repeat="option in ctrl.typeComboOptions" value="{{option.value}}">
+                {{option.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <md-input-container class="md-block">
+            <label>Número</label>
+            <input required ng-disabled="!ctrl.model.isEditMode" type="number" name="customerNumber" ng-model="ctrl.model.customer.number" />
+            <div ng-messages="projectForm.customerNumber.$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="col-md-2">
+          <md-input-container class="md-block">
+            <label>N° Alterdata</label>
+            <input ng-disabled="!ctrl.model.isEditMode" type="number" name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Início dos Serviços</label>
+            <md-datepicker ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.startServiceDate" md-current-view="year"
+                md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Início das Atividades</label>
+            <md-datepicker ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.startActivityDate" md-current-view="year"
+                md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <md-input-container class="md-block">
+            <label>Nome Fantasia</label>
+            <input ng-disabled="!ctrl.model.isEditMode" required name="companyName" ng-model="ctrl.model.customer.companyName" />
+            <div ng-messages="projectForm.companyName.$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>CNPJ</label>
+            <input ng-disabled="!ctrl.model.isEditMode" required name="cnpj" ng-model="ctrl.model.customer.cnpj" ui-mask="99.999.999/9999-99" />
+            <div ng-messages="projectForm.cnpj.$error" role="alert">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <md-input-container class="md-block">
+            <label>Razão Social</label>
+            <input ng-disabled="!ctrl.model.isEditMode" required name="customerName" ng-model="ctrl.model.customer.name" />
+            <div ng-messages="projectForm.customerName.$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Estado de Atividade</label>
+            <md-select ng-disabled="!ctrl.model.isEditMode" required ng-model="ctrl.model.customer.status">
+              <md-option ng-repeat="option in ctrl.statusComboOptions" value="{{option.value}}">
+                {{option.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <md-input-container class="md-block">
+            <label>Insc. Estadual</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="stateRegist" ng-model="ctrl.model.customer.stateRegist" />
+          </md-input-container>
+        </div>
+        <div class="col-md-3">
+          <md-input-container class="md-block">
+            <label>Insc. Municipal</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="municipalRegist" ng-model="ctrl.model.customer.municipalRegist" />
+          </md-input-container>
+        </div>
+        <div class="col-md-3">
+          <md-input-container class="md-block">
+            <label>Capital Social</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="shareCapital" ng-model="ctrl.model.customer.shareCapital" />
+          </md-input-container>
+        </div>
+      </div>
+    </div>
+  </md-tab>
+
+  <md-tab label="Endereço">
+    <div class="p-15">
+      <ng-include src="'views/customer/commons/editAddressFields.html'"></ng-include>
+    </div>
+  </md-tab>
+
+  <md-tab label="Contatos">
+    <div class="p-15">
+      <ng-include src="'views/customer/commons/editContactsFields.html'"></ng-include>
+    </div>
+  </md-tab>
+
+  <md-tab label="Sócios">
+    <div class="p-15">
+      <ng-include src="'views/customer/commons/editPartnersFields.html'"></ng-include>
+    </div>
+  </md-tab>
+
+  <md-tab label="Outros">
+    <div class="row no-m p-15">
+      <div class="col-md-6 no-p">
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>CAE</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="cae" ng-model="ctrl.model.customer.cae" />
+              <md-tooltip>{{ctrl.model.customer.cae}}</md-tooltip>
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>NIRC</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="nirc" ng-model="ctrl.model.customer.nirc" />
+              <md-tooltip>{{ctrl.model.customer.nirc}}</md-tooltip>
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Código GPS</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Gerência</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="management" ng-model="ctrl.model.customer.management" />
+              <md-tooltip>{{ctrl.model.customer.management}}</md-tooltip>
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <md-input-container class="md-block">
+          <label>Observações</label>
+          <textarea ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <md-input-container class="md-block">
+          <label>CNAE</label>
+          <input ng-disabled="!ctrl.model.isEditMode" name="cnae" ng-model="ctrl.model.customer.cnae" />
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row" ng-repeat="cnae2 in ctrl.model.customer.cnae2 track by $index">
+      <div ng-if="$index === 0" class="col-md-1">
+        <md-button ng-disabled="!ctrl.model.isEditMode" class="md-fab md-primary" ng-click="ctrl.addCnae2()">
+          <i class="glyphicon glyphicon-plus" />
+          <md-tooltip>Adicionar novo CNAE Secundário</md-tooltip>
+        </md-button>
+      </div>
+      <div ng-if="$index !== 0" class="col-md-1">
+        <md-button ng-disabled="!ctrl.model.isEditMode" class="md-fab md-warn" ng-click="ctrl.removeCnae2($index)">
+          <i class="glyphicon glyphicon-minus" />
+          <md-tooltip>Remover CNAE Secundário</md-tooltip>
+        </md-button>
+      </div>
+      <div class="col-md-11">
+        <md-input-container class="md-block">
+          <label>CNAE Secundário</label>
+          <input ng-disabled="!ctrl.model.isEditMode" name="cnae2" ng-model="ctrl.model.customer.cnae2[$index]" />
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <md-input-container class="md-block">
+          <label>Cartórios</label>
+          <input ng-disabled="!ctrl.model.isEditMode" name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+        </md-input-container>
+      </div>
+    </div>
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Sindicato Patronal</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Nome</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Código Sindical</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicateCode" ng-model="ctrl.model.customer.syndicateCode" />
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Informações Tributárias</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Tributação Federal: Lucro Presumido</label>
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>IRPJ</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="irpj" ng-model="ctrl.model.customer.irpj" />
+            </md-input-container>
+          </div>
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>CSSL</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="cssl" ng-model="ctrl.model.customer.cssl" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>Tributação Estadual</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="stateTax" ng-model="ctrl.model.customer.stateTax" />
+            </md-input-container>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+  </md-tab>
+
+  <md-tab label="Obrigações Acessórias">
+    <div class="row p-15">
+      <div class="col-md-3" ng-repeat="ao in ctrl.accessoryObligations['customer.type.pj.lp']">
+        <md-input-container class="md-block">
+          <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="ao{{$index}}" ng-model="ctrl.model.accessoryObligations[$index].name" ng-true-value="'{{ao}}'" ng-false-value="'unchecked'">
+            {{ao}}
+          </md-checkbox>
+        </md-input-container>
+      </div>
+    </div>
+  </md-tab>
+
+</md-tabs>

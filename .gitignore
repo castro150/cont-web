@@ -10,3 +10,7 @@
 /.travis.yml
 /.yo-rc.json
 /.project
+/.debug.log
+/debug.log
+/.idea
+/app/scripts/config.js

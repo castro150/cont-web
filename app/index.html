@@ -1,78 +1,161 @@
+<!-- Padrão Unicode -->
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Cont-WEB App</title>
+    <title>Simple-Docfy-WEB App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <link rel="stylesheet" href="bower_components/md-data-table/dist/md-data-table-style.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/utils.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="contWebApp">
+  <body ng-app="simpleDocfyWebApp" layout="column">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+    <md-toolbar layout="row" ng-controller="NavCtrl as ctrl">
+      <md-button ng-if="ctrl.isLoggedIn()" ng-click="ctrl.goHome()" class="md-button">
+        Home
+      </md-button>
+      <h3>Simple Docfy</h3>
+      <md-button ng-if="ctrl.isLoggedIn()" ng-click="ctrl.logout()" class="md-button">
+        Logout
+      </md-button>
+    </md-toolbar>
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+    <div layout="row" flex>
+      <md-sidenav ng-if="!isLoginState" md-is-locked-open="true" class="md-whiteframe-3dp">
+        <md-list>
+          <md-list-item>
+            <md-button class="sidenav-button app-menu-button" slide-toggle="#cMenu">
+              <md-icon md-svg-src="images/svg/notebook.svg" class="sidenav-icon"></md-icon>
+              Cadastro
+            </md-button>
+          </md-list-item>
+          <md-menu-content id="cMenu" class="slideable no-p app-sub-menu" width="4">
+            <md-menu-item>
+              <md-button href="#/cadastro/pf">
+                <md-icon></md-icon>
+                Pessoa Física
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button href="#/cadastro/lp">
+                <md-icon></md-icon>
+                Lucro Presumido
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button href="#/cadastro/sn">
+                <md-icon></md-icon>
+                Simples Nacional
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button href="#/cadastro/cond">
+                <md-icon></md-icon>
+                Condomínio
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+          <md-list-item>
+            <md-button class="sidenav-button app-menu-button" href="#/clientes">
+              <md-icon md-svg-src="images/svg/documentation.svg" class="sidenav-icon"></md-icon>
+              Clientes
+            </md-button>
+          </md-list-item>
+          <md-list-item ng-if="false">
+            <md-button class="sidenav-button app-menu-button" href="#/guias">
+              <md-icon md-svg-src="images/svg/calendar.svg" class="sidenav-icon"></md-icon>
+              Guias
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-sidenav>
 
-            <a class="navbar-brand" href="#/">Cont-WEB App</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav" ng-init="selection = 'home'">
-              <li ng-click="selection = 'home'"  ng-class="{'active': selection === 'home'}"><a href="#/">Home</a></li>
-              <li ng-click="selection = 'about'"  ng-class="{'active': selection === 'about'}"><a ng-href="#/about">About</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <md-content id="content" flex class="p-r-15 main-backgroud">
+        <div ui-view></div>
+      </md-content>
     </div>
 
-    <div class="container">
+    <!-- <div class="container-fluid">
     	<div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+    </div> -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js"></script>
+    <script src="bower_components/interact/interact.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="bower_components/md-data-table/dist/md-data-table.js"></script>
+    <script src="bower_components/md-data-table/dist/md-data-table-templates.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
-</body>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/route.js"></script>
+    <script src="scripts/commons/utils/dateUtils.js"></script>
+    <script src="scripts/commons/services/localeService.js"></script>
+    <script src="scripts/commons/services/tokenService.js"></script>
+    <script src="scripts/commons/services/authService.js"></script>
+    <script src="scripts/commons/services/calendarioService.js"></script>
+    <script src="scripts/commons/services/customerService.js"></script>
+		<script src="scripts/commons/directives/languageSelectDirective.js"></script>
+		<script src="scripts/commons/directives/slideableDirective.js"></script>
+    <script src="scripts/commons/filters/cpfFilter.js"></script>
+    <script src="scripts/commons/filters/cnpjFilter.js"></script>
+		<script src="scripts/configs/httpConfig.js"></script>
+		<script src="scripts/configs/calendarConfig.js"></script>
+		<script src="scripts/configs/momentConfig.js"></script>
+		<script src="scripts/configs/translateConfig.js"></script>
+		<script src="scripts/configs/datepickerConfig.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/unauthorized.js"></script>
+    <script src="scripts/controllers/nav.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/calendario.js"></script>
+    <script src="scripts/controllers/payments.js"></script>
+    <script src="scripts/controllers/createCustomer.js"></script>
+    <script src="scripts/controllers/viewCustomers.js"></script>
+    <script src="scripts/controllers/viewCustomer.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>

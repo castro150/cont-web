@@ -3,24 +3,22 @@
 
 	/**
 	 * @ngdoc overview
-	 * @name contWebApp
-	 * @description # contWebApp
-	 * 
+	 * @name simpleDocfyWebApp
+	 * @description # simpleDocfyWebApp
+	 *
 	 * Main module of the application.
 	 */
-	angular.module('contWebApp',
-			[ 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize' ]).config(
-			[ '$routeProvider', function($routeProvider) {
-				$routeProvider.when('/', {
-					templateUrl : 'views/main.html',
-					controller : 'MainCtrl',
-					controllerAs : 'main'
-				}).when('/about', {
-					templateUrl : 'views/about.html',
-					controller : 'AboutCtrl',
-					controllerAs : 'about'
-				}).otherwise({
-					redirectTo : '/'
-				});
-			} ]);
+	angular.module(
+			'simpleDocfyWebApp', ['ngCookies', 'ngResource', 'ui.router', 'ngSanitize', 'ngMessages', 'ngMaterial', 'ui.bootstrap',
+				'pascalprecht.translate', 'tmh.dynamicLocale', 'mwl.calendar', 'ui.mask', 'config', 'mdDataTable'
+			])
+		.constant(
+			'LOCALES', {
+				'locales': {
+					'pt_BR': 'Portugu\u00EAs',
+					'en_US': 'English'
+				},
+				'preferredLocale': 'pt_BR'
+			}
+		);
 })();
