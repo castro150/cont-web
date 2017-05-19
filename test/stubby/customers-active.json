@@ -21,6 +21,13 @@
     "type": "customer.type.pf.pl"
   },
   {
+    "_id": "591dba77598c2a14c94cfd4a",
+    "number": 60,
+    "name": "Condomínio do Edificio Minas Novas",
+    "cnpj": "18911903000190",
+    "type": "customer.type.cond"
+  },
+  {
     "_id": "58ef699214a28816e63a5909",
     "number": 503,
     "name": "ADRIANA CARVALHO MARCONDES DE OLIVEIRA",

@@ -94,7 +94,7 @@
       <md-card-content>
         <div class="row">
           <div class="col-md-4">
-            <md-button class="md-primary" ng-click="ctrl.addSyndic()">
+            <md-button name="addSyndicBtn" class="md-primary" ng-click="ctrl.addSyndic()">
               <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Síndico
             </md-button>
           </div>
@@ -184,7 +184,7 @@
           </div>
           <div class="row" ng-if="$index !== 0">
             <div class="col-md-4">
-              <md-button class="md-warn" ng-click="ctrl.removeSyndic($index)">
+              <md-button name="removeSyndicBtn" class="md-warn" ng-click="ctrl.removeSyndic($index)">
                 <i class="glyphicon glyphicon-trash p-r-5" />Remover Síndico
               </md-button>
             </div>

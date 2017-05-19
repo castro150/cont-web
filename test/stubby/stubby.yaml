@@ -137,6 +137,16 @@
 -   request:
         url: /customer
         method: POST
+        post: number":.*60
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-60.json
+
+-   request:
+        url: /customer
+        method: POST
     response:
         status: 400
         headers:
@@ -191,6 +201,15 @@
         headers:
             content-type: application/json
         file: customer-503.json
+
+-   request:
+        url: /customer/591dba77598c2a14c94cfd4a
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-60.json
         
 
 ##### EDIT CUSTOMER BY ID #####
@@ -229,4 +248,13 @@
         headers:
             content-type: application/json
         file: customer-503.json
+
+-   request:
+        url: /customer/591dba77598c2a14c94cfd4a
+        method: PUT
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-60.json
         
