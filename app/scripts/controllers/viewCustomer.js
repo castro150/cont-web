@@ -31,6 +31,8 @@
 		ctrl.isCond = isCond;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
+		ctrl.addSyndic = addSyndic;
+		ctrl.removeSyndic = removeSyndic;
 		ctrl.updateContacts = updateContacts;
 		ctrl.updatePartners = updatePartners;
 		ctrl.removeContactByIndex = removeContactByIndex;
@@ -120,6 +122,14 @@
 
 		function removeCnae2(index) {
 			ctrl.model.customer.cnae2.splice(index, 1);
+		}
+
+		function addSyndic() {
+			ctrl.model.customer.syndics.push({});
+		}
+
+		function removeSyndic(index) {
+			ctrl.model.customer.syndics.splice(index, 1);
 		}
 
 		function updateContacts() {

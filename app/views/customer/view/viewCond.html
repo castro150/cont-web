@@ -97,7 +97,109 @@
     </div>
   </md-tab>
 
-  <!-- TODO síndicos -->
+  <md-tab label="Síndicos">
+    <div class="no-m p-15">
+      <div class="row">
+        <div class="col-md-4 p-10">
+          <md-button ng-disabled="!ctrl.model.isEditMode" class="md-primary" ng-click="ctrl.addSyndic()">
+            <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Síndico
+          </md-button>
+        </div>
+      </div>
+      <div ng-repeat="syndic in ctrl.model.customer.syndics">
+        <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block" ng-if="$index === 0">
+              <label>Nome do Síndico</label>
+              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
+              <div ng-messages="projectForm['syndicName' + $index].$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$index !== 0">
+              <label>Nome do Síndico</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container class="md-block" ng-if="$index === 0">
+              <label>E-mail</label>
+              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
+              <div ng-messages="projectForm['syndicEmail' + $index].$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$index !== 0">
+              <label>E-mail</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <md-input-container class="md-block" ng-if="$index === 0">
+              <label>Telefone</label>
+              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
+              <div ng-messages="projectForm['syndicTel' + $index].$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$index !== 0">
+              <label>Telefone</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
+            </md-input-container>
+          </div>
+          <div class="col-md-2">
+            <md-input-container class="md-block" ng-if="$index === 0">
+              <label>Paríodo</label>
+              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
+              <div ng-messages="projectForm['syndicPeriod' + $index].$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$index !== 0">
+              <label>Paríodo</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
+            </md-input-container>
+          </div>
+          <div class="col-md-2">
+            <md-input-container class="md-block" ng-if="$index === 0">
+              <label>CPF</label>
+              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicCpf{{$index}}" ng-model="ctrl.model.customer.syndics[$index].cpf" ui-mask="999.999.999-99" />
+              <div ng-messages="projectForm['syndicCpf' + $index].$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$index !== 0">
+              <label>CPF</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicCpf{{$index}}" ng-model="ctrl.model.customer.syndics[$index].cpf" ui-mask="999.999.999-99" />
+            </md-input-container>
+          </div>
+          <div class="col-md-4">
+            <md-input-container class="md-block" ng-if="$index === 0">
+              <label>Identidade</label>
+              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
+              <div ng-messages="projectForm['syndicIdentity' + $index].$error">
+                <div ng-message="required">Campo obrigatório</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" ng-if="$index !== 0">
+              <label>Identidade</label>
+              <input ng-disabled="!ctrl.model.isEditMode" name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row" ng-if="$index !== 0">
+          <div class="col-md-4">
+            <md-button ng-disabled="!ctrl.model.isEditMode" class="md-warn" ng-click="ctrl.removeSyndic($index)">
+              <i class="glyphicon glyphicon-trash p-r-5" />Remover Síndico
+            </md-button>
+          </div>
+        </div>
+        <md-divider ng-if="!$last" style="border-top-width: 3px; border-top-style: dotted;"></md-divider>
+      </div>
+    </div>
+  </md-tab>
 
   <md-tab label="Outros">
     <div class="row no-m p-15">
