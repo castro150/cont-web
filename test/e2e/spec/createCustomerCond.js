@@ -71,7 +71,7 @@ describe('Create customer SN test', function() {
 
 	it('Try to create with all fields should return success', function() {
 		customerNumber.sendKeys('3');
-		customerAlterNumber.sendKeys('203');
+		customerAlterNumber.sendKeys('00203');
 		startServiceDate.sendKeys('01/01/2015');
 		startActivityDate.sendKeys('01/01/2015');
 		cnpj.sendKeys('11236987000195');

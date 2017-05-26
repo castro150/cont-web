@@ -65,7 +65,7 @@ describe('Create customer PL test', function() {
 		customerName.sendKeys('ADRIANA CARVALHO FERREIRA');
 		cpf.sendKeys('86798584677');
 		customerSpecialty.sendKeys('Vendedor');
-		customerAlterNumber.sendKeys('972');
+		customerAlterNumber.sendKeys('00972');
 		startServiceDate.sendKeys('01/01/2015');
 		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
 		customerDistrict.sendKeys('VILA DA SERRA');

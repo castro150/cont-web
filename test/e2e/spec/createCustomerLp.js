@@ -85,7 +85,7 @@ describe('Create customer LP test', function() {
 
 	it('Try to create with all fields should return success', function() {
 		customerNumber.sendKeys('3');
-		customerAlterNumber.sendKeys('203');
+		customerAlterNumber.sendKeys('00203');
 		startServiceDate.sendKeys('01/01/2015');
 		startActivityDate.sendKeys('01/01/2015');
 		companyName.sendKeys('JVJ Acessoria');
