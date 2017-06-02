@@ -1,16 +1,11 @@
 <div class="row">
-  <div class="col-md-4">
-    <md-input-container class="md-block" flex-gt-sm>
-      <label>Quantidade de Contatos</label>
-      <md-select ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.contactQuantity" ng-change="ctrl.updateContacts()">
-        <md-option ng-repeat="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" value="{{number}}">
-          {{number}}
-        </md-option>
-      </md-select>
-    </md-input-container>
+  <div class="col-md-4 p-10">
+    <md-button ng-disabled="!ctrl.model.isEditMode" name="addSyndicBtn" class="md-primary" ng-click="ctrl.addContact()">
+      <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Contato
+    </md-button>
   </div>
 </div>
-<div ng-repeat="contact in ctrl.model.contacts">
+<div ng-repeat="contact in ctrl.model.customer.contacts">
   <div class="row">
     <div class="col-md-6">
       <md-input-container class="md-block" ng-if="$index === 0">
@@ -45,8 +40,10 @@
         <input ng-disabled="!ctrl.model.isEditMode" name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
       </md-input-container>
     </div>
-    <div class="col-md-4 text-right" ng-if="$index !== 0 && ctrl.model.isEditMode">
-      <md-button class="md-warn " ng-click="ctrl.removeContactByIndex($index)">
+  </div>
+  <div class="row" ng-if="$index !== 0">
+    <div class="col-md-12 text-right">
+      <md-button ng-disabled="!ctrl.model.isEditMode" name="removeContactBtn" class="md-warn" ng-click="ctrl.removeContact($index)">
         <i class="glyphicon glyphicon-trash p-r-5" />Remover Contato
       </md-button>
     </div>

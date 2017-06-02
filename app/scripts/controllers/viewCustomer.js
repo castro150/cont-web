@@ -31,12 +31,12 @@
 		ctrl.isCond = isCond;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
+		ctrl.addContact = addContact;
+		ctrl.removeContact = removeContact;
+		ctrl.addPartner = addPartner;
+		ctrl.removePartner = removePartner;
 		ctrl.addSyndic = addSyndic;
 		ctrl.removeSyndic = removeSyndic;
-		ctrl.updateContacts = updateContacts;
-		ctrl.updatePartners = updatePartners;
-		ctrl.removeContactByIndex = removeContactByIndex;
-		ctrl.removePartnerByIndex = removePartnerByIndex;
 		ctrl.updateCustomer = updateCustomer;
 		ctrl.cancel = cancel;
 
@@ -51,8 +51,6 @@
 			ctrl.model = {};
 			ctrl.model.customer = {};
 			ctrl.model.isEditMode = false;
-			ctrl.model.contacts = [];
-			ctrl.model.partners = [];
 			ctrl.model.accessoryObligations = [];
 
 			initializeScreenOptions();
@@ -132,24 +130,20 @@
 			ctrl.model.customer.syndics.splice(index, 1);
 		}
 
-		function updateContacts() {
-			ctrl.model.contacts = Array.from(Array(parseInt(ctrl.model.contactQuantity)).keys());
+		function addContact() {
+			ctrl.model.customer.contacts.push({});
 		}
 
-		function updatePartners() {
-			ctrl.model.partners = Array.from(Array(parseInt(ctrl.model.partnerQuantity)).keys());
-		}
-
-		function removeContactByIndex(index) {
+		function removeContact(index) {
 			ctrl.model.customer.contacts.splice(index, 1);
-			ctrl.model.contactQuantity--;
-			updateContacts();
 		}
 
-		function removePartnerByIndex(index) {
+		function addPartner() {
+			ctrl.model.customer.partners.push({});
+		}
+
+		function removePartner(index) {
 			ctrl.model.customer.partners.splice(index, 1);
-			ctrl.model.partnerQuantity--;
-			updatePartners();
 		}
 
 		function updateCustomer() {
@@ -226,14 +220,10 @@
 			if (customerIsPj()) {
 				ctrl.model.startActivityDate = new Date(ctrl.model.customer.startActivityDate);
 			}
-			ctrl.model.contactQuantity = ctrl.model.customer.contacts.length;
-			ctrl.model.partnerQuantity = ctrl.model.customer.partners.length;
 			if (!ctrl.model.customer.cnae2 || ctrl.model.customer.cnae2.length === 0) {
 				ctrl.model.customer.cnae2 = [];
 				ctrl.model.customer.cnae2.push('');
 			}
-			updateContacts();
-			updatePartners();
 			updateAccessoryObligations();
 		}
 
