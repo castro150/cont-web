@@ -1,6 +1,10 @@
 describe('Create customer SN test', function() {
 	var createBtn = element(by.id('create-btn'));
 	var successMsg = element(by.id('success-msg'));
+	var addContactBtn = element(by.name('addContactBtn'));
+	var removeContactBtn = element.all(by.name('removeContactBtn')).first();
+	var addPartnerBtn = element(by.name('addPartnerBtn'));
+	var removePartnerBtn = element.all(by.name('removePartnerBtn')).first();
 
 	var customerNumber = element(by.name('customerNumber'));
 	var customerAlterNumber = element(by.name('customerAlterNumber'));
@@ -17,7 +21,6 @@ describe('Create customer SN test', function() {
 	var customerCity = element(by.name('customerCity'));
 	var customerState = element(by.name('customerState'));
 	var cep = element(by.name('cep'));
-	var contactQuantity = element.all(by.name('contactQuantity')).first();
 	var contactName0 = element(by.name('contactName0'));
 	var contactEmail0 = element(by.name('contactEmail0'));
 	var contactTel0 = element(by.name('contactTel0'));
@@ -26,7 +29,6 @@ describe('Create customer SN test', function() {
 	var contactEmail1 = element(by.name('contactEmail1'));
 	var contactTel1 = element(by.name('contactTel1'));
 	var contactCel1 = element(by.name('contactCel1'));
-	var partnerQuantity = element.all(by.name('partnerQuantity')).first();
 	var partnerName0 = element(by.name('partnerName0'));
 	var partnerIdentity0 = element(by.name('partnerIdentity0'));
 	var partnerCpf0 = element(by.name('partnerCpf0'));
@@ -96,8 +98,9 @@ describe('Create customer SN test', function() {
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
 		cep.sendKeys('34000000');
-		contactQuantity.click();
-		$$('[value="2"]').get(1).click();
+		addContactBtn.click();
+		addContactBtn.click();
+		removeContactBtn.click();
 		contactName0.sendKeys('Adriana Ferreira');
 		contactEmail0.sendKeys('adriana@gmail.com');
 		contactTel0.sendKeys('3133333333');
@@ -106,8 +109,9 @@ describe('Create customer SN test', function() {
 		contactEmail1.sendKeys('adriana2@gmail.com');
 		contactTel1.sendKeys('3133333333');
 		contactCel1.sendKeys('999999999');
-		partnerQuantity.click();
-		$$('[value="2"]').get(2).click();
+		addPartnerBtn.click();
+		addPartnerBtn.click();
+		removePartnerBtn.click();
 		partnerName0.sendKeys('Adriana Ferreira');
 		partnerIdentity0.sendKeys('MG-11111111');
 		partnerCpf0.sendKeys('86798584677');
