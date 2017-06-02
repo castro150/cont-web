@@ -7,7 +7,7 @@
   <md-card-content>
     <div class="row">
       <div class="col-md-4">
-        <md-button name="addSyndicBtn" class="md-primary" ng-click="ctrl.addContact()">
+        <md-button name="addContactBtn" class="md-primary" ng-click="ctrl.addContact()">
           <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Contato
         </md-button>
       </div>
@@ -49,8 +49,8 @@
         </div>
       </div>
       <div class="row" ng-if="$index !== 0">
-        <div class="col-md-4">
-          <md-button name="removeSyndicBtn" class="md-warn" ng-click="ctrl.removeContact($index)">
+        <div class="col-md-12 text-right">
+          <md-button name="removeContactBtn" class="md-warn" ng-click="ctrl.removeContact($index)">
             <i class="glyphicon glyphicon-trash p-r-5" />Remover Contato
           </md-button>
         </div>

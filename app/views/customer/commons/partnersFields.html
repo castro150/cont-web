@@ -7,14 +7,14 @@
   <md-card-content>
     <div class="row">
       <div class="col-md-4">
-        <md-button name="addSyndicBtn" class="md-primary" ng-click="ctrl.addPartner()">
+        <md-button name="addPartnerBtn" class="md-primary" ng-click="ctrl.addPartner()">
           <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Sócio
         </md-button>
       </div>
     </div>
     <div ng-repeat="partner in ctrl.model.customer.partners">
       <div class="row" ng-if="$index === 0">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <md-input-container class="md-block">
             <label>Nome do Sócio</label>
             <input required name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
@@ -23,6 +23,8 @@
             </div>
           </md-input-container>
         </div>
+      </div>
+      <div class="row" ng-if="$index === 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Identidade</label>
@@ -32,8 +34,6 @@
             </div>
           </md-input-container>
         </div>
-      </div>
-      <div class="row" ng-if="$index === 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>CPF</label>
@@ -54,20 +54,20 @@
         </div>
       </div>
       <div class="row" ng-if="$index !== 0">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <md-input-container class="md-block">
             <label>Nome do Sócio</label>
             <input name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
           </md-input-container>
         </div>
+      </div>
+      <div class="row" ng-if="$index !== 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Identidade</label>
             <input name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
           </md-input-container>
         </div>
-      </div>
-      <div class="row" ng-if="$index !== 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>CPF</label>
@@ -82,8 +82,8 @@
         </div>
       </div>
       <div class="row" ng-if="$index !== 0">
-        <div class="col-md-4">
-          <md-button name="removeSyndicBtn" class="md-warn" ng-click="ctrl.removePartner($index)">
+        <div class="col-md-12 text-right">
+          <md-button name="removePartnerBtn" class="md-warn" ng-click="ctrl.removePartner($index)">
             <i class="glyphicon glyphicon-trash p-r-5" />Remover Sócio
           </md-button>
         </div>
