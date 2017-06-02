@@ -1,127 +1,129 @@
-{ 
-    "_id" : "58f8b98e08d9e02f60a09f92", 
-    "number" : 3, 
-    "name" : "2R Comércio de Veículos LTDA-ME", 
-    "cnpj" : "17990858000143", 
-    "companyName" : "Autop Imports", 
-    "stateRegist" : "002137089.00-79", 
-    "municipalRegist" : "0.485.120/001-2", 
-    "shareCapital" : "R$ 100.000,00", 
-    "address" : "Av. Barão Homem de Melo, n° 2677 lj 01 e n° 2679 lj 02", 
-    "district" : "Estoril", 
-    "city" : "Belo Horizonte", 
-    "state" : "MG", 
-    "cep" : "30494085", 
-    "cnae" : "45.11-1-02 - Comercio a varejo de automóveis, camionetas e utilitários usados", 
-    "nirc" : "JUCEMG nº 31209821341 em 24/04/2013", 
-    "gpsCode" : "2100", 
-    "management" : "Ambos os sócios assinam pela empresa", 
-    "obs" : "Pro-Labor: 2\nCód. FPAS: 515 (20%)\nCód. SAT: 4511102 (3%)\nCód. Terc.: 115 (5,8%)", 
-    "syndicateName" : "", 
-    "syndicateCode" : "002.087.07016-9", 
-    "irpj" : "32%", 
-    "cssl" : "32%", 
-    "stateTax" : "Débito e Crédito", 
-    "status" : "active", 
-    "type" : "customer.type.pj.lp", 
-    "startServiceDate" : "2016-07-01T16:55:37.337+0000", 
-    "startActivityDate" : "2013-04-24T16:55:37.337+0000", 
+{
+    "_id" : "58f8b98e08d9e02f60a09f92",
+    "number" : 3,
+    "name" : "2R Comércio de Veículos LTDA-ME",
+    "cnpj" : "17990858000143",
+    "companyName" : "Autop Imports",
+    "stateRegist" : "002137089.00-79",
+    "municipalRegist" : "0.485.120/001-2",
+    "shareCapital" : "R$ 100.000,00",
+    "address" : "Av. Barão Homem de Melo",
+    "addressNumber": "2677",
+    "addressComp": "lj 01 e n° 2679 lj 02",
+    "district" : "Estoril",
+    "city" : "Belo Horizonte",
+    "state" : "MG",
+    "cep" : "30494085",
+    "cnae" : "45.11-1-02 - Comercio a varejo de automóveis, camionetas e utilitários usados",
+    "nirc" : "JUCEMG nº 31209821341 em 24/04/2013",
+    "gpsCode" : "2100",
+    "management" : "Ambos os sócios assinam pela empresa",
+    "obs" : "Pro-Labor: 2\nCód. FPAS: 515 (20%)\nCód. SAT: 4511102 (3%)\nCód. Terc.: 115 (5,8%)",
+    "syndicateName" : "",
+    "syndicateCode" : "002.087.07016-9",
+    "irpj" : "32%",
+    "cssl" : "32%",
+    "stateTax" : "Débito e Crédito",
+    "status" : "active",
+    "type" : "customer.type.pj.lp",
+    "startServiceDate" : "2016-07-01T16:55:37.337+0000",
+    "startActivityDate" : "2013-04-24T16:55:37.337+0000",
     "accessoryObligations" : [
         {
-            "_id" : "58fe198f864c8b2ac0c2207b", 
-            "name" : "DAPI", 
+            "_id" : "58fe198f864c8b2ac0c2207b",
+            "name" : "DAPI",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c2207a", 
-            "name" : "SINTEGRA", 
+            "_id" : "58fe198f864c8b2ac0c2207a",
+            "name" : "SINTEGRA",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c22079", 
-            "name" : "VAF/DAMEF", 
+            "_id" : "58fe198f864c8b2ac0c22079",
+            "name" : "VAF/DAMEF",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c22078", 
-            "name" : "DES", 
+            "_id" : "58fe198f864c8b2ac0c22078",
+            "name" : "DES",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c22077", 
-            "name" : "DIPJ", 
+            "_id" : "58fe198f864c8b2ac0c22077",
+            "name" : "DIPJ",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c22076", 
-            "name" : "DCTF", 
+            "_id" : "58fe198f864c8b2ac0c22076",
+            "name" : "DCTF",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c22075", 
-            "name" : "Sped Contribuições", 
+            "_id" : "58fe198f864c8b2ac0c22075",
+            "name" : "Sped Contribuições",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
-        }, 
+        },
         {
-            "_id" : "58fe198f864c8b2ac0c22074", 
-            "name" : "RAIS", 
+            "_id" : "58fe198f864c8b2ac0c22074",
+            "name" : "RAIS",
             "activationDate" : "2017-04-24T15:28:15.224+0000"
         }
-    ], 
+    ],
     "partners" : [
         {
-            "name" : "Rinaldo Penna de Moura e Silva", 
-            "identity" : "MG 14-446.911", 
-            "cpf" : "10941500616", 
-            "participation" : "50,00%", 
+            "name" : "Rinaldo Penna de Moura e Silva",
+            "identity" : "MG 14-446.911",
+            "cpf" : "10941500616",
+            "participation" : "50,00%",
             "_id" : "58ee5f11b5839819c88548ee"
-        }, 
+        },
         {
-            "name" : "Rodrigo Belchior Eliazar", 
-            "identity" : "MG 7.233.212", 
-            "cpf" : "99287633649", 
-            "participation" : "50,00%", 
+            "name" : "Rodrigo Belchior Eliazar",
+            "identity" : "MG 7.233.212",
+            "cpf" : "99287633649",
+            "participation" : "50,00%",
             "_id" : "58ee5f11b5839819c88548ed"
         }
-    ], 
+    ],
     "contacts" : [
         {
-            "name" : "ADM (Priscila)", 
-            "email" : "administrativo@autopveiculos.com.br", 
-            "tel" : "3546-2956", 
+            "name" : "ADM (Priscila)",
+            "email" : "administrativo@autopveiculos.com.br",
+            "tel" : "3546-2956",
             "_id" : "58ee5f11b5839819c88548f4"
-        }, 
+        },
         {
-            "name" : "Fiscal (Priscila)", 
-            "tel" : "3373-7373", 
+            "name" : "Fiscal (Priscila)",
+            "tel" : "3373-7373",
             "_id" : "58ee5f11b5839819c88548f3"
-        }, 
+        },
         {
-            "name" : "Rinaldo", 
-            "tel" : "3378-8989", 
-            "email" : "rinaldo@autopveiculos.com.br", 
-            "cel" : "98868-5663", 
+            "name" : "Rinaldo",
+            "tel" : "3378-8989",
+            "email" : "rinaldo@autopveiculos.com.br",
+            "cel" : "98868-5663",
             "_id" : "58ee5f11b5839819c88548f2"
-        }, 
+        },
         {
-            "name" : "Rodrigo", 
-            "cel" : "99981-6902", 
+            "name" : "Rodrigo",
+            "cel" : "99981-6902",
             "_id" : "58ee5f11b5839819c88548f1"
-        }, 
+        },
         {
-            "name" : "Financeiro (Gláucia)", 
-            "email" : "financeiro@autopveiculos.com.br", 
-            "tel" : "3546-2955", 
+            "name" : "Financeiro (Gláucia)",
+            "email" : "financeiro@autopveiculos.com.br",
+            "tel" : "3546-2955",
             "_id" : "58ee5f11b5839819c88548f0"
-        }, 
+        },
         {
-            "_id" : "58f8b6468ad19518dd3f9750", 
-            "name" : "Jade", 
+            "_id" : "58f8b6468ad19518dd3f9750",
+            "name" : "Jade",
             "email" : "jade@autopveiculos.com.br"
         }
-    ], 
-    "__v" : 0, 
-    "cae" : "", 
+    ],
+    "__v" : 0,
+    "cae" : "",
     "cnae2" : [
         "45-11-1-02"
     ]

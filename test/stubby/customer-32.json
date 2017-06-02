@@ -1,45 +1,47 @@
-{ 
-    "_id" : "58ef6a6c14a28816e63a590b", 
-    "name" : "JOSÉ ALFREDO GOMES DE MENDONÇA", 
-    "number" : 32, 
-    "cpf" : "35475390649", 
-    "specialty" : "Dentista", 
-    "address" : "Av. Pasteur nº: 89 sala 1508", 
-    "district" : "Funcionários", 
-    "city" : "Belo Horizonte", 
-    "state" : "MG", 
-    "cep" : "30150290", 
-    "cei" : "119.010.088.30-1", 
-    "gpsCode" : "2208", 
-    "registryOffice" : "Dr. José Alfredo = Triginelli/Jaguarão", 
-    "obs" : "Cód. FPAS: 566 (20.00%)\nCód. SAT: 85138 (2.00%)\nCód. Terc.: 0099 (4.50%)\nCarne Leão", 
-    "status" : "active", 
-    "type" : "customer.type.pf.pl", 
-    "startServiceDate" : "2000-04-03T12:05:41.527+0000", 
+{
+    "_id" : "58ef6a6c14a28816e63a590b",
+    "name" : "JOSÉ ALFREDO GOMES DE MENDONÇA",
+    "number" : 32,
+    "cpf" : "35475390649",
+    "specialty" : "Dentista",
+    "address" : "Av. Pasteur",
+    "addressNumber": "89",
+    "addressComp": "sala 1508",
+    "district" : "Funcionários",
+    "city" : "Belo Horizonte",
+    "state" : "MG",
+    "cep" : "30150290",
+    "cei" : "119.010.088.30-1",
+    "gpsCode" : "2208",
+    "registryOffice" : "Dr. José Alfredo = Triginelli/Jaguarão",
+    "obs" : "Cód. FPAS: 566 (20.00%)\nCód. SAT: 85138 (2.00%)\nCód. Terc.: 0099 (4.50%)\nCarne Leão",
+    "status" : "active",
+    "type" : "customer.type.pf.pl",
+    "startServiceDate" : "2000-04-03T12:05:41.527+0000",
     "accessoryObligations" : [
         {
-            "_id" : "58f8c89b8ad19518dd3f9776", 
-            "name" : "IRPF", 
+            "_id" : "58f8c89b8ad19518dd3f9776",
+            "name" : "IRPF",
             "activationDate" : "2017-04-20T14:41:31.431+0000"
-        }, 
+        },
         {
-            "_id" : "58f8c89b8ad19518dd3f9775", 
-            "name" : "RAIS", 
+            "_id" : "58f8c89b8ad19518dd3f9775",
+            "name" : "RAIS",
             "activationDate" : "2017-04-20T14:41:31.431+0000"
         }
-    ], 
+    ],
     "partners" : [
 
-    ], 
+    ],
     "contacts" : [
         {
-            "name" : "Antônio", 
-            "email" : "clinica@clinicajosealfredo.com.br", 
-            "tel" : "3224-0708", 
-            "cel" : "9977-1756", 
+            "name" : "Antônio",
+            "email" : "clinica@clinicajosealfredo.com.br",
+            "tel" : "3224-0708",
+            "cel" : "9977-1756",
             "_id" : "58ef6a6c14a28816e63a590e"
         }
-    ], 
-    "__v" : 0, 
+    ],
+    "__v" : 0,
     "municipalRegist" : ""
 }

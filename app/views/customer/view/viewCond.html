@@ -176,14 +176,7 @@
             </md-input-container>
           </div>
           <div class="col-md-4">
-            <md-input-container class="md-block" ng-if="$index === 0">
-              <label>Identidade</label>
-              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
-              <div ng-messages="projectForm['syndicIdentity' + $index].$error">
-                <div ng-message="required">Campo obrigatório</div>
-              </div>
-            </md-input-container>
-            <md-input-container class="md-block" ng-if="$index !== 0">
+            <md-input-container class="md-block">
               <label>Identidade</label>
               <input ng-disabled="!ctrl.model.isEditMode" name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
             </md-input-container>
@@ -225,13 +218,6 @@
             <md-input-container class="md-block">
               <label>Código GPS</label>
               <input ng-disabled="!ctrl.model.isEditMode" name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
-            </md-input-container>
-          </div>
-          <div class="col-md-6">
-            <md-input-container class="md-block">
-              <label>Gerência</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="management" ng-model="ctrl.model.customer.management" />
-              <md-tooltip>{{ctrl.model.customer.management}}</md-tooltip>
             </md-input-container>
           </div>
         </div>

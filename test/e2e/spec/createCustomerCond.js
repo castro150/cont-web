@@ -13,6 +13,8 @@ describe('Create customer SN test', function() {
 	var stateRegist = element(by.name('stateRegist'));
 	var municipalRegist = element(by.name('municipalRegist'));
 	var customerAddress = element(by.name('customerAddress'));
+	var customerAddressNumber = element(by.name('customerAddressNumber'));
+	var customerAddressComp = element(by.name('customerAddressComp'));
 	var customerDistrict = element(by.name('customerDistrict'));
 	var customerCity = element(by.name('customerCity'));
 	var customerState = element(by.name('customerState'));
@@ -32,7 +34,6 @@ describe('Create customer SN test', function() {
 	var cae = element(by.name('cae'));
 	var nirc = element(by.name('nirc'));
 	var gpsCode = element(by.name('gpsCode'));
-	var management = element(by.name('management'));
 	var obs = element(by.name('obs'));
 	var cnae = element(by.name('cnae'));
 	var registryOffice = element(by.name('registryOffice'));
@@ -53,7 +54,8 @@ describe('Create customer SN test', function() {
 		customerNumber.sendKeys('3');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
-		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
+		customerAddress.sendKeys('RUA DAS ESTRELAS');
+		customerAddressNumber.sendKeys('777');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
@@ -63,7 +65,6 @@ describe('Create customer SN test', function() {
 		syndicTel0.sendKeys('3133333333');
 		syndicPeriod0.sendKeys('2015/2016');
 		syndicCpf0.sendKeys('95175384277');
-		syndicIdentity0.sendKeys('MG-5.678.721');
 
 		createBtn.click();
 		expect(successMsg.isPresent()).toBe(true);
@@ -78,7 +79,9 @@ describe('Create customer SN test', function() {
 		customerName.sendKeys('Acessoria de JVJ e outros');
 		stateRegist.sendKeys('753951');
 		municipalRegist.sendKeys('951753');
-		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
+		customerAddress.sendKeys('RUA DAS ESTRELAS');
+		customerAddressNumber.sendKeys('777');
+		customerAddressComp.sendKeys('AP 1000');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
@@ -101,7 +104,6 @@ describe('Create customer SN test', function() {
 		cae.sendKeys('7777777');
 		nirc.sendKeys('681');
 		gpsCode.sendKeys('2108');
-		management.sendKeys('Sócios assinam');
 		obs.sendKeys('Just an observation');
 		cnae.sendKeys('45-11-1-2');
 		registryOffice.sendKeys('JAGUARÃO');
