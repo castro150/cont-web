@@ -7,20 +7,14 @@
   <md-card-content>
     <div class="row">
       <div class="col-md-4">
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Quantidade de Sócios</label>
-          <md-select name="partnerQuantity" ng-model="ctrl.model.partnerQuantity" ng-change="ctrl.updatePartners()">
-            <md-option ng-repeat="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-                value="{{number}}" ng-selected="$first">
-              {{number}}
-            </md-option>
-          </md-select>
-        </md-input-container>
+        <md-button name="addPartnerBtn" class="md-primary" ng-click="ctrl.addPartner()">
+          <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Sócio
+        </md-button>
       </div>
     </div>
-    <div ng-repeat="partner in ctrl.model.partners">
+    <div ng-repeat="partner in ctrl.model.customer.partners">
       <div class="row" ng-if="$index === 0">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <md-input-container class="md-block">
             <label>Nome do Sócio</label>
             <input required name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
@@ -29,6 +23,8 @@
             </div>
           </md-input-container>
         </div>
+      </div>
+      <div class="row" ng-if="$index === 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Identidade</label>
@@ -38,8 +34,6 @@
             </div>
           </md-input-container>
         </div>
-      </div>
-      <div class="row" ng-if="$index === 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>CPF</label>
@@ -60,20 +54,20 @@
         </div>
       </div>
       <div class="row" ng-if="$index !== 0">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <md-input-container class="md-block">
             <label>Nome do Sócio</label>
             <input name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
           </md-input-container>
         </div>
+      </div>
+      <div class="row" ng-if="$index !== 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Identidade</label>
             <input name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
           </md-input-container>
         </div>
-      </div>
-      <div class="row" ng-if="$index !== 0">
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>CPF</label>
@@ -85,6 +79,13 @@
             <label>Participação</label>
             <input name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
           </md-input-container>
+        </div>
+      </div>
+      <div class="row" ng-if="$index !== 0">
+        <div class="col-md-12 text-right">
+          <md-button name="removePartnerBtn" class="md-warn" ng-click="ctrl.removePartner($index)">
+            <i class="glyphicon glyphicon-trash p-r-5" />Remover Sócio
+          </md-button>
         </div>
       </div>
       <md-divider ng-if="!$last" style="border-top-width: 3px; border-top-style: dotted;"></md-divider>

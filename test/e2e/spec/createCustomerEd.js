@@ -1,6 +1,8 @@
 describe('Create customer ED test', function() {
 	var createBtn = element(by.id('create-btn'));
 	var successMsg = element(by.id('success-msg'));
+	var addContactBtn = element(by.name('addContactBtn'));
+	var removeContactBtn = element.all(by.name('removeContactBtn')).first();
 
 	var customerNumber = element(by.name('customerNumber'));
 	var customerName = element(by.name('customerName'));
@@ -12,7 +14,6 @@ describe('Create customer ED test', function() {
 	var customerCity = element(by.name('customerCity'));
 	var customerState = element(by.name('customerState'));
 	var cep = element(by.name('cep'));
-	var contactQuantity = element.all(by.name('contactQuantity')).first();
 	var contactName0 = element(by.name('contactName0'));
 	var contactEmail0 = element(by.name('contactEmail0'));
 	var contactTel0 = element(by.name('contactTel0'));
@@ -67,8 +68,9 @@ describe('Create customer ED test', function() {
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
 		cep.sendKeys('34000000');
-		contactQuantity.click();
-		$('[value="2"]').click();
+		addContactBtn.click();
+		addContactBtn.click();
+		removeContactBtn.click();
 		contactName0.sendKeys('Adriana Ferreira');
 		contactEmail0.sendKeys('adriana@gmail.com');
 		contactTel0.sendKeys('3133333333');
