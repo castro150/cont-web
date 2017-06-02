@@ -63,7 +63,6 @@ describe('Create customer SN test', function() {
 		syndicTel0.sendKeys('3133333333');
 		syndicPeriod0.sendKeys('2015/2016');
 		syndicCpf0.sendKeys('95175384277');
-		syndicIdentity0.sendKeys('MG-5.678.721');
 
 		createBtn.click();
 		expect(successMsg.isPresent()).toBe(true);
