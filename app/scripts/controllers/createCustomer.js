@@ -20,10 +20,12 @@
 		ctrl.updateType = updateType;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
+		ctrl.addContact = addContact;
+		ctrl.removeContact = removeContact;
+		ctrl.addPartner = addPartner;
+		ctrl.removePartner = removePartner;
 		ctrl.addSyndic = addSyndic;
 		ctrl.removeSyndic = removeSyndic;
-		ctrl.updateContacts = updateContacts;
-		ctrl.updatePartners = updatePartners;
 		ctrl.createCustomer = createCustomer;
 
 		// ******************************
@@ -95,20 +97,28 @@
 			ctrl.model.customer.cnae2.splice(index, 1);
 		}
 
+		function addContact() {
+			ctrl.model.customer.contacts.push({});
+		}
+
+		function removeContact(index) {
+			ctrl.model.customer.contacts.splice(index, 1);
+		}
+
+		function addPartner() {
+			ctrl.model.customer.partners.push({});
+		}
+
+		function removePartner(index) {
+			ctrl.model.customer.partners.splice(index, 1);
+		}
+
 		function addSyndic() {
 			ctrl.model.customer.syndics.push({});
 		}
 
 		function removeSyndic(index) {
 			ctrl.model.customer.syndics.splice(index, 1);
-		}
-
-		function updateContacts() {
-			ctrl.model.contacts = Array.from(Array(parseInt(ctrl.model.contactQuantity)).keys());
-		}
-
-		function updatePartners() {
-			ctrl.model.partners = Array.from(Array(parseInt(ctrl.model.partnerQuantity)).keys());
 		}
 
 		function createCustomer() {
@@ -140,16 +150,14 @@
 		function clearModel() {
 			ctrl.model = {};
 			ctrl.model.customer = {};
-			ctrl.model.customer.contacts = [];
-			ctrl.model.customer.partners = [];
+			ctrl.model.customer.contacts = [{}];
+			ctrl.model.customer.partners = [{}];
 			ctrl.model.customer.syndics = [{}];
 			ctrl.model.customer.cnae2 = [''];
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();
 			ctrl.model.startActivityDate = new Date();
 			ctrl.model.createProgress = 0;
-			ctrl.model.contacts = [];
-			ctrl.model.partners = [];
 			ctrl.model.page = 1;
 		}
 
