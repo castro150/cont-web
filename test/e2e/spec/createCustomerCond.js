@@ -32,7 +32,6 @@ describe('Create customer SN test', function() {
 	var cae = element(by.name('cae'));
 	var nirc = element(by.name('nirc'));
 	var gpsCode = element(by.name('gpsCode'));
-	var management = element(by.name('management'));
 	var obs = element(by.name('obs'));
 	var cnae = element(by.name('cnae'));
 	var registryOffice = element(by.name('registryOffice'));
@@ -100,7 +99,6 @@ describe('Create customer SN test', function() {
 		cae.sendKeys('7777777');
 		nirc.sendKeys('681');
 		gpsCode.sendKeys('2108');
-		management.sendKeys('Sócios assinam');
 		obs.sendKeys('Just an observation');
 		cnae.sendKeys('45-11-1-2');
 		registryOffice.sendKeys('JAGUARÃO');
