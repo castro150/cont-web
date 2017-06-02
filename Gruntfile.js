@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 			},
 			homolog: {
 				options: {
-					dest: '<%= simpledocfyweb.dist %>/scripts/config.js'
+					dest: '<%= simpledocfyweb.app %>/scripts/config.js'
 				},
 				constants: {
 					ENV: {
@@ -83,18 +83,18 @@ module.exports = function(grunt) {
 				tasks: ['wiredep']
 			},
 			js: {
-				files: ['<%= simpledocfyweb.app %>/scripts/{,*/}*.js'],
+				files: ['<%= simpledocfyweb.app %>/scripts/**/*.js'],
 				tasks: ['newer:jshint:all', 'newer:jscs:all'],
 				options: {
 					livereload: '<%= connect.options.livereload %>'
 				}
 			},
 			jsTest: {
-				files: ['test/spec/{,*/}*.js'],
+				files: ['test/spec/**/*.js'],
 				tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
 			},
 			styles: {
-				files: ['<%= simpledocfyweb.app %>/styles/{,*/}*.css'],
+				files: ['<%= simpledocfyweb.app %>/styles/**/*.css'],
 				tasks: ['newer:copy:styles', 'postcss']
 			},
 			gruntfile: {
@@ -105,10 +105,10 @@ module.exports = function(grunt) {
 					livereload: '<%= connect.options.livereload %>'
 				},
 				files: [
-					'<%= simpledocfyweb.app %>/{,*/}*.html',
-					'.tmp/styles/{,*/}*.css',
-					'<%= simpledocfyweb.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-					'<%= simpledocfyweb.app %>/resources/{,*/}*.json'
+					'<%= simpledocfyweb.app %>/**/*.html',
+					'.tmp/styles/**/*.css',
+					'<%= simpledocfyweb.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+					'<%= simpledocfyweb.app %>/resources/**/*.json'
 				]
 			}
 		},
@@ -173,14 +173,14 @@ module.exports = function(grunt) {
 			all: {
 				src: [
 					'Gruntfile.js',
-					'<%= simpledocfyweb.app %>/scripts/{,*/}*.js'
+					'<%= simpledocfyweb.app %>/scripts/**/*.js'
 				]
 			},
 			test: {
 				options: {
 					jshintrc: 'test/.jshintrc'
 				},
-				src: ['test/spec/{,*/}*.js']
+				src: ['test/spec/**/*.js']
 			}
 		},
 
@@ -193,11 +193,11 @@ module.exports = function(grunt) {
 			all: {
 				src: [
 					'Gruntfile.js',
-					'<%= simpledocfyweb.app %>/scripts/{,*/}*.js'
+					'<%= simpledocfyweb.app %>/scripts/**/*.js'
 				]
 			},
 			test: {
-				src: ['test/spec/{,*/}*.js']
+				src: ['test/spec/**/*.js']
 			}
 		},
 
@@ -208,8 +208,8 @@ module.exports = function(grunt) {
 					dot: true,
 					src: [
 						'.tmp',
-						'<%= simpledocfyweb.dist %>/{,*/}*',
-						'!<%= simpledocfyweb.dist %>/.git{,*/}*'
+						'<%= simpledocfyweb.dist %>/**/*',
+						'!<%= simpledocfyweb.dist %>/.git**/*'
 					]
 				}]
 			},
@@ -232,7 +232,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '.tmp/styles/',
-					src: '{,*/}*.css',
+					src: '**/*.css',
 					dest: '.tmp/styles/'
 				}]
 			},
@@ -240,7 +240,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '.tmp/styles/',
-					src: '{,*/}*.css',
+					src: '**/*.css',
 					dest: '.tmp/styles/'
 				}]
 			}
@@ -274,9 +274,9 @@ module.exports = function(grunt) {
 		filerev: {
 			dist: {
 				src: [
-					'<%= simpledocfyweb.dist %>/scripts/{,*/}*.js',
-					'<%= simpledocfyweb.dist %>/styles/{,*/}*.css',
-					'<%= simpledocfyweb.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+					'<%= simpledocfyweb.dist %>/scripts/**/*.js',
+					'<%= simpledocfyweb.dist %>/styles/**/*.css',
+					'<%= simpledocfyweb.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
 					'<%= simpledocfyweb.dist %>/styles/fonts/*'
 				]
 			}
@@ -303,9 +303,9 @@ module.exports = function(grunt) {
 
 		// Performs rewrites based on filerev and the useminPrepare configuration
 		usemin: {
-			html: ['<%= simpledocfyweb.dist %>/{,*/}*.html'],
-			css: ['<%= simpledocfyweb.dist %>/styles/{,*/}*.css'],
-			js: ['<%= simpledocfyweb.dist %>/scripts/{,*/}*.js'],
+			html: ['<%= simpledocfyweb.dist %>/**/*.html'],
+			css: ['<%= simpledocfyweb.dist %>/styles/**/*.css'],
+			js: ['<%= simpledocfyweb.dist %>/scripts/**/*.js'],
 			options: {
 				assetsDirs: [
 					'<%= simpledocfyweb.dist %>',
@@ -351,7 +351,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%= simpledocfyweb.app %>/images',
-					src: '{,*/}*.{png,jpg,jpeg,gif}',
+					src: '**/*.{png,jpg,jpeg,gif}',
 					dest: '<%= simpledocfyweb.dist %>/images'
 				}]
 			}
@@ -362,7 +362,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%= simpledocfyweb.app %>/images',
-					src: '{,*/}*.svg',
+					src: '**/*.svg',
 					dest: '<%= simpledocfyweb.dist %>/images'
 				}]
 			}
@@ -393,7 +393,7 @@ module.exports = function(grunt) {
 					usemin: 'scripts/scripts.js'
 				},
 				cwd: '<%= simpledocfyweb.app %>',
-				src: 'views/{,*/}*.html',
+				src: 'views/**/*.html',
 				dest: '.tmp/templateCache.js'
 			}
 		},
@@ -429,9 +429,9 @@ module.exports = function(grunt) {
 					src: [
 						'*.{ico,png,txt}',
 						'*.html',
-						'images/{,*/}*.{webp}',
-						'styles/fonts/{,*/}*.*',
-						'resources/{,*/}*.*'
+						'images/**/*.{webp}',
+						'styles/fonts/**/*.*',
+						'resources/**/*.*'
 					]
 				}, {
 					expand: true,
@@ -454,7 +454,7 @@ module.exports = function(grunt) {
 				expand: true,
 				cwd: '<%= simpledocfyweb.app %>/styles',
 				dest: '.tmp/styles/',
-				src: '{,*/}*.css'
+				src: '**/*.css'
 			}
 		},
 
