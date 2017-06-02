@@ -13,6 +13,8 @@ describe('Create customer SN test', function() {
 	var stateRegist = element(by.name('stateRegist'));
 	var municipalRegist = element(by.name('municipalRegist'));
 	var customerAddress = element(by.name('customerAddress'));
+	var customerAddressNumber = element(by.name('customerAddressNumber'));
+	var customerAddressComp = element(by.name('customerAddressComp'));
 	var customerDistrict = element(by.name('customerDistrict'));
 	var customerCity = element(by.name('customerCity'));
 	var customerState = element(by.name('customerState'));
@@ -52,7 +54,8 @@ describe('Create customer SN test', function() {
 		customerNumber.sendKeys('3');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
-		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
+		customerAddress.sendKeys('RUA DAS ESTRELAS');
+		customerAddressNumber.sendKeys('777');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
@@ -76,7 +79,9 @@ describe('Create customer SN test', function() {
 		customerName.sendKeys('Acessoria de JVJ e outros');
 		stateRegist.sendKeys('753951');
 		municipalRegist.sendKeys('951753');
-		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
+		customerAddress.sendKeys('RUA DAS ESTRELAS');
+		customerAddressNumber.sendKeys('777');
+		customerAddressComp.sendKeys('AP 1000');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');

@@ -10,6 +10,8 @@ describe('Create customer ED test', function() {
 	var customerAlterNumber = element(by.name('customerAlterNumber'));
 	var startServiceDate = element(by.name('startServiceDate'));
 	var customerAddress = element(by.name('customerAddress'));
+	var customerAddressNumber = element(by.name('customerAddressNumber'));
+	var customerAddressComp = element(by.name('customerAddressComp'));
 	var customerDistrict = element(by.name('customerDistrict'));
 	var customerCity = element(by.name('customerCity'));
 	var customerState = element(by.name('customerState'));
@@ -43,7 +45,8 @@ describe('Create customer ED test', function() {
 		customerNumber.sendKeys('503');
 		customerName.sendKeys('ADRIANA CARVALHO FERREIRA');
 		cpf.sendKeys('86798584677');
-		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
+		customerAddress.sendKeys('RUA DAS ESTRELAS');
+		customerAddressNumber.sendKeys('777');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
@@ -63,7 +66,9 @@ describe('Create customer ED test', function() {
 		cpf.sendKeys('86798584677');
 		customerAlterNumber.sendKeys('00972');
 		startServiceDate.sendKeys('01/01/2015');
-		customerAddress.sendKeys('RUA DAS ESTRELAS, 777');
+		customerAddress.sendKeys('RUA DAS ESTRELAS');
+		customerAddressNumber.sendKeys('777');
+		customerAddressComp.sendKeys('AP 1000');
 		customerDistrict.sendKeys('VILA DA SERRA');
 		customerCity.sendKeys('NOVA LIMA');
 		customerState.sendKeys('MG');
