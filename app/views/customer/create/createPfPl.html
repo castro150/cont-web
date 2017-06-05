@@ -55,8 +55,11 @@
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Início dos Serviços</label>
-            <md-datepicker name="startServiceDate" ng-model="ctrl.model.startServiceDate" md-current-view="year"
+            <md-datepicker required name="startServiceDate" ng-model="ctrl.model.startServiceDate" md-current-view="year"
                 md-placeholder="Escolha a data" md-open-on-focus></md-datepicker>
+            <div ng-messages="projectForm.startServiceDate.$error">
+              <div ng-message="required">Campo obrigatório</div>
+            </div>
           </md-input-container>
         </div>
       </div>
