@@ -31,7 +31,6 @@ describe('Create customer SN test', function() {
 	var syndicPeriod1 = element(by.name('syndicPeriod1'));
 	var syndicCpf1 = element(by.name('syndicCpf1'));
 	var syndicIdentity1 = element(by.name('syndicIdentity1'));
-	var cae = element(by.name('cae'));
 	var nire = element(by.name('nire'));
 	var gpsCode = element(by.name('gpsCode'));
 	var obs = element(by.name('obs'));
@@ -101,7 +100,6 @@ describe('Create customer SN test', function() {
 		syndicPeriod1.sendKeys('2016/2017');
 		syndicCpf1.sendKeys('32598741652');
 		syndicIdentity1.sendKeys('MG-10.171.324');
-		cae.sendKeys('7777777');
 		nire.sendKeys('681');
 		gpsCode.sendKeys('2108');
 		obs.sendKeys('Just an observation');

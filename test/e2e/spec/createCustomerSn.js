@@ -39,7 +39,6 @@ describe('Create customer SN test', function() {
 	var partnerIdentity1 = element(by.name('partnerIdentity1'));
 	var partnerCpf1 = element(by.name('partnerCpf1'));
 	var partnerParticipation1 = element(by.name('partnerParticipation1'));
-	var cae = element(by.name('cae'));
 	var nire = element(by.name('nire'));
 	var gpsCode = element(by.name('gpsCode'));
 	var management = element(by.name('management'));
@@ -125,7 +124,6 @@ describe('Create customer SN test', function() {
 		partnerIdentity1.sendKeys('MG-11111111');
 		partnerCpf1.sendKeys('86798584677');
 		partnerParticipation1.sendKeys('20%');
-		cae.sendKeys('7777777');
 		nire.sendKeys('681');
 		gpsCode.sendKeys('2108');
 		management.sendKeys('Sócios assinam');

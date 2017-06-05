@@ -11,7 +11,7 @@ describe('Create customer LP test', function() {
 	var contactName0 = element(by.name('contactName0'));
 	var partnerName0 = element(by.name('partnerName0'));
 	var syndicName0 = element(by.name('syndicName0'));
-	var cae = element(by.name('cae'));
+	var gpsCode = element(by.name('gpsCode'));
 	var cei = element(by.name('cei'));
 	var ao1 = element(by.name('ao1'));
 	var ao2 = element(by.name('ao2'));
@@ -75,7 +75,7 @@ describe('Create customer LP test', function() {
 		expect(customerAddress.isEnabled()).toBe(false);
 		expect(contactName0.isEnabled()).toBe(false);
 		expect(partnerName0.isEnabled()).toBe(false);
-		expect(cae.isEnabled()).toBe(false);
+		expect(gpsCode.isEnabled()).toBe(false);
 
 		editBtn.click();
 		companyName.sendKeys('2');
@@ -90,7 +90,7 @@ describe('Create customer LP test', function() {
 		partnerName0.sendKeys('a');
 
 		tabs.get(4).click();
-		cae.sendKeys('7');
+		gpsCode.sendKeys('7');
 
 		tabs.get(5).click();
 		ao2.click();
@@ -106,7 +106,7 @@ describe('Create customer LP test', function() {
 		expect(customerAddress.isEnabled()).toBe(false);
 		expect(contactName0.isEnabled()).toBe(false);
 		expect(partnerName0.isEnabled()).toBe(false);
-		expect(cae.isEnabled()).toBe(false);
+		expect(gpsCode.isEnabled()).toBe(false);
 
 		editBtn.click();
 		companyName.sendKeys('2');
@@ -121,7 +121,7 @@ describe('Create customer LP test', function() {
 		partnerName0.sendKeys('a');
 
 		tabs.get(4).click();
-		cae.sendKeys('7');
+		gpsCode.sendKeys('7');
 
 		tabs.get(5).click();
 		ao2.click();
@@ -187,7 +187,7 @@ describe('Create customer LP test', function() {
 		expect(customerName.isEnabled()).toBe(false);
 		expect(customerAddress.isEnabled()).toBe(false);
 		expect(syndicName0.isEnabled()).toBe(false);
-		expect(cae.isEnabled()).toBe(false);
+		expect(gpsCode.isEnabled()).toBe(false);
 
 		editBtn.click();
 		customerName.sendKeys('2');
@@ -199,7 +199,7 @@ describe('Create customer LP test', function() {
 		syndicName0.sendKeys('a');
 
 		tabs.get(3).click();
-		cae.sendKeys('7');
+		gpsCode.sendKeys('7');
 
 		tabs.get(4).click();
 		ao1.click();
