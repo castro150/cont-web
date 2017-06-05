@@ -40,7 +40,7 @@ describe('Create customer LP test', function() {
 	var partnerCpf1 = element(by.name('partnerCpf1'));
 	var partnerParticipation1 = element(by.name('partnerParticipation1'));
 	var cae = element(by.name('cae'));
-	var nirc = element(by.name('nirc'));
+	var nire = element(by.name('nire'));
 	var gpsCode = element(by.name('gpsCode'));
 	var management = element(by.name('management'));
 	var obs = element(by.name('obs'));
@@ -129,7 +129,7 @@ describe('Create customer LP test', function() {
 		partnerCpf1.sendKeys('86798584677');
 		partnerParticipation1.sendKeys('20%');
 		cae.sendKeys('7777777');
-		nirc.sendKeys('681');
+		nire.sendKeys('681');
 		gpsCode.sendKeys('2108');
 		management.sendKeys('Sócios assinam');
 		obs.sendKeys('Just an observation');
