@@ -95,7 +95,7 @@ describe('Create customer LP test', function() {
 		companyName.sendKeys('JVJ Acessoria');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
-		stateRegist.sendKeys('753951');
+		stateRegist.sendKeys('0021370890079');
 		municipalRegist.sendKeys('951753');
 		shareCapital.sendKeys('R$10.000,00');
 		customerAddress.sendKeys('RUA DAS ESTRELAS');

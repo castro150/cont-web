@@ -76,7 +76,7 @@ describe('Create customer SN test', function() {
 		startActivityDate.sendKeys('01/01/2015');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
-		stateRegist.sendKeys('753951');
+		stateRegist.sendKeys('0021370890079');
 		municipalRegist.sendKeys('951753');
 		customerAddress.sendKeys('RUA DAS ESTRELAS');
 		customerAddressNumber.sendKeys('777');
