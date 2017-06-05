@@ -11,7 +11,8 @@
         <div class="col-md-2">
           <md-input-container class="md-block">
             <label>Número</label>
-            <input required type="number" name="customerNumber" ng-model="ctrl.model.customer.number" />
+            <input required name="customerNumber" ng-model="ctrl.model.customer.number"
+                autocorrect-number char-number="3" include-letters />
             <div ng-messages="projectForm.customerNumber.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
@@ -40,7 +41,8 @@
         <div class="col-md-2">
           <md-input-container class="md-block">
             <label>N° Alterdata</label>
-            <input name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber" />
+            <input name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber"
+                autocorrect-number char-number="5" />
           </md-input-container>
         </div>
         <div class="col-md-6">
