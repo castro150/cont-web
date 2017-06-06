@@ -156,14 +156,14 @@
           <div class="col-md-4">
             <md-input-container class="md-block" ng-if="$index === 0">
               <label>Telefone</label>
-              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
+              <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" required name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
               <div ng-messages="projectForm['syndicTel' + $index].$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
             </md-input-container>
             <md-input-container class="md-block" ng-if="$index !== 0">
               <label>Telefone</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
+              <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
             </md-input-container>
           </div>
           <div class="col-md-2">
