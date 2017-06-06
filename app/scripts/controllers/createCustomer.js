@@ -18,6 +18,7 @@
 		ctrl.closeAlert = closeAlert;
 
 		ctrl.updateType = updateType;
+		ctrl.checkFreeSR = checkFreeSR;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
 		ctrl.addContact = addContact;
@@ -87,6 +88,10 @@
 		function updateType() {
 			clearModel();
 			ctrl.model.createProgress = 50;
+		}
+
+		function checkFreeSR() {
+			ctrl.model.customer.stateRegist = '';
 		}
 
 		function addCnae2() {
