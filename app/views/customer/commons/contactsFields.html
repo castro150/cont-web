@@ -38,13 +38,23 @@
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Telefone</label>
-            <input name="contactTel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].tel" />
+            <input dynamic-tel name="contactTel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].tel" />
           </md-input-container>
         </div>
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Celular</label>
-            <input name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
+            <input dynamic-tel name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Responsável por</label>
+            <md-select name="contactResp{{$index}}" ng-model="ctrl.model.customer.contacts[$index].resp">
+              <md-option ng-repeat="resp in ['', 'Fiscal', 'Contabil', 'DP']" value="{{resp}}" ng-selected="$first">
+                {{resp}}
+              </md-option>
+            </md-select>
           </md-input-container>
         </div>
       </div>

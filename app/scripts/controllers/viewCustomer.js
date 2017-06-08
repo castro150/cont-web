@@ -29,6 +29,7 @@
 		ctrl.isPl = isPl;
 		ctrl.isEd = isEd;
 		ctrl.isCond = isCond;
+		ctrl.checkFreeSR = checkFreeSR;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
 		ctrl.addContact = addContact;
@@ -112,6 +113,10 @@
 
 		function isCond() {
 			return ctrl.model.customer.type === COND_KEY;
+		}
+
+		function checkFreeSR() {
+			ctrl.model.customer.stateRegist = '';
 		}
 
 		function addCnae2() {

@@ -7,6 +7,8 @@ describe('Create customer ED test', function() {
 	var customerNumber = element(by.name('customerNumber'));
 	var customerName = element(by.name('customerName'));
 	var cpf = element(by.name('cpf'));
+	var email = element(by.name('email'));
+	var tel = element(by.name('tel'));
 	var customerAlterNumber = element(by.name('customerAlterNumber'));
 	var startServiceDate = element(by.name('startServiceDate'));
 	var customerAddress = element(by.name('customerAddress'));
@@ -64,6 +66,8 @@ describe('Create customer ED test', function() {
 		customerNumber.sendKeys('503');
 		customerName.sendKeys('ADRIANA CARVALHO FERREIRA');
 		cpf.sendKeys('86798584677');
+		email.sendKeys('jvj@jvj.com');
+		tel.sendKeys('3133333333');
 		customerAlterNumber.sendKeys('00972');
 		startServiceDate.sendKeys('01/01/2015');
 		customerAddress.sendKeys('RUA DAS ESTRELAS');
@@ -79,7 +83,7 @@ describe('Create customer ED test', function() {
 		contactName0.sendKeys('Adriana Ferreira');
 		contactEmail0.sendKeys('adriana@gmail.com');
 		contactTel0.sendKeys('3133333333');
-		contactCel0.sendKeys('999999999')
+		contactCel0.sendKeys('999999999');
 		contactName1.sendKeys('Adriana Ferreira 2');
 		contactEmail1.sendKeys('adriana2@gmail.com');
 		contactTel1.sendKeys('3133333333');

@@ -19,7 +19,8 @@
           <div class="col-md-2">
             <md-input-container class="md-block">
               <label>Número</label>
-              <input required type="number" name="customerNumber" ng-model="ctrl.model.customer.number" />
+              <input required name="customerNumber" ng-model="ctrl.model.customer.number"
+                  autocorrect-number char-number="3" include-letters />
               <div ng-messages="projectForm.customerNumber.$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
@@ -28,7 +29,8 @@
           <div class="col-md-2">
             <md-input-container class="md-block">
               <label>N° Alterdata</label>
-              <input name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber" />
+              <input name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber"
+                  autocorrect-number char-number="5" />
             </md-input-container>
           </div>
           <div class="col-md-4">
@@ -61,6 +63,20 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-md-6">
+            <md-input-container class="md-block">
+              <label>E-mail</label>
+              <input name="email" ng-model="ctrl.model.customer.email" />
+            </md-input-container>
+          </div>
+          <div class="col-md-4">
+            <md-input-container class="md-block">
+              <label>Telefone</label>
+              <input dynamic-tel name="tel" ng-model="ctrl.model.customer.tel" />
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-4">
             <md-input-container class="md-block">
               <label>CNPJ</label>
@@ -70,11 +86,22 @@
               </div>
             </md-input-container>
           </div>
-          <div class="col-md-3">
-            <md-input-container class="md-block">
-              <label>Insc. Estadual</label>
-              <input name="stateRegist" ng-model="ctrl.model.customer.stateRegist" />
-            </md-input-container>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-8 no-p-r">
+                <md-input-container class="md-block">
+                  <label>Insc. Estadual</label>
+                  <input ng-disabled="ctrl.model.customer.stateRegistFree" name="stateRegist" ng-model="ctrl.model.customer.stateRegist" ui-mask="999999999.99-99" />
+                </md-input-container>
+              </div>
+              <div class="col-md-4 no-p">
+                <md-input-container class="md-block">
+                  <md-checkbox name="stateRegistFree" ng-model="ctrl.model.customer.stateRegistFree" ng-change="ctrl.checkFreeSR()">
+                    Isento
+                  </md-checkbox>
+                </md-input-container>
+              </div>
+            </div>
           </div>
           <div class="col-md-3">
             <md-input-container class="md-block">
@@ -135,14 +162,14 @@
             <div class="col-md-4">
               <md-input-container class="md-block" ng-if="$index === 0">
                 <label>Telefone</label>
-                <input required name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
+                <input dynamic-tel required name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
                 <div ng-messages="projectForm['syndicTel' + $index].$error">
                   <div ng-message="required">Campo obrigatório</div>
                 </div>
               </md-input-container>
               <md-input-container class="md-block" ng-if="$index !== 0">
                 <label>Telefone</label>
-                <input name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
+                <input dynamic-tel name="syndicTel{{$index}}" ng-model="ctrl.model.customer.syndics[$index].tel" />
               </md-input-container>
             </div>
             <div class="col-md-2">
@@ -197,24 +224,16 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-content>
-        <div class="row no-m">
-          <div class="col-md-6 no-p">
-            <div class="row">
-              <div class="col-md-6">
-                <md-input-container class="md-block">
-                  <label>NIRE</label>
-                  <input name="nire" ng-model="ctrl.model.customer.nire" />
-                </md-input-container>
-              </div>
-              <div class="col-md-6">
-                <md-input-container class="md-block">
-                  <label>Código GPS</label>
-                  <input name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
-                </md-input-container>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Código GPS</label>
+              <input name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
+            </md-input-container>
           </div>
-          <div class="col-md-6">
+        </div>
+        <div class="row">
+          <div class="col-md-10">
             <md-input-container class="md-block">
               <label>Observações</label>
               <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>

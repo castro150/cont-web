@@ -17,7 +17,8 @@
         <div class="col-md-2">
           <md-input-container class="md-block">
             <label>Número</label>
-            <input required ng-disabled="!ctrl.model.isEditMode" type="number" name="customerNumber" ng-model="ctrl.model.customer.number" />
+            <input required ng-disabled="!ctrl.model.isEditMode" name="customerNumber" ng-model="ctrl.model.customer.number"
+                autocorrect-number char-number="3" include-letters />
             <div ng-messages="projectForm.customerNumber.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
@@ -26,7 +27,8 @@
         <div class="col-md-2">
           <md-input-container class="md-block">
             <label>N° Alterdata</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber" />
+            <input ng-disabled="!ctrl.model.isEditMode" name="customerAlterNumber" ng-model="ctrl.model.customer.alterNumber"
+                autocorrect-number char-number="5" />
           </md-input-container>
         </div>
         <div class="col-md-4">
@@ -89,11 +91,37 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
           <md-input-container class="md-block">
-            <label>Insc. Estadual</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="stateRegist" ng-model="ctrl.model.customer.stateRegist" />
+            <label>E-mail</label>
+            <input ng-disabled="!ctrl.model.isEditMode" name="email" ng-model="ctrl.model.customer.email" />
           </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Telefone</label>
+            <input ng-disabled="!ctrl.model.isEditMode" dynamic-tel name="tel" ng-model="ctrl.model.customer.tel" />
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-8 no-p-r">
+              <md-input-container class="md-block">
+                <label>Insc. Estadual</label>
+                <input ng-disabled="!ctrl.model.isEditMode || ctrl.model.customer.stateRegistFree" name="stateRegist"
+                    ng-model="ctrl.model.customer.stateRegist" ui-mask="999999999.99-99" />
+              </md-input-container>
+            </div>
+            <div class="col-md-4 no-p">
+              <md-input-container class="md-block">
+                <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="stateRegistFree" ng-model="ctrl.model.customer.stateRegistFree" ng-change="ctrl.checkFreeSR()">
+                  Isento
+                </md-checkbox>
+              </md-input-container>
+            </div>
+          </div>
         </div>
         <div class="col-md-3">
           <md-input-container class="md-block">
@@ -104,7 +132,7 @@
         <div class="col-md-3">
           <md-input-container class="md-block">
             <label>Capital Social</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="shareCapital" ng-model="ctrl.model.customer.shareCapital" />
+            <input ng-disabled="!ctrl.model.isEditMode" name="shareCapital" ng-model="ctrl.model.customer.shareCapital" currency-for-model />
           </md-input-container>
         </div>
       </div>

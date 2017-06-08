@@ -10,6 +10,8 @@ describe('Create customer SN test', function() {
 	var startActivityDate = element(by.name('startActivityDate'));
 	var cnpj = element(by.name('cnpj'));
 	var customerName = element(by.name('customerName'));
+	var email = element(by.name('email'));
+	var tel = element(by.name('tel'));
 	var stateRegist = element(by.name('stateRegist'));
 	var municipalRegist = element(by.name('municipalRegist'));
 	var customerAddress = element(by.name('customerAddress'));
@@ -31,7 +33,6 @@ describe('Create customer SN test', function() {
 	var syndicPeriod1 = element(by.name('syndicPeriod1'));
 	var syndicCpf1 = element(by.name('syndicCpf1'));
 	var syndicIdentity1 = element(by.name('syndicIdentity1'));
-	var nire = element(by.name('nire'));
 	var gpsCode = element(by.name('gpsCode'));
 	var obs = element(by.name('obs'));
 	var cnae = element(by.name('cnae'));
@@ -76,7 +77,9 @@ describe('Create customer SN test', function() {
 		startActivityDate.sendKeys('01/01/2015');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
-		stateRegist.sendKeys('753951');
+		email.sendKeys('jvj@jvj.com');
+		tel.sendKeys('3133333333');
+		stateRegist.sendKeys('0021370890079');
 		municipalRegist.sendKeys('951753');
 		customerAddress.sendKeys('RUA DAS ESTRELAS');
 		customerAddressNumber.sendKeys('777');
@@ -100,7 +103,6 @@ describe('Create customer SN test', function() {
 		syndicPeriod1.sendKeys('2016/2017');
 		syndicCpf1.sendKeys('32598741652');
 		syndicIdentity1.sendKeys('MG-10.171.324');
-		nire.sendKeys('681');
 		gpsCode.sendKeys('2108');
 		obs.sendKeys('Just an observation');
 		cnae.sendKeys('45-11-1-2');

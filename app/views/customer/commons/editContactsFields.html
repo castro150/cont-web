@@ -31,13 +31,23 @@
     <div class="col-md-4">
       <md-input-container class="md-block">
         <label>Telefone</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="contactTel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].tel" />
+        <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" name="contactTel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].tel" />
       </md-input-container>
     </div>
     <div class="col-md-4">
       <md-input-container class="md-block">
         <label>Celular</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
+        <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Responsável por</label>
+        <md-select ng-disabled="!ctrl.model.isEditMode" name="contactResp{{$index}}" ng-model="ctrl.model.customer.contacts[$index].resp">
+          <md-option ng-repeat="resp in ['', 'Fiscal', 'Contabil', 'DP']" value="{{resp}}">
+            {{resp}}
+          </md-option>
+        </md-select>
       </md-input-container>
     </div>
   </div>

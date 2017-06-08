@@ -13,6 +13,8 @@ describe('Create customer SN test', function() {
 	var companyName = element(by.name('companyName'));
 	var cnpj = element(by.name('cnpj'));
 	var customerName = element(by.name('customerName'));
+	var email = element(by.name('email'));
+	var tel = element(by.name('tel'));
 	var stateRegist = element(by.name('stateRegist'));
 	var municipalRegist = element(by.name('municipalRegist'));
 	var shareCapital = element(by.name('shareCapital'));
@@ -92,7 +94,9 @@ describe('Create customer SN test', function() {
 		companyName.sendKeys('JVJ Acessoria');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
-		stateRegist.sendKeys('753951');
+		email.sendKeys('jvj@jvj.com');
+		tel.sendKeys('3133333333');
+		stateRegist.sendKeys('0021370890079');
 		municipalRegist.sendKeys('951753');
 		shareCapital.sendKeys('R$10.000,00');
 		customerAddress.sendKeys('RUA DAS ESTRELAS');
@@ -108,7 +112,7 @@ describe('Create customer SN test', function() {
 		contactName0.sendKeys('Adriana Ferreira');
 		contactEmail0.sendKeys('adriana@gmail.com');
 		contactTel0.sendKeys('3133333333');
-		contactCel0.sendKeys('999999999')
+		contactCel0.sendKeys('999999999');
 		contactName1.sendKeys('Adriana Ferreira 2');
 		contactEmail1.sendKeys('adriana2@gmail.com');
 		contactTel1.sendKeys('3133333333');
