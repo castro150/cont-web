@@ -39,7 +39,7 @@
     <div class="col-md-4">
       <md-input-container class="md-block">
         <label>Participação</label>
-        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
+        <input ng-disabled="!ctrl.model.isEditMode" required percent name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
         <div ng-messages="projectForm['partnerParticipation' + $index].$error">
           <div ng-message="required">Campo obrigatório</div>
         </div>
@@ -70,7 +70,7 @@
     <div class="col-md-4">
       <md-input-container class="md-block">
         <label>Participação</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
+        <input ng-disabled="!ctrl.model.isEditMode" percent name="partnerParticipation{{$index}}" ng-model="ctrl.model.customer.partners[$index].participation" />
       </md-input-container>
     </div>
   </div>
