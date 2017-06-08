@@ -79,7 +79,7 @@ describe('Create customer ED test', function() {
 		contactName0.sendKeys('Adriana Ferreira');
 		contactEmail0.sendKeys('adriana@gmail.com');
 		contactTel0.sendKeys('3133333333');
-		contactCel0.sendKeys('999999999')
+		contactCel0.sendKeys('999999999');
 		contactName1.sendKeys('Adriana Ferreira 2');
 		contactEmail1.sendKeys('adriana2@gmail.com');
 		contactTel1.sendKeys('3133333333');
