@@ -38,6 +38,20 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-6">
+          <md-input-container class="md-block">
+            <label>E-mail</label>
+            <input name="email" ng-model="ctrl.model.customer.email" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container class="md-block">
+            <label>Telefone</label>
+            <input dynamic-tel name="tel" ng-model="ctrl.model.customer.tel" />
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-2">
           <md-input-container class="md-block">
             <label>N° Alterdata</label>

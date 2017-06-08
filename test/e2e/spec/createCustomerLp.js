@@ -13,6 +13,8 @@ describe('Create customer LP test', function() {
 	var companyName = element(by.name('companyName'));
 	var cnpj = element(by.name('cnpj'));
 	var customerName = element(by.name('customerName'));
+	var email = element(by.name('email'));
+	var tel = element(by.name('tel'));
 	var stateRegist = element(by.name('stateRegist'));
 	var municipalRegist = element(by.name('municipalRegist'));
 	var shareCapital = element(by.name('shareCapital'));
@@ -95,6 +97,8 @@ describe('Create customer LP test', function() {
 		companyName.sendKeys('JVJ Acessoria');
 		cnpj.sendKeys('11236987000195');
 		customerName.sendKeys('Acessoria de JVJ e outros');
+		email.sendKeys('jvj@jvj.com');
+		tel.sendKeys('3133333333');
 		stateRegist.sendKeys('0021370890079');
 		municipalRegist.sendKeys('951753');
 		shareCapital.sendKeys('R$10.000,00');
