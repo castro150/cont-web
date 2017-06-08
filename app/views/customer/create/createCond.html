@@ -210,24 +210,16 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-content>
-        <div class="row no-m">
-          <div class="col-md-6 no-p">
-            <div class="row">
-              <div class="col-md-6">
-                <md-input-container class="md-block">
-                  <label>NIRE</label>
-                  <input name="nire" ng-model="ctrl.model.customer.nire" />
-                </md-input-container>
-              </div>
-              <div class="col-md-6">
-                <md-input-container class="md-block">
-                  <label>Código GPS</label>
-                  <input name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
-                </md-input-container>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-md-3">
+            <md-input-container class="md-block">
+              <label>Código GPS</label>
+              <input name="gpsCode" ng-model="ctrl.model.customer.gpsCode" />
+            </md-input-container>
           </div>
-          <div class="col-md-6">
+        </div>
+        <div class="row">
+          <div class="col-md-10">
             <md-input-container class="md-block">
               <label>Observações</label>
               <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
