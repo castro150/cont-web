@@ -166,6 +166,8 @@
 			}, function(response) {
 				if (response.status === -1) {
 					dangerAlert($filter('translate')('errors.unavailable.service'));
+				} else if (response.status === 400) {
+					dangerAlert($filter('translate')(response.data.name));
 				} else {
 					dangerAlert($filter('translate')('errors.unexpected'));
 				}
