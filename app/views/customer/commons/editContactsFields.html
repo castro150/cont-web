@@ -40,14 +40,32 @@
         <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
       </md-input-container>
     </div>
-    <div class="col-md-4">
+  </div>
+  <div class="row">
+    <div class="col-md-3">
       <md-input-container class="md-block">
-        <label>Responsável por</label>
-        <md-select ng-disabled="!ctrl.model.isEditMode" name="contactResp{{$index}}" ng-model="ctrl.model.customer.contacts[$index].resp">
-          <md-option ng-repeat="resp in ['', 'Fiscal', 'Contabil', 'DP']" value="{{resp}}">
-            {{resp}}
-          </md-option>
-        </md-select>
+        <label>Responsável por:</label>
+      </md-input-container>
+    </div>
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="respFisc{{$index}}" ng-model="ctrl.model.customer.contacts[$index].isRespFisc">
+          Fiscal
+        </md-checkbox>
+      </md-input-container>
+    </div>
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="respCont{{$index}}" ng-model="ctrl.model.customer.contacts[$index].isRespCont">
+          Contabil
+        </md-checkbox>
+      </md-input-container>
+    </div>
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="respDp{{$index}}" ng-model="ctrl.model.customer.contacts[$index].isRespDp">
+          DP
+        </md-checkbox>
       </md-input-container>
     </div>
   </div>
