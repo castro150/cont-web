@@ -1,11 +1,11 @@
 (function() {
+	'use strict';
 
 	angular
 		.module('simpleDocfyWebApp')
 		.directive(
 			'ngTranslateLanguageSelect',
 			function(LocaleService) {
-				'use strict';
 
 				return {
 					restrict: 'A',
