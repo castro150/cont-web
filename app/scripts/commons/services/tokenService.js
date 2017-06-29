@@ -41,7 +41,7 @@
 		}
 
 		function currentUser() {
-			if (isLoggedIn()) {
+			if (isValidToken()) {
 				var token = getToken();
 				var payload = JSON.parse($window.atob(token.split('.')[1]));
 

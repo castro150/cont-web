@@ -1,9 +1,9 @@
 (function() {
+	'use strict';
 
 	angular.module('simpleDocfyWebApp').service(
 		'LocaleService',
 		function($translate, LOCALES, $rootScope, tmhDynamicLocale) {
-			'use strict';
 			// PREPARING LOCALES INFO
 			var localesObj = LOCALES.locales;
 

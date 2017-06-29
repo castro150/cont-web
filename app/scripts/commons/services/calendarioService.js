@@ -22,7 +22,7 @@
 			}];
 
 			return eventos;
-		}
+		};
 
 		return {
 			buscarEventos: service.buscarEventos
