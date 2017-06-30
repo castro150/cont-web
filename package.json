@@ -47,6 +47,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "preinstall": "bower install",
+    "start": "grunt serve",
+    "start-hmg": "grunt serve-hmg",
     "test": "grunt test",
     "selenium": "webdriver-manager start",
     "stubby": "stubby -d test/stubby/stubby.yaml -s 3000 -w",

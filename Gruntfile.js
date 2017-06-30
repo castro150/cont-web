@@ -55,8 +55,8 @@ module.exports = function(grunt) {
 				},
 				constants: {
 					ENV: {
-						sdServer: 'http://192.168.0.150:3000',
-						customerService: 'http://192.168.0.150:3000'
+						sdServer: 'https://quiet-peak-31489.herokuapp.com',
+						customerService: 'https://quiet-peak-31489.herokuapp.com'
 					}
 				}
 			},
