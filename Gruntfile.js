@@ -590,8 +590,4 @@ module.exports = function(grunt) {
 		'connect:test',
 		'protractor:e2e'
 	]);
-
-	grunt.registerTask('heroku', [
-		'serve-hmg'
-	]);
 };
