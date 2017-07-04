@@ -1,7 +1,7 @@
 {
   "name": "simpledocfyweb",
   "private": true,
-  "dependencies":{
+  "dependencies": {
     "autoprefixer-core": "^5.2.1",
     "bower": "^1.8.0",
     "chalk": "*",
@@ -9,15 +9,6 @@
     "esprima-harmony-jscs": "*",
     "estraverse": "*",
     "glob": "*",
-    "jshint-stylish": "^1.0.0",
-    "karma-jasmine": "*",
-    "karma-phantomjs-launcher": "*",
-    "minimatch": "*",
-    "pathval": "*",
-    "strip-json-comments": "*",
-    "vow-fs": "*"
-  },
-  "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.7",
     "grunt-cli": "^1.2.0",
@@ -45,7 +36,14 @@
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",
-    "time-grunt": "^1.0.0"
+    "jshint-stylish": "^1.0.0",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "*",
+    "minimatch": "*",
+    "pathval": "*",
+    "strip-json-comments": "*",
+    "time-grunt": "^1.0.0",
+    "vow-fs": "*"
   },
   "engines": {
     "node": "7.9.0"
