@@ -38,52 +38,7 @@
 
     <div layout="row" flex>
       <md-sidenav ng-if="!isLoginState" md-is-locked-open="true" class="md-whiteframe-3dp">
-        <md-list>
-          <md-list-item>
-            <md-button class="sidenav-button app-menu-button" slide-toggle="#cMenu">
-              <md-icon md-svg-src="images/svg/notebook.svg" class="sidenav-icon"></md-icon>
-              Cadastro
-            </md-button>
-          </md-list-item>
-          <md-menu-content id="cMenu" class="slideable no-p app-sub-menu" width="4">
-            <md-menu-item>
-              <md-button href="#/cadastro/pf">
-                <md-icon></md-icon>
-                Pessoa Física
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button href="#/cadastro/lp">
-                <md-icon></md-icon>
-                Lucro Presumido
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button href="#/cadastro/sn">
-                <md-icon></md-icon>
-                Simples Nacional
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button href="#/cadastro/cond">
-                <md-icon></md-icon>
-                Condomínio
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-          <md-list-item>
-            <md-button class="sidenav-button app-menu-button" href="#/clientes">
-              <md-icon md-svg-src="images/svg/documentation.svg" class="sidenav-icon"></md-icon>
-              Clientes
-            </md-button>
-          </md-list-item>
-          <md-list-item ng-if="false">
-            <md-button class="sidenav-button app-menu-button" href="#/guias">
-              <md-icon md-svg-src="images/svg/calendar.svg" class="sidenav-icon"></md-icon>
-              Guias
-            </md-button>
-          </md-list-item>
-        </md-list>
+        <ng-include src="'views/sidenav.html'"></ng-include>
       </md-sidenav>
 
       <md-content id="content" flex class="p-r-15 main-backgroud">

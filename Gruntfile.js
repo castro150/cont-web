@@ -370,12 +370,7 @@ module.exports = function(grunt) {
 
 		htmlmin: {
 			dist: {
-				options: {
-					collapseWhitespace: true,
-					conservativeCollapse: true,
-					collapseBooleanAttributes: true,
-					removeCommentsFromCDATA: true
-				},
+				options: {},
 				files: [{
 					expand: true,
 					cwd: '<%= simpledocfyweb.dist %>',
@@ -388,7 +383,7 @@ module.exports = function(grunt) {
 		ngtemplates: {
 			dist: {
 				options: {
-					module: 'simpleDocfyApp',
+					module: 'simpleDocfyWebApp',
 					htmlmin: '<%= htmlmin.dist.options %>',
 					usemin: 'scripts/scripts.js'
 				},

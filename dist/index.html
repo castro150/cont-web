@@ -1,0 +1,46 @@
+<!-- Padrão Unicode -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple-Docfy-WEB App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/vendor.20d0c544.css">
+    <link rel="stylesheet" href="styles/main.6cb1df1e.css">
+  </head>
+  <body ng-app="simpleDocfyWebApp" layout="column">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <md-toolbar layout="row" ng-controller="NavCtrl as ctrl">
+      <md-button ng-if="ctrl.isLoggedIn()" ng-click="ctrl.goHome()" class="md-button">
+        Home
+      </md-button>
+      <h3>Simple Docfy</h3>
+      <md-button ng-if="ctrl.isLoggedIn()" ng-click="ctrl.logout()" class="md-button">
+        Logout
+      </md-button>
+    </md-toolbar>
+
+    <div layout="row" flex>
+      <md-sidenav ng-if="!isLoginState" md-is-locked-open="true" class="md-whiteframe-3dp">
+        <ng-include src="'views/sidenav.html'"></ng-include>
+      </md-sidenav>
+
+      <md-content id="content" flex class="p-r-15 main-backgroud">
+        <div ui-view></div>
+      </md-content>
+    </div>
+
+    <!-- <div class="container-fluid">
+    	<div ng-view=""></div>
+    </div> -->
+
+    <script src="scripts/vendor.f655c933.js"></script>
+
+    <script src="scripts/scripts.746b201e.js"></script>
+  </body>
+</html>
