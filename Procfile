@@ -1,1 +1,1 @@
-web: npm run start-hmg
+web: node web.js
