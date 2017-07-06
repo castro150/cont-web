@@ -33,7 +33,7 @@
 
                 <div>
                   <md-button id="enter" type="submit" class="md-raised md-primary"
-                      ng-disabled="!ctrl.isRequiredFieldsFilled()">
+                      ng-disabled="!ctrl.isRequiredFieldsFilled() || ctrl.model.isLoginDisabled">
                     Entrar
                   </md-button>
                   <md-button id="clean" ng-click="ctrl.clearFields()" class="md-raised md-button">

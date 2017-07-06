@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:CreateCustomerCtrl
 	 * @description # CreateCustomerCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('CreateCustomerCtrl', ['$filter', '$location', '$anchorScroll', 'type', 'CustomerService', CreateCustomerCtrl]);
+	angular.module('simpleDocfyWebApp').controller('CreateCustomerCtrl', ['$filter', '$location', '$anchorScroll', 'type', 'usSpinnerService', 'CustomerService', CreateCustomerCtrl]);
 
-	function CreateCustomerCtrl($filter, $location, $anchorScroll, type, CustomerService) {
+	function CreateCustomerCtrl($filter, $location, $anchorScroll, type, usSpinnerService, CustomerService) {
 
 		var ctrl = this;
 
@@ -136,9 +136,16 @@
 			}
 			populateAccessoryObligations(customer);
 
+			$location.hash('alerts');
+			usSpinnerService.spin('loading');
+			ctrl.model.isCreateDisabled = true;
 			CustomerService.create(customer).then(function() {
+				usSpinnerService.stop('loading');
+				ctrl.model.isCreateDisabled = false;
 				$location.path('/cadastro/sucesso');
 			}, function(response) {
+				usSpinnerService.stop('loading');
+				ctrl.model.isCreateDisabled = false;
 				if (response.status === 400) {
 					dangerAlert($filter('translate')(response.data.name));
 				} else {

@@ -35,12 +35,12 @@
             </md-button>
           </div>
           <div class="col-md-offset-8 col-md-2" ng-if="ctrl.model.isEditMode">
-            <md-button id="cancel-btn" ng-click="ctrl.cancel()" class="md-raised md-warn">
+            <md-button id="cancel-btn" ng-click="ctrl.cancel()" class="md-raised md-warn" ng-disabled="ctrl.model.isCancelDisabled">
               <i class="glyphicon glyphicon-remove p-r-5" />Cancelar
             </md-button>
           </div>
           <div class="col-md-2" ng-if="ctrl.model.isEditMode">
-            <md-button id="save-btn" type="submit" class="md-raised md-primary">
+            <md-button id="save-btn" type="submit" class="md-raised md-primary" ng-disabled="ctrl.model.isSaveDisabled">
               <i class="glyphicon glyphicon-floppy-disk p-r-5" />Salvar
             </md-button>
           </div>
