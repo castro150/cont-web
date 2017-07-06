@@ -169,6 +169,7 @@
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();
 			ctrl.model.startActivityDate = new Date();
+			ctrl.model.isCreateDisabled = false;
 			ctrl.model.createProgress = 0;
 			ctrl.model.page = 1;
 		}
