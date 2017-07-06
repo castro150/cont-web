@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:ViewCustomerCtrl
 	 * @description # ViewCustomerCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('ViewCustomerCtrl', ['$stateParams', '$filter', '$location', '$anchorScroll', 'CustomerService', ViewCustomerCtrl]);
+	angular.module('simpleDocfyWebApp').controller('ViewCustomerCtrl', ['$stateParams', '$filter', '$location', '$anchorScroll', 'usSpinnerService', 'CustomerService', ViewCustomerCtrl]);
 
-	function ViewCustomerCtrl($stateParams, $filter, $location, $anchorScroll, CustomerService) {
+	function ViewCustomerCtrl($stateParams, $filter, $location, $anchorScroll, usSpinnerService, CustomerService) {
 
 		var ctrl = this;
 
@@ -54,6 +54,7 @@
 			ctrl.model.isEditMode = false;
 			ctrl.model.accessoryObligations = [];
 
+			enableServiceButtons();
 			initializeScreenOptions();
 			findCustomer();
 		}
@@ -158,12 +159,18 @@
 			}
 			populateAccessoryObligations(ctrl.model.customer);
 
+			usSpinnerService.spin('loading');
+			disableServiceButtons();
 			CustomerService.update(ctrl.model.customer._id, ctrl.model.customer).then(function() {
+				usSpinnerService.stop('loading');
+				enableServiceButtons();
 				ctrl.model.isEditMode = false;
 				successAlert($filter('translate')('customer.view.update.success'));
 				$location.hash('alerts');
 				$anchorScroll();
 			}, function(response) {
+				usSpinnerService.stop('loading');
+				enableServiceButtons();
 				if (response.status === -1) {
 					dangerAlert($filter('translate')('errors.unavailable.service'));
 				} else if (response.status === 400) {
@@ -183,6 +190,16 @@
 		// ******************************
 		// Private methods
 		// ******************************
+		function enableServiceButtons() {
+			ctrl.model.isSaveDisabled = false;
+			ctrl.model.isCancelDisabled = false;
+		}
+
+		function disableServiceButtons() {
+			ctrl.model.isSaveDisabled = true;
+			ctrl.model.isCancelDisabled = true;
+		}
+
 		function initializeScreenOptions() {
 			ctrl.typeComboOptions = [];
 			ctrl.statusComboOptions = [{
@@ -206,12 +223,18 @@
 		}
 
 		function findCustomer() {
+			usSpinnerService.spin('loading');
+			disableServiceButtons();
 			CustomerService.findById($stateParams.id).then(function(response) {
+				usSpinnerService.stop('loading');
+				enableServiceButtons();
 				ctrl.customer = response.data;
 				ctrl.model.customer = ctrl.customer;
 				updateModel();
 				populateTypeCombo();
 			}, function(response) {
+				usSpinnerService.stop('loading');
+				enableServiceButtons();
 				if (response.status === -1) {
 					dangerAlert($filter('translate')('errors.unavailable.service'));
 				} else {

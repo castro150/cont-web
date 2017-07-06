@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:ViewCustomersCtrl
 	 * @description # ViewCustomersCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('ViewCustomersCtrl', ['$filter', '$scope', '$location', '$anchorScroll', 'CustomerService', ViewCustomersCtrl]);
+	angular.module('simpleDocfyWebApp').controller('ViewCustomersCtrl', ['$filter', '$scope', '$location', '$anchorScroll', 'usSpinnerService', 'CustomerService', ViewCustomersCtrl]);
 
-	function ViewCustomersCtrl($filter, $scope, $location, $anchorScroll, CustomerService) {
+	function ViewCustomersCtrl($filter, $scope, $location, $anchorScroll, usSpinnerService, CustomerService) {
 
 		var ctrl = this;
 
@@ -81,7 +81,9 @@
 		// Private methods
 		// ******************************
 		function findAllActiveCustomers() {
+			usSpinnerService.spin('loading');
 			CustomerService.findAllActive().then(function(response) {
+				usSpinnerService.stop('loading');
 				ctrl.customers = response.data;
 				ctrl.customers.forEach(function(customer) {
 					customer.cpfCnpj = customer.cpf ? $filter('cpf')(customer.cpf) : $filter('cnpj')(customer.cnpj);
@@ -89,6 +91,7 @@
 				});
 				ctrl.model.customers = ctrl.customers;
 			}, function(response) {
+				usSpinnerService.stop('loading');
 				if (response.status === -1) {
 					dangerAlert($filter('translate')('errors.unavailable.service'));
 				} else {

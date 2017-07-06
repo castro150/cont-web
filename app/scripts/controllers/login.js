@@ -6,9 +6,9 @@
 	 * @name simpleDocfyWebApp.controller:LoginCtrl
 	 * @description # LoginCtrl Controller of the simpleDocfyWebApp
 	 */
-	angular.module('simpleDocfyWebApp').controller('LoginCtrl', ['$filter', '$location', 'AuthService', LoginCtrl]);
+	angular.module('simpleDocfyWebApp').controller('LoginCtrl', ['$filter', '$location', 'usSpinnerService', 'AuthService', LoginCtrl]);
 
-	function LoginCtrl($filter, $location, AuthService) {
+	function LoginCtrl($filter, $location, usSpinnerService, AuthService) {
 
 		var ctrl = this;
 
@@ -31,6 +31,7 @@
 
 			ctrl.model = {};
 			ctrl.model.user = {};
+			ctrl.model.isLoginDisabled = false;
 		}
 
 		// ******************************
@@ -65,9 +66,15 @@
 		// Public methods
 		// ******************************
 		function logIn() {
+			usSpinnerService.spin('loading');
+			ctrl.model.isLoginDisabled = true;
 			AuthService.logIn(ctrl.model.user).then(function() {
+				usSpinnerService.stop('loading');
+				ctrl.model.isLoginDisabled = false;
 				$location.path('/');
 			}, function(response) {
+				usSpinnerService.stop('loading');
+				ctrl.model.isLoginDisabled = false;
 				if (response.status === 401) {
 					dangerAlert($filter('translate')('errors.login.invalid.user'));
 				} else {
