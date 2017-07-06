@@ -1,0 +1,20 @@
+<div class="row p-t-15 p-r-15">
+  <div id="danger-alert" class="alert alert-danger" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'danger'}">
+    <button type="button" class="close" ng-click="ctrl.closeAlert(alert)" aria-label="Fechar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+  <div id="warning-alert" class="alert alert-warning" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'warning'}">
+    <button type="button" class="close" ng-click="ctrl.closeAlert(alert)" aria-label="Fechar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+  <div id="success-alert" class="alert alert-success" role="alert" ng-repeat="alert in ctrl.alerts | filter: {type: 'success'}">
+    <button type="button" class="close" ng-click="ctrl.closeAlert(alert)" aria-label="Fechar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <ng-include src="'views/commons/alert.html'"></ng-include>
+  </div>
+
+  <div class="col-md-offset-4 col-md-4">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <md-content layout-padding>
+          <md-card>
+            <form ng-submit="ctrl.logIn()" name="projectForm">
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Login</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content>
+                <md-input-container class="md-block">
+                  <label>Usuário</label>
+                  <input id="user" required md-no-asterisk name="user" ng-model="ctrl.model.user.username">
+                  <div ng-messages="projectForm.user.$error">
+                    <div ng-message="required">Campo obrigatório</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                  <label>Senha</label>
+                  <input id="password" type="password" required md-no-asterisk name="password" ng-model="ctrl.model.user.password">
+                  <div ng-messages="projectForm.password.$error">
+                    <div ng-message="required">Campo obrigatório</div>
+                  </div>
+                </md-input-container>
+
+                <div>
+                  <md-button id="enter" type="submit" class="md-raised md-primary"
+                      ng-disabled="!ctrl.isRequiredFieldsFilled()">
+                    Entrar
+                  </md-button>
+                  <md-button id="clean" ng-click="ctrl.clearFields()" class="md-raised md-button">
+                    Limpar
+                  </md-button>
+                </div>
+              </md-card-content>
+            </form>
+          </md-card>
+        </md-content>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,3 +12,6 @@
 /.project
 /.debug.log
 /debug.log
+/.idea
+/app/scripts/config.js
+package-lock.json

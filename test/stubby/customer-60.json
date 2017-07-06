@@ -1,0 +1,61 @@
+{
+  "_id": "591dba77598c2a14c94cfd4a",
+  "number": 60,
+  "name": "Condomínio do Edificio Minas Novas",
+  "cnpj": "18911903000190",
+  "stateRegist": "0021370890079",
+  "municipalRegist": "0.825.194/001-8",
+  "address": "Rua Minas Novas",
+  "addressNumber": "120",
+  "district": "Cruzeiro",
+  "city": "Belo Horizonte",
+  "state": "MG",
+  "cep": "30310090",
+  "nire": "",
+  "cnae": "70.40-80-0  Condomínios, prédios residenciais ou não",
+  "gpsCode": "2100",
+  "obs": "Cód. FPAS: 566 (20%)\nCód.SAT: 91955 (1%)\nCód. Terc.: 0099 (4,5%)",
+  "syndicateCode": "002.087.87330-0",
+  "status": "active",
+  "type": "customer.type.cond",
+  "startServiceDate": "2015-03-01T15:09:49.256Z",
+  "startActivityDate": "1985-12-11T14:09:49.256Z",
+  "__v": 0,
+  "accessoryObligations": [
+    {
+      "_id": "591edd956893c4184921cbe9",
+      "name": "DES",
+      "activationDate": "2017-05-19T11:57:09.545Z"
+    },
+    {
+      "_id": "591edd956893c4184921cbe8",
+      "name": "RAIS",
+      "activationDate": "2017-05-19T11:57:09.545Z"
+    }
+  ],
+  "cnae2": [
+    ""
+  ],
+  "syndics": [
+    {
+      "name": "Gustavo (apto 301)",
+      "email": "gustavobr@ufmg.br",
+      "period": "2016/2017",
+      "tel": "99977-2313",
+      "cpf": "97778605600",
+      "identity": "MG6403817",
+      "_id": "591dbcad8f4bbc30dcb8fb16"
+    },
+    {
+      "name": "Bianca (apto 102)",
+      "email": "portelabianca@gmail.com",
+      "tel": "9651-1813",
+      "period": "2015/2016",
+      "cpf": "00229403670",
+      "identity": "dt nasc 11/09/1976",
+      "_id": "591dbcad8f4bbc30dcb8fb15"
+    }
+  ],
+  "partners": [],
+  "contacts": []
+}

@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-4 p-10">
+    <md-button ng-disabled="!ctrl.model.isEditMode" name="addSyndicBtn" class="md-primary" ng-click="ctrl.addContact()">
+      <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Contato
+    </md-button>
+  </div>
+</div>
+<div ng-repeat="contact in ctrl.model.customer.contacts">
+  <div class="row">
+    <div class="col-md-6">
+      <md-input-container class="md-block" ng-if="$index === 0">
+        <label>Nome do Contato</label>
+        <input ng-disabled="!ctrl.model.isEditMode" required name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+        <div ng-messages="projectForm['contactName' + $index].$error">
+          <div ng-message="required">Campo obrigatório</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" ng-if="$index !== 0">
+        <label>Nome do Contato</label>
+        <input ng-disabled="!ctrl.model.isEditMode" name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+      </md-input-container>
+    </div>
+    <div class="col-md-6">
+      <md-input-container class="md-block">
+        <label>E-mail</label>
+        <input ng-disabled="!ctrl.model.isEditMode" name="contactEmail{{$index}}" ng-model="ctrl.model.customer.contacts[$index].email" />
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Telefone</label>
+        <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" name="contactTel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].tel" />
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container class="md-block">
+        <label>Celular</label>
+        <input dynamic-tel ng-disabled="!ctrl.model.isEditMode" name="contactCel{{$index}}" ng-model="ctrl.model.customer.contacts[$index].cel" />
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <label>Responsável por:</label>
+      </md-input-container>
+    </div>
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="respFisc{{$index}}" ng-model="ctrl.model.customer.contacts[$index].isRespFisc">
+          Fiscal
+        </md-checkbox>
+      </md-input-container>
+    </div>
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="respCont{{$index}}" ng-model="ctrl.model.customer.contacts[$index].isRespCont">
+          Contabil
+        </md-checkbox>
+      </md-input-container>
+    </div>
+    <div class="col-md-3">
+      <md-input-container class="md-block">
+        <md-checkbox ng-disabled="!ctrl.model.isEditMode" name="respDp{{$index}}" ng-model="ctrl.model.customer.contacts[$index].isRespDp">
+          DP
+        </md-checkbox>
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row" ng-if="$index !== 0">
+    <div class="col-md-12 text-right">
+      <md-button ng-disabled="!ctrl.model.isEditMode" name="removeContactBtn" class="md-warn" ng-click="ctrl.removeContact($index)">
+        <i class="glyphicon glyphicon-trash p-r-5" />Remover Contato
+      </md-button>
+    </div>
+  </div>
+  <md-divider ng-if="!$last" style="border-top-width: 3px; border-top-style: dotted;"></md-divider>
+</div>

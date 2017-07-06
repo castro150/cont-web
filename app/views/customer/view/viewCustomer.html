@@ -1,0 +1,52 @@
+<div id="view-customer">
+
+  <div class="row">
+    <div id="alerts" class="col-md-offset-2 col-md-8">
+      <ng-include src="'views/commons/alert.html'"></ng-include>
+    </div>
+  </div>
+
+  <form ng-submit="ctrl.updateCustomer()" name="projectForm">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{ :: "customer.details" | translate}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <ng-include ng-if="ctrl.isSn()" src="'views/customer/view/viewSn.html'"></ng-include>
+
+        <ng-include ng-if="ctrl.isLp()" src="'views/customer/view/viewLp.html'"></ng-include>
+
+        <ng-include ng-if="ctrl.isPl()" src="'views/customer/view/viewPl.html'"></ng-include>
+
+        <ng-include ng-if="ctrl.isEd()" src="'views/customer/view/viewEd.html'"></ng-include>
+
+        <ng-include ng-if="ctrl.isCond()" src="'views/customer/view/viewCond.html'"></ng-include>
+      </md-card-content>
+    </md-card>
+
+    <md-card>
+      <md-card-content>
+        <div class="row">
+          <div class="col-md-offset-10 col-md-2" ng-if="!ctrl.model.isEditMode">
+            <md-button id="edit-btn" ng-click="ctrl.edit()" class="md-raised md-primary">
+              <i class="glyphicon glyphicon-pencil p-r-5" />Editar
+            </md-button>
+          </div>
+          <div class="col-md-offset-8 col-md-2" ng-if="ctrl.model.isEditMode">
+            <md-button id="cancel-btn" ng-click="ctrl.cancel()" class="md-raised md-warn">
+              <i class="glyphicon glyphicon-remove p-r-5" />Cancelar
+            </md-button>
+          </div>
+          <div class="col-md-2" ng-if="ctrl.model.isEditMode">
+            <md-button id="save-btn" type="submit" class="md-raised md-primary">
+              <i class="glyphicon glyphicon-floppy-disk p-r-5" />Salvar
+            </md-button>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+
+  </form>
+</div>

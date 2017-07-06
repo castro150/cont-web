@@ -1,0 +1,260 @@
+# ----> Para implementar OPTIONS no stubby, corrigir bug comentando linhas do arquivo 
+# portal.js que encerram a response de OPTIONS antes da hora.
+
+##### LOGIN #####
+-   request:
+        url: /login
+        method: OPTIONS
+    response:
+        status: 200
+        headers:
+            content-type: text/html; charset=utf-8
+            allow: POST
+        body: 'POST'
+
+-   request:
+        url: /login
+        method: POST
+        post: username":.*"admin".+"password":.*"admin
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: token.json
+        
+-   request:
+        url: /login
+        method: POST
+        post: username":.*"admin".+"password":.*"pwd
+    response:
+        status: 401
+        headers:
+            content-type: application/json
+        file: msg-incorrect-pwd.json
+        
+-   request:
+        url: /login
+        method: POST
+    response:
+        status: 401
+        headers:
+            content-type: application/json
+        file: msg-incorrect-user.json
+        
+
+##### REGISTER #####
+-   request:
+        url: /register
+        method: OPTIONS
+    response:
+        status: 200
+        headers:
+            content-type: text/html; charset=utf-8
+            allow: POST
+        body: 'POST'
+
+-   request:
+        url: /register
+        method: POST
+        post: username":.*"user".+"password":.*"pwd
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: token.json
+        
+-   request:
+        url: /register
+        method: POST
+        post: username":.*"admin".+"password":.*"admin
+    response:
+        status: 500
+        headers:
+            content-type: application/json
+        file: user-exists.json
+        
+-   request:
+        url: /register
+        method: POST
+    response:
+        status: 400
+        headers:
+            content-type: application/json
+        file: fill-fields.json
+        
+
+##### CREATE CUSTOMER #####
+-   request:
+        url: /customer
+        method: OPTIONS
+    response:
+        status: 200
+        headers:
+            content-type: text/html; charset=utf-8
+            allow: POST, GET, PUT
+        body: 'POST, GET, PUT'
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.*32
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-32.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.*3
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-3.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.*22
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-22.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.*503
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-503.json
+
+-   request:
+        url: /customer
+        method: POST
+        post: number":.*60
+    response:
+        status: 201
+        headers:
+            content-type: application/json
+        file: customer-60.json
+
+-   request:
+        url: /customer
+        method: POST
+    response:
+        status: 400
+        headers:
+            content-type: application/json
+        file: msg-number-used.json
+        
+
+##### FIND ACTIVE CUSTOMERS #####
+-   request:
+        url: /customer/active
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customers-active.json
+        
+
+##### FIND CUSTOMER BY ID #####
+-   request:
+        url: /customer/58f8b98e08d9e02f60a09f92
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-3.json
+
+-   request:
+        url: /customer/58ef6c7b14a28816e63a590f
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-22.json
+
+-   request:
+        url: /customer/58ef6a6c14a28816e63a590b
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-32.json
+
+-   request:
+        url: /customer/58ef699214a28816e63a5909
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-503.json
+
+-   request:
+        url: /customer/591dba77598c2a14c94cfd4a
+        method: GET
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-60.json
+        
+
+##### EDIT CUSTOMER BY ID #####
+-   request:
+        url: /customer/58f8b98e08d9e02f60a09f92
+        method: PUT
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-3.json
+
+-   request:
+        url: /customer/58ef6c7b14a28816e63a590f
+        method: PUT
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-22.json
+
+-   request:
+        url: /customer/58ef6a6c14a28816e63a590b
+        method: PUT
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-32.json
+
+-   request:
+        url: /customer/58ef699214a28816e63a5909
+        method: PUT
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-503.json
+
+-   request:
+        url: /customer/591dba77598c2a14c94cfd4a
+        method: PUT
+    response:
+        status: 200
+        headers:
+            content-type: application/json
+        file: customer-60.json
+        

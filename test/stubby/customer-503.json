@@ -1,0 +1,35 @@
+{
+    "_id" : "58ef699214a28816e63a5909",
+    "number" : 503,
+    "name" : "ADRIANA CARVALHO FERREIRA",
+    "cpf" : "86798584677",
+    "alterNumber" : "00972",
+    "address" : "RUA DAS ESTRELAS",
+    "addressNumber": "777",
+    "district" : "VILA DA SERRA",
+    "city" : "NOVA LIMA",
+    "state" : "MG",
+    "cep" : "34000000",
+    "accessCode" : "536934516168",
+    "accessPassword" : "Contabil12",
+    "status" : "active",
+    "type" : "customer.type.pf.ed",
+    "startServiceDate" : "2015-08-01T12:03:33.807+0000",
+    "accessoryObligations" : [
+
+    ],
+    "partners" : [
+
+    ],
+    "contacts" : [
+        {
+            "name" : "Adriana Ferreira",
+            "email" : "adriana@gmail.com",
+            "cel" : "3133333333",
+            "tel" : "999999999",
+            "_id" : "58ef699214a28816e63a590a"
+        }
+    ],
+    "__v" : 0,
+    "cei" : ""
+}
