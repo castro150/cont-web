@@ -44,8 +44,8 @@ module.exports = function(grunt) {
 				},
 				constants: {
 					ENV: {
-						sdServer: 'https://quiet-peak-31489.herokuapp.com',
-						customerService: 'https://quiet-peak-31489.herokuapp.com'
+						sdServer: 'http://localhost:3000',
+						customerService: 'http://localhost:3000'
 					}
 				}
 			},
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
 				},
 				constants: {
 					ENV: {
-						sdServer: 'https://quiet-peak-31489.herokuapp.com',
-						customerService: 'https://quiet-peak-31489.herokuapp.com'
+						sdServer: 'http://localhost:3000',
+						customerService: 'http://localhost:3000'
 					}
 				}
 			}
