@@ -48,7 +48,7 @@
     "vow-fs": "*"
   },
   "engines": {
-    "node": "7.9.0"
+    "node": "7.10.1"
   },
   "scripts": {
     "postinstall": "bower install",
