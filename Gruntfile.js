@@ -44,8 +44,8 @@ module.exports = function(grunt) {
 				},
 				constants: {
 					ENV: {
-						sdServer: 'http://localhost:3000',
-						customerService: 'http://localhost:3000'
+						sdServer: 'https://quiet-peak-31489.herokuapp.com',
+						customerService: 'https://quiet-peak-31489.herokuapp.com'
 					}
 				}
 			},
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
 				},
 				constants: {
 					ENV: {
-						sdServer: 'http://localhost:3000',
-						customerService: 'http://localhost:3000'
+						sdServer: 'https://quiet-peak-31489.herokuapp.com',
+						customerService: 'https://quiet-peak-31489.herokuapp.com'
 					}
 				}
 			}
@@ -553,7 +553,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('build', [
 		'clean:dist',
-		// 'ngconstant:homolog',
+		'ngconstant:homolog',
 		'wiredep',
 		'useminPrepare',
 		'concurrent:dist',
