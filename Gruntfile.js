@@ -553,6 +553,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('build', [
 		'clean:dist',
+		'ngconstant:homolog',
 		'wiredep',
 		'useminPrepare',
 		'concurrent:dist',
