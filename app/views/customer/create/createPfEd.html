@@ -21,7 +21,7 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>Nome</label>
-            <input required name="customerName" ng-model="ctrl.model.customer.name" />
+            <input uppercase required name="customerName" ng-model="ctrl.model.customer.name" />
             <div ng-messages="projectForm.customerName.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
@@ -41,13 +41,13 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>E-mail</label>
-            <input name="email" ng-model="ctrl.model.customer.email" />
+            <input lowercase name="email" ng-model="ctrl.model.customer.email" />
           </md-input-container>
         </div>
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Telefone</label>
-            <input dynamic-tel name="tel" ng-model="ctrl.model.customer.tel" />
+            <input name="tel" ng-model="ctrl.model.customer.tel" />
           </md-input-container>
         </div>
       </div>
@@ -118,7 +118,7 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>Observações</label>
-            <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+            <textarea uppercase name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>

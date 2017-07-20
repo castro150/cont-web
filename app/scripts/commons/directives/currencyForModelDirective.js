@@ -25,6 +25,7 @@
 								if (numbers) {
 									var index = (numbers.length < 3) ? numbers.length - 1 : 2;
 									var formatted = numbers.replace(regex[index], patterns[index]);
+									formatted = formatted.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 									updateModel(ngModel, formatted);
 								}
 							}

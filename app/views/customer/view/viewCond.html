@@ -53,7 +53,7 @@
         <div class="col-md-8">
           <md-input-container class="md-block">
             <label>Razão Social</label>
-            <input ng-disabled="!ctrl.model.isEditMode" required name="customerName" ng-model="ctrl.model.customer.name" />
+            <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="customerName" ng-model="ctrl.model.customer.name" />
             <div ng-messages="projectForm.customerName.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
@@ -74,13 +74,13 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>E-mail</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="email" ng-model="ctrl.model.customer.email" />
+            <input lowercase ng-disabled="!ctrl.model.isEditMode" name="email" ng-model="ctrl.model.customer.email" />
           </md-input-container>
         </div>
         <div class="col-md-4">
           <md-input-container class="md-block">
             <label>Telefone</label>
-            <input ng-disabled="!ctrl.model.isEditMode" dynamic-tel name="tel" ng-model="ctrl.model.customer.tel" />
+            <input ng-disabled="!ctrl.model.isEditMode" name="tel" ng-model="ctrl.model.customer.tel" />
           </md-input-container>
         </div>
       </div>
@@ -142,27 +142,27 @@
           <div class="col-md-6">
             <md-input-container class="md-block" ng-if="$index === 0">
               <label>Nome do Síndico</label>
-              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
               <div ng-messages="projectForm['syndicName' + $index].$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
             </md-input-container>
             <md-input-container class="md-block" ng-if="$index !== 0">
               <label>Nome do Síndico</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
             </md-input-container>
           </div>
           <div class="col-md-6">
             <md-input-container class="md-block" ng-if="$index === 0">
               <label>E-mail</label>
-              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
+              <input lowercase ng-disabled="!ctrl.model.isEditMode" required name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
               <div ng-messages="projectForm['syndicEmail' + $index].$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
             </md-input-container>
             <md-input-container class="md-block" ng-if="$index !== 0">
               <label>E-mail</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
+              <input lowercase ng-disabled="!ctrl.model.isEditMode" name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
             </md-input-container>
           </div>
         </div>
@@ -183,14 +183,14 @@
           <div class="col-md-2">
             <md-input-container class="md-block" ng-if="$index === 0">
               <label>Paríodo</label>
-              <input ng-disabled="!ctrl.model.isEditMode" required name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
               <div ng-messages="projectForm['syndicPeriod' + $index].$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
             </md-input-container>
             <md-input-container class="md-block" ng-if="$index !== 0">
               <label>Paríodo</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
             </md-input-container>
           </div>
           <div class="col-md-2">
@@ -209,7 +209,7 @@
           <div class="col-md-4">
             <md-input-container class="md-block">
               <label>Identidade</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
             </md-input-container>
           </div>
         </div>
@@ -239,7 +239,7 @@
         <div class="col-md-10">
           <md-input-container class="md-block">
             <label>Observações</label>
-            <textarea ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+            <textarea uppercase ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>
@@ -247,7 +247,7 @@
         <div class="col-md-12">
           <md-input-container class="md-block">
             <label>CNAE</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="cnae" ng-model="ctrl.model.customer.cnae" />
+            <input uppercase ng-disabled="!ctrl.model.isEditMode" name="cnae" ng-model="ctrl.model.customer.cnae" />
           </md-input-container>
         </div>
       </div>
@@ -255,7 +255,7 @@
         <div class="col-md-10">
           <md-input-container class="md-block">
             <label>Cartórios</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+            <input uppercase ng-disabled="!ctrl.model.isEditMode" name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
           </md-input-container>
         </div>
       </div>
@@ -271,7 +271,7 @@
             <div class="col-md-6">
               <md-input-container class="md-block">
                 <label>Nome</label>
-                <input ng-disabled="!ctrl.model.isEditMode" name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
+                <input uppercase ng-disabled="!ctrl.model.isEditMode" name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
               </md-input-container>
             </div>
             <div class="col-md-6">

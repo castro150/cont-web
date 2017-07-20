@@ -55,7 +55,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Nome Fantasia</label>
-              <input required name="companyName" ng-model="ctrl.model.customer.companyName" />
+              <input uppercase name="companyName" ng-model="ctrl.model.customer.companyName" />
               <div ng-messages="projectForm.companyName.$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
@@ -75,7 +75,7 @@
           <div class="col-md-8">
             <md-input-container class="md-block">
               <label>Razão Social</label>
-              <input required name="customerName" ng-model="ctrl.model.customer.name" />
+              <input required uppercase name="customerName" ng-model="ctrl.model.customer.name" />
               <div ng-messages="projectForm.customerName.$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
@@ -86,13 +86,13 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>E-mail</label>
-              <input name="email" ng-model="ctrl.model.customer.email" />
+              <input lowercase name="email" ng-model="ctrl.model.customer.email" />
             </md-input-container>
           </div>
           <div class="col-md-4">
             <md-input-container class="md-block">
               <label>Telefone</label>
-              <input dynamic-tel name="tel" ng-model="ctrl.model.customer.tel" />
+              <input name="tel" ng-model="ctrl.model.customer.tel" />
             </md-input-container>
           </div>
         </div>
@@ -163,7 +163,7 @@
               <div class="col-md-6">
                 <md-input-container class="md-block">
                   <label>Gerência</label>
-                  <input name="management" ng-model="ctrl.model.customer.management" />
+                  <input uppercase name="management" ng-model="ctrl.model.customer.management" />
                 </md-input-container>
               </div>
             </div>
@@ -171,7 +171,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Observações</label>
-              <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+              <textarea uppercase name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
             </md-input-container>
           </div>
         </div>
@@ -179,7 +179,7 @@
           <div class="col-md-12">
             <md-input-container class="md-block">
               <label>CNAE</label>
-              <input name="cnae" ng-model="ctrl.model.customer.cnae" />
+              <input uppercase name="cnae" ng-model="ctrl.model.customer.cnae" />
             </md-input-container>
           </div>
         </div>
@@ -199,7 +199,7 @@
           <div class="col-md-11">
             <md-input-container class="md-block">
               <label>CNAE Secundário</label>
-              <input name="cnae2" ng-model="ctrl.model.customer.cnae2[$index]" />
+              <input uppercase name="cnae2" ng-model="ctrl.model.customer.cnae2[$index]" />
             </md-input-container>
           </div>
         </div>
@@ -207,7 +207,7 @@
           <div class="col-md-10">
             <md-input-container class="md-block">
               <label>Cartórios</label>
-              <input name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+              <input uppercase name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
             </md-input-container>
           </div>
         </div>
@@ -225,7 +225,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Nome</label>
-              <input name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
+              <input uppercase name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
             </md-input-container>
           </div>
           <div class="col-md-6">

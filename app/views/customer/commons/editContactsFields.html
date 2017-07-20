@@ -10,20 +10,20 @@
     <div class="col-md-6">
       <md-input-container class="md-block" ng-if="$index === 0">
         <label>Nome do Contato</label>
-        <input ng-disabled="!ctrl.model.isEditMode" required name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+        <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
         <div ng-messages="projectForm['contactName' + $index].$error">
           <div ng-message="required">Campo obrigatório</div>
         </div>
       </md-input-container>
       <md-input-container class="md-block" ng-if="$index !== 0">
         <label>Nome do Contato</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+        <input uppercase ng-disabled="!ctrl.model.isEditMode" name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
       </md-input-container>
     </div>
     <div class="col-md-6">
       <md-input-container class="md-block">
         <label>E-mail</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="contactEmail{{$index}}" ng-model="ctrl.model.customer.contacts[$index].email" />
+        <input lowercase ng-disabled="!ctrl.model.isEditMode" name="contactEmail{{$index}}" ng-model="ctrl.model.customer.contacts[$index].email" />
       </md-input-container>
     </div>
   </div>
