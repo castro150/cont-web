@@ -53,7 +53,7 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>Nome Fantasia</label>
-            <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="companyName" ng-model="ctrl.model.customer.companyName" />
+            <input uppercase ng-disabled="!ctrl.model.isEditMode" name="companyName" ng-model="ctrl.model.customer.companyName" />
             <div ng-messages="projectForm.companyName.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
