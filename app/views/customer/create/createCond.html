@@ -55,7 +55,7 @@
           <div class="col-md-8">
             <md-input-container class="md-block">
               <label>Razão Social</label>
-              <input required name="customerName" ng-model="ctrl.model.customer.name" />
+              <input uppercase required name="customerName" ng-model="ctrl.model.customer.name" />
               <div ng-messages="projectForm.customerName.$error">
                 <div ng-message="required">Campo obrigatório</div>
               </div>
@@ -66,7 +66,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>E-mail</label>
-              <input name="email" ng-model="ctrl.model.customer.email" />
+              <input lowercase name="email" ng-model="ctrl.model.customer.email" />
             </md-input-container>
           </div>
           <div class="col-md-4">
@@ -134,27 +134,27 @@
             <div class="col-md-6">
               <md-input-container class="md-block" ng-if="$index === 0">
                 <label>Nome do Síndico</label>
-                <input required name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
+                <input uppercase required name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
                 <div ng-messages="projectForm['syndicName' + $index].$error">
                   <div ng-message="required">Campo obrigatório</div>
                 </div>
               </md-input-container>
               <md-input-container class="md-block" ng-if="$index !== 0">
                 <label>Nome do Síndico</label>
-                <input name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
+                <input uppercase name="syndicName{{$index}}" ng-model="ctrl.model.customer.syndics[$index].name" />
               </md-input-container>
             </div>
             <div class="col-md-6">
               <md-input-container class="md-block" ng-if="$index === 0">
                 <label>E-mail</label>
-                <input required name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
+                <input lowercase required name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
                 <div ng-messages="projectForm['syndicEmail' + $index].$error">
                   <div ng-message="required">Campo obrigatório</div>
                 </div>
               </md-input-container>
               <md-input-container class="md-block" ng-if="$index !== 0">
                 <label>E-mail</label>
-                <input name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
+                <input lowercase name="syndicEmail{{$index}}" ng-model="ctrl.model.customer.syndics[$index].email" />
               </md-input-container>
             </div>
           </div>
@@ -175,14 +175,14 @@
             <div class="col-md-2">
               <md-input-container class="md-block" ng-if="$index === 0">
                 <label>Paríodo</label>
-                <input required name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
+                <input uppercase required name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
                 <div ng-messages="projectForm['syndicPeriod' + $index].$error">
                   <div ng-message="required">Campo obrigatório</div>
                 </div>
               </md-input-container>
               <md-input-container class="md-block" ng-if="$index !== 0">
                 <label>Paríodo</label>
-                <input name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
+                <input uppercase name="syndicPeriod{{$index}}" ng-model="ctrl.model.customer.syndics[$index].period" />
               </md-input-container>
             </div>
             <div class="col-md-2">
@@ -201,7 +201,7 @@
             <div class="col-md-4">
               <md-input-container class="md-block">
                 <label>Identidade</label>
-                <input name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
+                <input uppercase name="syndicIdentity{{$index}}" ng-model="ctrl.model.customer.syndics[$index].identity" />
               </md-input-container>
             </div>
           </div>
@@ -236,7 +236,7 @@
           <div class="col-md-10">
             <md-input-container class="md-block">
               <label>Observações</label>
-              <textarea name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+              <textarea uppercase name="obs" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
             </md-input-container>
           </div>
         </div>
@@ -244,7 +244,7 @@
           <div class="col-md-12">
             <md-input-container class="md-block">
               <label>CNAE</label>
-              <input name="cnae" ng-model="ctrl.model.customer.cnae" />
+              <input uppercase name="cnae" ng-model="ctrl.model.customer.cnae" />
             </md-input-container>
           </div>
         </div>
@@ -252,7 +252,7 @@
           <div class="col-md-10">
             <md-input-container class="md-block">
               <label>Cartórios</label>
-              <input name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+              <input uppercase name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
             </md-input-container>
           </div>
         </div>
@@ -270,7 +270,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Nome</label>
-              <input name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
+              <input uppercase name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
             </md-input-container>
           </div>
           <div class="col-md-6">

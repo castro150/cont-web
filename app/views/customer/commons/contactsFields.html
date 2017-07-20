@@ -17,20 +17,20 @@
         <div class="col-md-6">
           <md-input-container class="md-block" ng-if="$index === 0">
             <label>Nome do Contato</label>
-            <input required name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+            <input required uppercase name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
             <div ng-messages="projectForm['contactName' + $index].$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block" ng-if="$index !== 0">
             <label>Nome do Contato</label>
-            <input name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
+            <input uppercase name="contactName{{$index}}" ng-model="ctrl.model.customer.contacts[$index].name" />
           </md-input-container>
         </div>
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>E-mail</label>
-            <input name="contactEmail{{$index}}" ng-model="ctrl.model.customer.contacts[$index].email" />
+            <input lowercase name="contactEmail{{$index}}" ng-model="ctrl.model.customer.contacts[$index].email" />
           </md-input-container>
         </div>
       </div>

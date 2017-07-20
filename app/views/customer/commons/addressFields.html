@@ -9,7 +9,7 @@
       <div class="col-md-5">
         <md-input-container class="md-block">
           <label>Logradouro</label>
-          <input required name="customerAddress" ng-model="ctrl.model.customer.address" />
+          <input required uppercase name="customerAddress" ng-model="ctrl.model.customer.address" />
           <div ng-messages="projectForm.customerAddress.$error">
             <div ng-message="required">Campo obrigatório</div>
           </div>
@@ -18,7 +18,7 @@
       <div class="col-md-2">
         <md-input-container class="md-block">
           <label>Número</label>
-          <input required name="customerAddressNumber" ng-model="ctrl.model.customer.addressNumber" />
+          <input required uppercase name="customerAddressNumber" ng-model="ctrl.model.customer.addressNumber" />
           <div ng-messages="projectForm.customerAddressNumber.$error">
             <div ng-message="required">Campo obrigatório</div>
           </div>
@@ -27,13 +27,13 @@
       <div class="col-md-2">
         <md-input-container class="md-block">
           <label>Complemento</label>
-          <input name="customerAddressComp" ng-model="ctrl.model.customer.addressComp" />
+          <input uppercase name="customerAddressComp" ng-model="ctrl.model.customer.addressComp" />
         </md-input-container>
       </div>
       <div class="col-md-3">
         <md-input-container class="md-block">
           <label>Bairro</label>
-          <input required name="customerDistrict" ng-model="ctrl.model.customer.district" />
+          <input uppercase required name="customerDistrict" ng-model="ctrl.model.customer.district" />
           <div ng-messages="projectForm.customerDistrict.$error">
             <div ng-message="required">Campo obrigatório</div>
           </div>
@@ -44,7 +44,7 @@
       <div class="col-md-5">
         <md-input-container class="md-block">
           <label>Cidade</label>
-          <input required name="customerCity" ng-model="ctrl.model.customer.city" />
+          <input uppercase required name="customerCity" ng-model="ctrl.model.customer.city" />
           <div ng-messages="projectForm.customerCity.$error">
             <div ng-message="required">Campo obrigatório</div>
           </div>
@@ -53,7 +53,7 @@
       <div class="col-md-4">
         <md-input-container class="md-block">
           <label>Estado</label>
-          <input required name="customerState" ng-model="ctrl.model.customer.state" />
+          <input uppercase required name="customerState" ng-model="ctrl.model.customer.state" />
           <div ng-messages="projectForm.customerState.$error">
             <div ng-message="required">Campo obrigatório</div>
           </div>
