@@ -10,7 +10,7 @@
     <div class="col-md-10">
       <md-input-container class="md-block">
         <label>Nome do Sócio</label>
-        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
+        <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
         <div ng-messages="projectForm['partnerName' + $index].$error">
           <div ng-message="required">Campo obrigatório</div>
         </div>
@@ -21,7 +21,7 @@
     <div class="col-md-4">
       <md-input-container class="md-block">
         <label>Identidade</label>
-        <input ng-disabled="!ctrl.model.isEditMode" required name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
+        <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
         <div ng-messages="projectForm['partnerIdentity' + $index].$error">
           <div ng-message="required">Campo obrigatório</div>
         </div>
@@ -50,7 +50,7 @@
     <div class="col-md-10">
       <md-input-container class="md-block">
         <label>Nome do Sócio</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
+        <input uppercase ng-disabled="!ctrl.model.isEditMode" name="partnerName{{$index}}" ng-model="ctrl.model.customer.partners[$index].name" />
       </md-input-container>
     </div>
   </div>
@@ -58,7 +58,7 @@
     <div class="col-md-4">
       <md-input-container class="md-block">
         <label>Identidade</label>
-        <input ng-disabled="!ctrl.model.isEditMode" name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
+        <input uppercase ng-disabled="!ctrl.model.isEditMode" name="partnerIdentity{{$index}}" ng-model="ctrl.model.customer.partners[$index].identity" />
       </md-input-container>
     </div>
     <div class="col-md-4">

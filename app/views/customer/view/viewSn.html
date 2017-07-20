@@ -53,7 +53,7 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>Nome Fantasia</label>
-            <input ng-disabled="!ctrl.model.isEditMode" required name="companyName" ng-model="ctrl.model.customer.companyName" />
+            <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="companyName" ng-model="ctrl.model.customer.companyName" />
             <div ng-messages="projectForm.companyName.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
@@ -73,7 +73,7 @@
         <div class="col-md-8">
           <md-input-container class="md-block">
             <label>Razão Social</label>
-            <input ng-disabled="!ctrl.model.isEditMode" required name="customerName" ng-model="ctrl.model.customer.name" />
+            <input uppercase ng-disabled="!ctrl.model.isEditMode" required name="customerName" ng-model="ctrl.model.customer.name" />
             <div ng-messages="projectForm.customerName.$error">
               <div ng-message="required">Campo obrigatório</div>
             </div>
@@ -94,7 +94,7 @@
         <div class="col-md-6">
           <md-input-container class="md-block">
             <label>E-mail</label>
-            <input ng-disabled="!ctrl.model.isEditMode" name="email" ng-model="ctrl.model.customer.email" />
+            <input lowercase ng-disabled="!ctrl.model.isEditMode" name="email" ng-model="ctrl.model.customer.email" />
           </md-input-container>
         </div>
         <div class="col-md-4">
@@ -179,7 +179,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Gerência</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="management" ng-model="ctrl.model.customer.management" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" name="management" ng-model="ctrl.model.customer.management" />
               <md-tooltip>{{ctrl.model.customer.management}}</md-tooltip>
             </md-input-container>
           </div>
@@ -188,7 +188,7 @@
       <div class="col-md-6">
         <md-input-container class="md-block">
           <label>Observações</label>
-          <textarea ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+          <textarea uppercase ng-disabled="!ctrl.model.isEditMode" ng-model="ctrl.model.customer.obs" md-maxlength="500" rows="5" md-select-on-focus></textarea>
         </md-input-container>
       </div>
     </div>
@@ -196,7 +196,7 @@
       <div class="col-md-12">
         <md-input-container class="md-block">
           <label>CNAE</label>
-          <input ng-disabled="!ctrl.model.isEditMode" name="cnae" ng-model="ctrl.model.customer.cnae" />
+          <input uppercase ng-disabled="!ctrl.model.isEditMode" name="cnae" ng-model="ctrl.model.customer.cnae" />
         </md-input-container>
       </div>
     </div>
@@ -216,7 +216,7 @@
       <div class="col-md-11">
         <md-input-container class="md-block">
           <label>CNAE Secundário</label>
-          <input ng-disabled="!ctrl.model.isEditMode" name="cnae2" ng-model="ctrl.model.customer.cnae2[$index]" />
+          <input uppercase ng-disabled="!ctrl.model.isEditMode" name="cnae2" ng-model="ctrl.model.customer.cnae2[$index]" />
         </md-input-container>
       </div>
     </div>
@@ -224,7 +224,7 @@
       <div class="col-md-10">
         <md-input-container class="md-block">
           <label>Cartórios</label>
-          <input ng-disabled="!ctrl.model.isEditMode" name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
+          <input uppercase ng-disabled="!ctrl.model.isEditMode" name="registryOffice" ng-model="ctrl.model.customer.registryOffice" />
         </md-input-container>
       </div>
     </div>
@@ -240,7 +240,7 @@
           <div class="col-md-6">
             <md-input-container class="md-block">
               <label>Nome</label>
-              <input ng-disabled="!ctrl.model.isEditMode" name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
+              <input uppercase ng-disabled="!ctrl.model.isEditMode" name="syndicateName" ng-model="ctrl.model.customer.syndicateName" />
             </md-input-container>
           </div>
           <div class="col-md-6">
