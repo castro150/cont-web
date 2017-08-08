@@ -30,6 +30,8 @@
 		ctrl.isEd = isEd;
 		ctrl.isCond = isCond;
 		ctrl.checkFreeSR = checkFreeSR;
+		ctrl.addTel = addTel;
+		ctrl.removeTel = removeTel;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
 		ctrl.addContact = addContact;
@@ -118,6 +120,15 @@
 
 		function checkFreeSR() {
 			ctrl.model.customer.stateRegist = '';
+		}
+
+		function addTel() {
+			ctrl.model.customer.tels.push('');
+		}
+
+		function removeTel() {
+			var length = ctrl.model.customer.tels.length;
+			ctrl.model.customer.tels.splice(length - 1, 1);
 		}
 
 		function addCnae2() {
@@ -253,6 +264,10 @@
 			if (!ctrl.model.customer.cnae2 || ctrl.model.customer.cnae2.length === 0) {
 				ctrl.model.customer.cnae2 = [];
 				ctrl.model.customer.cnae2.push('');
+			}
+			if (!ctrl.model.customer.tels || ctrl.model.customer.tels.length === 0) {
+				ctrl.model.customer.tels = [];
+				ctrl.model.customer.tels.push('');
 			}
 			updateAccessoryObligations();
 		}
