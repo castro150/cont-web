@@ -19,6 +19,8 @@
 
 		ctrl.updateType = updateType;
 		ctrl.checkFreeSR = checkFreeSR;
+		ctrl.addTel = addTel;
+		ctrl.removeTel = removeTel;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
 		ctrl.addContact = addContact;
@@ -94,6 +96,15 @@
 			ctrl.model.customer.stateRegist = '';
 		}
 
+		function addTel() {
+			ctrl.model.customer.tels.push('');
+		}
+
+		function removeTel() {
+			var length = ctrl.model.customer.tels.length;
+			ctrl.model.customer.tels.splice(length - 1, 1);
+		}
+
 		function addCnae2() {
 			ctrl.model.customer.cnae2.push('');
 		}
@@ -165,6 +176,7 @@
 			ctrl.model.customer.contacts = [{}];
 			ctrl.model.customer.partners = [{}];
 			ctrl.model.customer.syndics = [{}];
+			ctrl.model.customer.tels = [''];
 			ctrl.model.customer.cnae2 = [''];
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();
