@@ -100,13 +100,13 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <md-button name="addContactBtn" class="md-primary" ng-click="ctrl.addTel()"
+          <md-button name="addTelBtn" class="md-primary" ng-click="ctrl.addTel()"
               ng-disabled="ctrl.model.customer.tels.length === 4 || !ctrl.model.isEditMode">
             <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Telefone
           </md-button>
         </div>
         <div class="col-md-3">
-          <md-button name="addContactBtn" class="md-warn" ng-click="ctrl.removeTel()"
+          <md-button name="removeTelBtn" class="md-warn" ng-click="ctrl.removeTel()"
               ng-disabled="ctrl.model.customer.tels.length === 1 || !ctrl.model.isEditMode">
             <i class="glyphicon glyphicon-trash p-r-5" />Remover Telefone
           </md-button>
