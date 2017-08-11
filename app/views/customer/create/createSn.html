@@ -89,10 +89,26 @@
               <input lowercase name="email" ng-model="ctrl.model.customer.email" />
             </md-input-container>
           </div>
-          <div class="col-md-4">
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <md-button name="addTelBtn" class="md-primary" ng-click="ctrl.addTel()"
+                ng-disabled="ctrl.model.customer.tels.length === 4">
+              <i class="glyphicon glyphicon-plus p-r-5" />Adicionar Telefone
+            </md-button>
+          </div>
+          <div class="col-md-3">
+            <md-button name="removeTelBtn" class="md-warn" ng-click="ctrl.removeTel()"
+                ng-disabled="ctrl.model.customer.tels.length === 1">
+              <i class="glyphicon glyphicon-trash p-r-5" />Remover Telefone
+            </md-button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3" ng-repeat="tel in ctrl.model.customer.tels track by $index">
             <md-input-container class="md-block">
               <label>Telefone</label>
-              <input name="tel" ng-model="ctrl.model.customer.tel" />
+              <input dynamic-tel name="tel" ng-model="ctrl.model.customer.tels[$index]" />
             </md-input-container>
           </div>
         </div>
@@ -125,6 +141,45 @@
               <label>Capital Social</label>
               <input name="shareCapital" ng-model="ctrl.model.customer.shareCapital" currency-for-model />
             </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <md-input-container class="md-block">
+              <md-checkbox name="withOtherMunRegist" ng-model="ctrl.model.customer.withOtherMunRegist">
+                Inscrita em outro município
+              </md-checkbox>
+            </md-input-container>
+          </div>
+          <div class="col-md-4 no-p" ng-if="ctrl.model.customer.withOtherMunRegist">
+            <md-input-container class="md-block">
+              <label>Nome do Município</label>
+              <input name="newCityRegist" ng-model="ctrl.model.newCityRegist" />
+            </md-input-container>
+          </div>
+          <div class="col-md-4 no-p" ng-if="ctrl.model.customer.withOtherMunRegist">
+            <md-button name="addCity" class="md-raised md-primary" ng-click="ctrl.addCity()"
+                ng-disabled="ctrl.model.newCityRegist.length === 0">
+              <i class="glyphicon glyphicon-plus p-r-5" />Adicionar
+            </md-button>
+          </div>
+        </div>
+        <div class="row" ng-if="ctrl.model.customer.withOtherMunRegist">
+          <div class="col-md-6 col-md-offset-3">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nome do Município</th>
+                  <th>Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="city in ctrl.model.customer.citiesRegist">
+                  <td>{{city}}</td>
+                  <td><i class="glyphicon glyphicon-trash" style="cursor: pointer" ng-click="ctrl.removeCity(city)" /></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </md-card-content>

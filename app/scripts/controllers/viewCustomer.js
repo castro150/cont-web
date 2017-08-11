@@ -30,6 +30,8 @@
 		ctrl.isEd = isEd;
 		ctrl.isCond = isCond;
 		ctrl.checkFreeSR = checkFreeSR;
+		ctrl.addTel = addTel;
+		ctrl.removeTel = removeTel;
 		ctrl.addCnae2 = addCnae2;
 		ctrl.removeCnae2 = removeCnae2;
 		ctrl.addContact = addContact;
@@ -39,6 +41,8 @@
 		ctrl.addSyndic = addSyndic;
 		ctrl.removeSyndic = removeSyndic;
 		ctrl.updateCustomer = updateCustomer;
+		ctrl.addCity = addCity;
+		ctrl.removeCity = removeCity;
 		ctrl.cancel = cancel;
 
 		// ******************************
@@ -53,6 +57,7 @@
 			ctrl.model.customer = {};
 			ctrl.model.isEditMode = false;
 			ctrl.model.accessoryObligations = [];
+			ctrl.model.newCityRegist = '';
 
 			enableServiceButtons();
 			initializeScreenOptions();
@@ -120,6 +125,15 @@
 			ctrl.model.customer.stateRegist = '';
 		}
 
+		function addTel() {
+			ctrl.model.customer.tels.push('');
+		}
+
+		function removeTel() {
+			var length = ctrl.model.customer.tels.length;
+			ctrl.model.customer.tels.splice(length - 1, 1);
+		}
+
 		function addCnae2() {
 			ctrl.model.customer.cnae2.push('');
 		}
@@ -150,6 +164,18 @@
 
 		function removePartner(index) {
 			ctrl.model.customer.partners.splice(index, 1);
+		}
+
+		function addCity() {
+			ctrl.model.customer.citiesRegist.push(ctrl.model.newCityRegist);
+			ctrl.model.newCityRegist = '';
+		}
+
+		function removeCity(city) {
+			if (ctrl.model.isEditMode) {
+				var index = ctrl.model.customer.citiesRegist.indexOf(city);
+				ctrl.model.customer.citiesRegist.splice(index, 1);
+			}
 		}
 
 		function updateCustomer() {
@@ -253,6 +279,13 @@
 			if (!ctrl.model.customer.cnae2 || ctrl.model.customer.cnae2.length === 0) {
 				ctrl.model.customer.cnae2 = [];
 				ctrl.model.customer.cnae2.push('');
+			}
+			if (!ctrl.model.customer.tels || ctrl.model.customer.tels.length === 0) {
+				ctrl.model.customer.tels = [];
+				ctrl.model.customer.tels.push('');
+			}
+			if (!ctrl.model.customer.citiesRegist) {
+				ctrl.model.customer.citiesRegist = [];
 			}
 			updateAccessoryObligations();
 		}
