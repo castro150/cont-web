@@ -29,6 +29,8 @@
 		ctrl.removePartner = removePartner;
 		ctrl.addSyndic = addSyndic;
 		ctrl.removeSyndic = removeSyndic;
+		ctrl.addCity = addCity;
+		ctrl.removeCity = removeCity;
 		ctrl.createCustomer = createCustomer;
 
 		// ******************************
@@ -137,6 +139,16 @@
 			ctrl.model.customer.syndics.splice(index, 1);
 		}
 
+		function addCity() {
+			ctrl.model.customer.citiesRegist.push(ctrl.model.newCityRegist);
+			ctrl.model.newCityRegist = '';
+		}
+
+		function removeCity(city) {
+			var index = ctrl.model.customer.citiesRegist.indexOf(city);
+			ctrl.model.customer.citiesRegist.splice(index, 1);
+		}
+
 		function createCustomer() {
 			var customer = ctrl.model.customer;
 			customer.status = 'active';
@@ -178,6 +190,9 @@
 			ctrl.model.customer.syndics = [{}];
 			ctrl.model.customer.tels = [''];
 			ctrl.model.customer.cnae2 = [''];
+			ctrl.model.customer.citiesRegist = [];
+			ctrl.model.newCityRegist = '';
+			ctrl.model.customer.withOtherMunRegist = false;
 			ctrl.model.accessoryObligations = [];
 			ctrl.model.startServiceDate = new Date();
 			ctrl.model.startActivityDate = new Date();

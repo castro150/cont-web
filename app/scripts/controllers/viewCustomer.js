@@ -41,6 +41,8 @@
 		ctrl.addSyndic = addSyndic;
 		ctrl.removeSyndic = removeSyndic;
 		ctrl.updateCustomer = updateCustomer;
+		ctrl.addCity = addCity;
+		ctrl.removeCity = removeCity;
 		ctrl.cancel = cancel;
 
 		// ******************************
@@ -55,6 +57,7 @@
 			ctrl.model.customer = {};
 			ctrl.model.isEditMode = false;
 			ctrl.model.accessoryObligations = [];
+			ctrl.model.newCityRegist = '';
 
 			enableServiceButtons();
 			initializeScreenOptions();
@@ -163,6 +166,18 @@
 			ctrl.model.customer.partners.splice(index, 1);
 		}
 
+		function addCity() {
+			ctrl.model.customer.citiesRegist.push(ctrl.model.newCityRegist);
+			ctrl.model.newCityRegist = '';
+		}
+
+		function removeCity(city) {
+			if (ctrl.model.isEditMode) {
+				var index = ctrl.model.customer.citiesRegist.indexOf(city);
+				ctrl.model.customer.citiesRegist.splice(index, 1);
+			}
+		}
+
 		function updateCustomer() {
 			ctrl.model.customer.startServiceDate = ctrl.model.startServiceDate.toISOString();
 			if (customerIsPj()) {
@@ -268,6 +283,9 @@
 			if (!ctrl.model.customer.tels || ctrl.model.customer.tels.length === 0) {
 				ctrl.model.customer.tels = [];
 				ctrl.model.customer.tels.push('');
+			}
+			if (!ctrl.model.customer.citiesRegist) {
+				ctrl.model.customer.citiesRegist = [];
 			}
 			updateAccessoryObligations();
 		}
