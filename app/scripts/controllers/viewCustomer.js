@@ -167,7 +167,9 @@
 		}
 
 		function addCity() {
-			ctrl.model.customer.citiesRegist.push(ctrl.model.newCityRegist);
+			if (ctrl.model.customer.citiesRegist.indexOf(ctrl.model.newCityRegist) < 0) {
+				ctrl.model.customer.citiesRegist.push(ctrl.model.newCityRegist);
+			}
 			ctrl.model.newCityRegist = '';
 		}
 
