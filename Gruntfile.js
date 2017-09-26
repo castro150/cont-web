@@ -66,8 +66,8 @@ module.exports = function(grunt) {
 				},
 				constants: {
 					ENV: {
-						sdServer: 'http://localhost:3000',
-						customerService: 'http://localhost:3000'
+						sdServer: 'http://192.168.0.150:3000',
+						customerService: 'http://192.168.0.150:3000'
 					}
 				}
 			}
@@ -531,6 +531,22 @@ module.exports = function(grunt) {
 			'wiredep',
 			'concurrent:server',
 			'ngconstant:homolog',
+			'postcss:server',
+			'connect:livereload',
+			'watch'
+		]);
+	});
+
+	grunt.registerTask('serve-prd', 'Compile then start a connect web server', function(target) {
+		if (target === 'dist') {
+			return grunt.task.run(['build', 'connect:dist:keepalive']);
+		}
+
+		grunt.task.run([
+			'clean:server',
+			'wiredep',
+			'concurrent:server',
+			'ngconstant:production',
 			'postcss:server',
 			'connect:livereload',
 			'watch'
