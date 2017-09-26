@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 			},
 			production: {
 				options: {
-					dest: '<%= simpledocfyweb.dist %>/scripts/config.js'
+					dest: '<%= simpledocfyweb.app %>/scripts/config.js'
 				},
 				constants: {
 					ENV: {
