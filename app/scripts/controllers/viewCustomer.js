@@ -246,7 +246,7 @@
 			ctrl.accessoryObligations = {};
 			ctrl.accessoryObligations[PF_PL_KEY] = ['IRPF', 'RAIS', 'DIRF', 'Livro Caixa'];
 			ctrl.accessoryObligations[PJ_SN_KEY] = ['DES', 'SINTEGRA', 'DESTDA', 'DEFIS', 'DIRF', 'DAPISN', 'VAFSN', 'DASN', 'RAIS'];
-			ctrl.accessoryObligations[PJ_LP_KEY] = ['DAPI', 'SINTEGRA', 'VAF/DAMEF', 'DES', 'DIRF', 'DIPJ', 'DCTF', 'Sped Contribuições', 'Sped Fiscal', 'RAIS', 'ECF', 'ECD', 'DIMOB', 'DIMED'];
+			ctrl.accessoryObligations[PJ_LP_KEY] = ['DAPI', 'SINTEGRA', 'VAF/DAMEF', 'DES', 'DIRF', 'DIPJ', 'DCTF', 'DEFIS', 'Sped Contribuições', 'Sped Fiscal', 'RAIS', 'ECF', 'ECD', 'DIMOB', 'DIMED'];
 			ctrl.accessoryObligations[COND_KEY] = ['DES', 'RAIS'];
 		}
 
